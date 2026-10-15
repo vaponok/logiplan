@@ -1,13 +1,14 @@
 {
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
-  "description": "Права главного окна: своё оформление заголовка, хранилище настроек, запоминание окна",
+  "description": "Права главного окна: свой заголовок, закрытие после сохранения настроек (destroy), хранилище, запоминание окна",
   "windows": ["main"],
   "permissions": [
     "core:default",
     "core:window:allow-minimize",
     "core:window:allow-toggle-maximize",
     "core:window:allow-close",
+    "core:window:allow-destroy",
     "core:window:allow-start-dragging",
     "core:window:allow-is-maximized",
     "store:default",
