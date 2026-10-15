@@ -47,7 +47,11 @@ jobs:
           $files = @(Get-Item src-tauri/target/release/logiplan.exe) + @(Get-ChildItem src-tauri/target/release/bundle/nsis/*.exe)
           "| Файл | Размер |" >> $env:GITHUB_STEP_SUMMARY
           "|---|---|" >> $env:GITHUB_STEP_SUMMARY
-          foreach ($f in $files) { "| $($f.Name) | $([math]::Round($f.Length / 1MB, 2)) МБ |" >> $env:GITHUB_STEP_SUMMARY }
+          foreach ($f in $files) {
+            $line = "| $($f.Name) | $([math]::Round($f.Length / 1MB, 2)) МБ |"
+            Write-Host $line
+            $line >> $env:GITHUB_STEP_SUMMARY
+          }
       - uses: actions/upload-artifact@v4
         with:
           name: logiplan-windows

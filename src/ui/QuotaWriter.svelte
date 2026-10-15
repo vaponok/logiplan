@@ -28,7 +28,8 @@
 
   function press(b: Btn) {
     const n = q.qty;
-    const line = b.item ? `${trItem(b.item, app.lang)},${n}` : b.image ? `${b.imageBasename},${n}` : `B${b.index},${n}`;
+    // без подписи — имя файла картинки, как button_clicked() в quota_writer.py
+    const line = b.item ? `${trItem(b.item, app.lang)},${n}` : `${b.imageBasename},${n}`;
     q.notes = q.notes ? `${q.notes}\n${line}` : line;
     // прокрутить поле к новой строке, как QTextEdit.append
     queueMicrotask(() => notesEl && (notesEl.scrollTop = notesEl.scrollHeight));
