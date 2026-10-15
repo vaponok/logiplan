@@ -12,6 +12,21 @@ tests/golden/*.json. TypeScript-тесты (tests/golden.test.ts) сверяют
   * fair_allocator: x ** 2 -> x * x. pow() из libm может отличаться от x*x
     в последнем бите, а это влияет на выбор при точных ничьих.
   * datetime.now() -> фиксированная дата (дата плана в выводе).
+
+Исправления ошибок старой версии, подтверждённые пользователем (TS-версия
+ведёт себя так же; legacy/ не меняется, правка вносится только на время
+прогона — см. load_patched_resource_splitter()):
+  * resource_splitter: авиа-квота понимает свободный формат строк
+    ("2 ящ. - Имя", "1 шт. - Имя", "3 - Имя", с необязательным [настройки]
+    в конце). Раньше такие строки молча терялись — и в «Лётном», и в
+    «Ресурсах на завод» по основной квоте.
+  * resource_splitter: модификации МТО — позиция, отданная целиком
+    человеку, у которого она уже есть, прибавляется к его количеству,
+    а не затирает его (повторные строки одной модификации).
+  * resource_splitter: предметы авиа-квоты без записи в resources.json,
+    но известные i18n (Cloudrunner’s Vesture, Одеяние авиатора, Рюкзак
+    парашютиста), делятся между лётчиками как обычные; совсем неизвестные
+    попадают в «Неизвестные позиции».
 Вся остальная логика исполняется как есть.
 
 Запуск:
@@ -61,7 +76,112 @@ def load_patched_allocator():
     return mod
 
 
+# Исправление 1: свободный формат авиа-строки. Вставляется перед
+# parse_aviation_quota_line; регулярки и _resolve_loose_name — те же, что
+# у parse_csv_line в legacy-версии.
+_AV_LOOSE_SRC = r'''def _parse_aviation_loose(line: str):
+    """
+    Свободный формат авиа-строки: "2 ящ. - Tulka P4 Welkinrive [scrap=0]",
+    "1 шт. - Luminary Mk. II Harbinger", "3 - Одеяние авиатора".
+    False — строка не в свободном формате (разбирается как CSV);
+    None — count <= 0; иначе (count, name, settings).
+    """
+    s = line.strip()
+    m = re.match(r"^(.*?)\s*\[([^\]]*)\]\s*$", s)
+    body, settings_raw = (m.group(1), m.group(2)) if m else (s, "")
+    m = _LOOSE_LINE_RE.match(body)
+    if m:
+        count, unit, raw_name = int(m.group(1)), m.group(2).lower(), m.group(3)
+    else:
+        m = _LOOSE_NOUNIT_RE.match(body)
+        if not m or ',' in body:
+            return False
+        count, unit, raw_name = int(m.group(1)), 'ящ', m.group(2)
+    if count <= 0:
+        return None
+    name = _resolve_loose_name(raw_name, unit) or raw_name
+    name = i18n.to_canonical_item_name(name)
+    name = re.sub(r"\s*\(Ящик\)\s*$", "", name).strip()
+    return (count, name, _parse_aviation_settings(settings_raw))
+
+
+'''
+
+
+def load_patched_resource_splitter():
+    path = os.path.join(LEGACY, "resource_splitter.py")
+    src = open(path, encoding="utf-8").read()
+    patches = [
+        # 1. разбор [...] — в отдельную функцию (общая для CSV и свободного формата)
+        ("    # Дефолты\n    settings = {\n",
+         "    return (count, name, _parse_aviation_settings(settings_raw))\n\n\n"
+         "def _parse_aviation_settings(settings_raw: str):\n"
+         "    # Дефолты\n    settings = {\n"),
+        ("    return (count, name, settings)\n",
+         "    return settings\n"),
+        # 1. свободный формат — до CSV-разбора
+        ("def parse_aviation_quota_line(line: str):",
+         _AV_LOOSE_SRC + "def parse_aviation_quota_line(line: str):"),
+        ("    if not line or not line.strip():\n"
+         "        return None\n"
+         "    \n"
+         "    # Сначала отделяем число (после последней запятой)",
+         "    if not line or not line.strip():\n"
+         "        return None\n"
+         "    loose = _parse_aviation_loose(line)\n"
+         "    if loose is not False:\n"
+         "        return loose\n"
+         "    \n"
+         "    # Сначала отделяем число (после последней запятой)"),
+        # 2. модификации МТО: целиком одному — прибавляем, а не затираем
+        ("                per_person_items[min_load_idx][name] = cnt",
+         "                per_person_items[min_load_idx][name] = per_person_items[min_load_idx].get(name, 0) + cnt"),
+        # 3а. Лётное: предметы без записи в resources.json, но известные i18n
+        ("            entry = self.resource_db.get(name)\n"
+         "            if not entry:\n"
+         "                # неизвестное имя — игнорируем\n"
+         "                continue\n"
+         "            if entry.get(\"is_aviation\"):\n"
+         "                avi_orders.append((count, name, settings, entry.get(\"recipe\", {})))\n"
+         "            else:\n"
+         "                # обычный предмет (типа аптечки) - имеет cost_per_box\n"
+         "                common_orders.append((count, name, entry))",
+         "            entry = self.resource_db.get(name)\n"
+         "            if entry and entry.get(\"is_aviation\"):\n"
+         "                avi_orders.append((count, name, settings, entry.get(\"recipe\", {})))\n"
+         "            elif entry:\n"
+         "                # обычный предмет (типа аптечки) - имеет cost_per_box\n"
+         "                common_orders.append((count, name, entry))\n"
+         "            elif name in i18n.ITEM_I18N:\n"
+         "                common_orders.append((count, name, {}))\n"
+         "            elif f\"{name} (Ящик)\" in i18n.ITEM_I18N:\n"
+         "                # парсер срезал \"(Ящик)\": Одеяние авиатора, Рюкзак парашютиста\n"
+         "                common_orders.append((count, f\"{name} (Ящик)\", {}))\n"
+         "            # иначе неизвестное имя — попадёт в «Неизвестные позиции»"),
+        # 3б. неизвестные позиции авиа-квоты — в «Неизвестные позиции»
+        ("        self.undefined_area.setPlainText(\"\\n\".join(annotated_undefined))",
+         "        for av_line in self.aviation_quota_input.toPlainText().splitlines():\n"
+         "            parsed = parse_aviation_quota_line(av_line)\n"
+         "            if parsed is None:\n"
+         "                continue\n"
+         "            av_name = parsed[1]\n"
+         "            if not (self.resource_db.get(av_name) or av_name in i18n.ITEM_I18N\n"
+         "                    or f\"{av_name} (Ящик)\" in i18n.ITEM_I18N):\n"
+         "                annotated_undefined.append(av_name)\n"
+         "        self.undefined_area.setPlainText(\"\\n\".join(annotated_undefined))"),
+    ]
+    for old, new in patches:
+        assert src.count(old) == 1, f"патч не применился: {old}"
+        src = src.replace(old, new)
+    mod = types.ModuleType("resource_splitter")
+    mod.__file__ = path
+    sys.modules["resource_splitter"] = mod
+    exec(compile(src, path, "exec"), mod.__dict__)
+    return mod
+
+
 load_patched_allocator()
+load_patched_resource_splitter()
 
 from PyQt5 import QtWidgets  # noqa: E402
 import i18n  # noqa: E402
@@ -151,6 +271,44 @@ JUNK = ["Неведомая штука (Ящик),3", "foo,bar", "просто �
         "7 ящ. - Несуществующий предмет", "3 - ???", "Бинты (Ящик),1_0", "Бинты (Ящик), +4"]
 
 
+# Предметы страницы «Лётное» без записи в resources.json — есть только в i18n
+AV_PAGE_ONLY = ["Cloudrunner’s Vesture (Ящик)", "Одеяние авиатора (Ящик)", "Рюкзак парашютиста (Ящик)"]
+
+# Авиа-строки с неизвестными именами и прочий мусор
+AV_JUNK = ["Неведомый самолёт,2", "Неведомый самолёт [scrap=10],1", "2 шт. - Неведомый самолёт [scrap=10]",
+           "3 - ???", "7 ящ. - Несуществующий предмет", "Sampo 77,2", "2 ящ. - Sampo 77", "1 — Foo Bar [coke=no_sulfur]",
+           "5 -", "- Tulka P4 Welkinrive", "2-Tulka P4 Welkinrive", "1 - Tulka, P4 Welkinrive", "[scrap=50]",
+           "2 ящ. - [coke=no_sulfur]", "abc - def", "4 шт - Luminary Mk. II Harbinger [coke=no_sulfur],2",
+           "3 — Рюкзак парашютиста [fuel=coal] [scrap=5]", "1 - X [scrap=]", "0 - Tulka P4 Welkinrive [scrap=0]",
+           "Бинты (Ящик),0", "12 – ", "3ящ.-Одеяние авиатора"]
+
+
+def aviation_settings_tail(rng, sep=" "):
+    parts = []
+    if rng.random() < 0.3:
+        parts.append(f"coke={rng.choice(['with_sulfur', 'no_sulfur', 'bad'])}")
+    if rng.random() < 0.3:
+        parts.append(f"fuel={rng.choice(['sulfur', 'coal', 'x'])}")
+    if rng.random() < 0.3:
+        parts.append(f"scrap={rng.choice(['0', '50', '100', '150', '-5', 'abc'])}")
+    return f"{sep}[{', '.join(parts)}]" if parts else ""
+
+
+def aviation_loose_line(rng, name, cnt):
+    """Авиа-строка в свободном формате: "2 ящ. - Имя", "1 шт. - Имя", "3 - Имя"."""
+    disp = localized(rng, name)
+    dash = rng.choice(["-", "–", "—"])
+    if rng.random() < 0.6:
+        crated = disp.endswith(("(Ящик)", "(Crate)", "(Caisse)"))
+        unit = rng.choice(["ящ.", "ящ", "Ящ.", "ЯЩ."] if crated else ["шт.", "шт", "Шт."])
+        base = strip_crate(disp) if rng.random() < 0.8 else disp
+        if rng.random() < 0.25:
+            base = mangle(rng, base)
+        sp = rng.choice([" ", " ", " ", ""])
+        return f"{cnt}{sp}{unit}{sp}{dash}{sp}{base}"
+    return f"{cnt} {dash} {disp if rng.random() < 0.7 else strip_crate(disp)}"
+
+
 def random_quota(rng, n_lines, pool):
     lines = []
     for _ in range(n_lines):
@@ -186,17 +344,16 @@ def gen_parse_cases(rng, n):
 
 def gen_aviation_parse_cases(rng, n):
     cases = []
+    pool = AVIATION_ITEMS + REGULAR_ITEMS[:30] + AV_PAGE_ONLY
     for _ in range(n):
-        name = localized(rng, rng.choice(AVIATION_ITEMS + REGULAR_ITEMS[:30]))
-        parts = []
-        if rng.random() < 0.3:
-            parts.append(f"coke={rng.choice(['with_sulfur', 'no_sulfur', 'bad'])}")
-        if rng.random() < 0.3:
-            parts.append(f"fuel={rng.choice(['sulfur', 'coal', 'x'])}")
-        if rng.random() < 0.3:
-            parts.append(f"scrap={rng.choice(['0', '50', '100', '150', '-5', 'abc'])}")
-        tail = f" [{', '.join(parts)}]" if parts else ""
-        line = f"{name}{tail},{rng.randint(-1, 5)}"
+        r = rng.random()
+        if r < 0.5:  # CSV: "Имя [настройки],число"
+            line = f"{localized(rng, rng.choice(pool))}{aviation_settings_tail(rng)},{rng.randint(-1, 5)}"
+        elif r < 0.92:  # свободный формат: "2 ящ. - Имя [настройки]"
+            tail = aviation_settings_tail(rng, sep=rng.choice([" ", " ", "", "  "]))
+            line = aviation_loose_line(rng, rng.choice(pool), rng.randint(0, 5)) + tail
+        else:
+            line = rng.choice(AV_JUNK)
         defaults = {"coke": rng.choice(["with_sulfur", "no_sulfur"]),
                     "fuel": rng.choice(["sulfur", "coal"]), "scrap": rng.choice([0, 25, 100])}
         rs.AV_DEFAULT_COKE, rs.AV_DEFAULT_FUEL, rs.AV_DEFAULT_SCRAP = defaults["coke"], defaults["fuel"], defaults["scrap"]
@@ -282,20 +439,38 @@ def gen_splitter_case(rng, w, size):
     quota = random_quota(rng, size, pool)
     if rng.random() < 0.3:
         quota += "\n" + quota.split("\n")[0]  # дубликат строки
+    if rng.random() < 0.25:  # самолёты в основной квоте свободным форматом
+        for _ in range(rng.randint(1, 2)):
+            tail = f" [scrap={rng.choice([0, 50])}]" if rng.random() < 0.3 else ""
+            quota += "\n" + aviation_loose_line(rng, rng.choice(AVIATION_ITEMS), rng.randint(1, 3)) + tail
 
-    omto_count = rng.choice([0, 0, 1, 2, 3, 4])
-    mods = "\n".join(f"{rng.choice(items.MTO_MODIFICATIONS)},{rng.randint(1, 12)}"
-                     for _ in range(rng.randint(0, 5))) if items.MTO_MODIFICATIONS else ""
+    omto_count = rng.choice([0, 0, 1, 1, 2, 3, 4])
+    mod_lines = [f"{rng.choice(items.MTO_MODIFICATIONS)},{rng.randint(1, 12)}"
+                 for _ in range(rng.randint(0, 5))] if items.MTO_MODIFICATIONS else []
+    if mod_lines and rng.random() < 0.4:
+        # повтор той же модификации — у одного человека количества складываются
+        dup = rng.choice(mod_lines).rsplit(",", 1)[0]
+        dup_line = f"{dup},{rng.randint(1, 12)}" if rng.random() < 0.5 else quota_line(rng, dup, rng.randint(1, 12))
+        mod_lines.insert(rng.randint(0, len(mod_lines)), dup_line)
+    mods = "\n".join(mod_lines)
     equipment = "\n".join(quota_line(rng, rng.choice(omto_list or REGULAR_ITEMS), rng.randint(1, 15))
                           for _ in range(rng.randint(0, 5)))
     aviation_count = rng.choice([0, 1, 2, 3])
     av_lines = []
+    av_pool = (AVIATION_ITEMS + aviation_list[:5] or AVIATION_ITEMS) + AV_PAGE_ONLY
     for _ in range(rng.randint(0, 4)):
-        nm = localized(rng, rng.choice(AVIATION_ITEMS + aviation_list[:5] or AVIATION_ITEMS))
+        r = rng.random()
+        if r < 0.12:
+            av_lines.append(rng.choice(AV_JUNK))
+            continue
+        nm = rng.choice(av_pool)
         tail = ""
         if rng.random() < 0.4:
             tail = f" [scrap={rng.choice([0, 50, 100])}, coke={rng.choice(['with_sulfur', 'no_sulfur'])}]"
-        av_lines.append(f"{nm}{tail},{rng.randint(1, 4)}")
+        if r < 0.6:
+            av_lines.append(f"{localized(rng, nm)}{tail},{rng.randint(1, 4)}")
+        else:
+            av_lines.append(aviation_loose_line(rng, nm, rng.randint(1, 4)) + tail)
     aviation_text = "\n".join(av_lines)
     if rng.random() < 0.2:
         aviation_text = ""
@@ -392,7 +567,7 @@ def main():
     app = QtWidgets.QApplication(sys.argv)  # noqa: F841
     print("Эталоны:")
     dump("parse_csv.json", gen_parse_cases(rng, 3000))
-    dump("parse_aviation.json", gen_aviation_parse_cases(rng, 800))
+    dump("parse_aviation.json", gen_aviation_parse_cases(rng, 1500))
     dump("calculator.json", gen_calculator_cases(rng, 600))
 
     w = make_widget()

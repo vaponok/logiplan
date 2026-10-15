@@ -253,7 +253,7 @@
       <div class="res-head"><span class="lbl unknown">{tr("unknown_positions_label", L)}</span></div>
       <div class="area undef" role="log">
         {#each results.undefinedLines as u, i (i)}
-          <div style:color={undefColor[u.kind]}>{u.text}</div>
+          <div class="uline" style:color={undefColor[u.kind]}>{u.text}</div>
         {/each}
       </div>
     </div>
@@ -349,6 +349,10 @@
   .out {
     min-height: 300px;
     height: 460px;
+  }
+  .uline {
+    /* пустое имя (строка Лётки вида "(Ящик),2") — всё равно видимая строка */
+    min-height: 1.35em;
   }
   .undef {
     min-height: 300px;

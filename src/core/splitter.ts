@@ -7,7 +7,7 @@ import itemsJson from "../data/items.json";
 import { allocate, DISCOUNT_G, makeChunks, discountedSum, resourcePairs } from "./allocator";
 import type { ResourceDb, ResourceEntry } from "./allocator";
 import { netSulfur, totalCost, type Recipe } from "./calculator";
-import { normalizeText, tr, trAviationResource, trItem, trResource, WEEKDAYS, type Lang } from "./i18n";
+import { hasItem, normalizeText, tr, trAviationResource, trItem, trResource, WEEKDAYS, type Lang } from "./i18n";
 import { cmpStr, cmpTuple, floatRepr, floorDiv, pyRoundTo, rstrip, splitlines, strip } from "./py";
 import {
   formatQuotaLine,
@@ -31,6 +31,9 @@ function entryOf(name: string): ResourceEntry | undefined {
   return e && Object.keys(e).length ? e : undefined;
 }
 const entryOrEmpty = (name: string): ResourceEntry => (has(RESOURCE_DB, name) ? RESOURCE_DB[name] : {});
+/** Имя из квоты Лётки известно: есть в resources.json или в i18n (в т.ч. ящичный вариант). */
+const isKnownAviationName = (name: string): boolean =>
+  !!entryOf(name) || hasItem(name) || hasItem(`${name} (Ящик)`);
 
 /** k.lower() -> k (последний выигрывает, как dict comprehension). */
 const NORMALIZED = new Map<string, string>();
@@ -549,6 +552,11 @@ export function calculateDistribution(inp: SplitterInput): SplitterResult {
     if (isOmtoRaw(raw, inp)) return { text: raw + tr("undefined_factory_suffix", lang), kind: "factory" };
     return { text: raw, kind: "unknown" };
   });
+  // нераспознанные строки квоты Лётки — тоже в «Неизвестные позиции»
+  for (const line of splitlines(inp.aviationText)) {
+    const parsed = parseAviationQuotaLine(line, inp.avDefaults);
+    if (parsed && !isKnownAviationName(parsed[1])) undefinedLines.push({ text: parsed[1], kind: "unknown" });
+  }
 
   return {
     output: lines.join("\n"),
@@ -691,8 +699,8 @@ function buildMtoModificationsOutput(inp: SplitterInput): string[] {
     const minIdx = argminFirst(loads);
     const after = loads[minIdx] + cnt;
     if (cnt <= avg + 1 || after <= avg + cnt / 2) {
-      // как в Python: повтор позиции у того же человека перезаписывает число
-      perPerson[minIdx].set(name, cnt);
+      // повтор позиции у того же человека складывается с уже выданным
+      add(perPerson[minIdx], name, cnt);
       loads[minIdx] += cnt;
     } else {
       const base = Math.floor(cnt / n);
@@ -733,9 +741,12 @@ function buildAviationOutput(inp: SplitterInput): string[] {
     if (!parsed) continue;
     const [count, name, settings] = parsed;
     const entry = entryOf(name);
-    if (!entry) continue;
-    if (entry.is_aviation) aviOrders.push([count, name, settings, entry.recipe as Recipe | undefined]);
-    else commonOrders.push([count, name]);
+    if (entry && entry.is_aviation) aviOrders.push([count, name, settings, entry.recipe as Recipe | undefined]);
+    else if (entry) commonOrders.push([count, name]);
+    // нет в resources.json, но предмет известен i18n — обычный заказ
+    else if (hasItem(name)) commonOrders.push([count, name]);
+    else if (hasItem(`${name} (Ящик)`)) commonOrders.push([count, `${name} (Ящик)`]);
+    // иначе — в «Неизвестные позиции» (см. calculateDistribution)
   }
 
   const totalBase = zeroBase();

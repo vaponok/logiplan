@@ -153,28 +153,10 @@ export interface AvSettings {
 }
 export const AV_FACTORY_DEFAULTS: AvSettings = { coke: "with_sulfur", fuel: "sulfur", scrap: 100 };
 
-/** "Имя[ [coke=..., fuel=..., scrap=N]],число" -> [count, name, settings]. */
-export function parseAviationQuotaLine(
-  line: string,
-  defaults: AvSettings,
-): [number, string, AvSettings] | null {
-  if (!line || !strip(line)) return null;
-  const s = strip(line);
-  const lastComma = s.lastIndexOf(",");
-  if (lastComma === -1) return null;
-  const namePart = strip(s.slice(0, lastComma));
-  const count = pyInt(s.slice(lastComma + 1));
-  if (!namePart) return null;
-  if (count === null || count <= 0) return null;
+const TRAILING_SETTINGS_RE = /^([\s\S]*?)\s*\[([^\]]*)\]\s*$/u;
 
-  const m = /^([\s\S]+?)(?:\s*\[([^\]]*)\])?\s*$/u.exec(namePart);
-  if (!m) return null;
-  let name = strip(m[1]);
-  const settingsRaw = m[2] ?? "";
-
-  name = toCanonicalItemName(name);
-  name = strip(name.replace(/\s*\(Ящик\)\s*$/u, ""));
-
+/** Содержимое блока [...]: "coke=..., fuel=..., scrap=N" поверх дефолтов. */
+function parseAvSettings(settingsRaw: string, defaults: AvSettings): AvSettings {
   const settings: AvSettings = { ...defaults };
   if (settingsRaw) {
     for (let pair of settingsRaw.split(",")) {
@@ -191,7 +173,62 @@ export function parseAviationQuotaLine(
       }
     }
   }
-  return [count, name, settings];
+  return settings;
+}
+
+/**
+ * "Имя[ [coke=..., fuel=..., scrap=N]],число" -> [count, name, settings].
+ * Также свободный формат "N ящ./шт. - Имя[ [...]]" и "N - Имя[ [...]]",
+ * который выдаёт «Рассчитать квоту».
+ */
+export function parseAviationQuotaLine(
+  line: string,
+  defaults: AvSettings,
+): [number, string, AvSettings] | null {
+  if (!line || !strip(line)) return null;
+  const s = strip(line);
+
+  // Свободный формат: блок настроек [...] в конце отделяем заранее,
+  // чтобы запятые внутри него не мешали распознаванию. Проверка на "]"
+  // в конце: s уже обрезана по-питоновски, так что совпадение с Python
+  // точное (JS-шный \s, в отличие от питоновского, считает пробелом U+FEFF),
+  // а на строках из сплошных "[" регулярка не уходит в квадратичный перебор.
+  const m0 = s.endsWith("]") ? TRAILING_SETTINGS_RE.exec(s) : null;
+  const body = m0 ? m0[1] : s;
+  const looseSettingsRaw = m0 ? m0[2] : "";
+  let loose: [number, string, string] | null = null;
+  let lm = LOOSE_LINE_RE.exec(body);
+  if (lm) {
+    loose = [parseInt(lm[1], 10), lm[2].toLowerCase(), lm[3]];
+  } else {
+    lm = LOOSE_NOUNIT_RE.exec(body);
+    if (lm && !body.includes(",")) loose = [parseInt(lm[1], 10), "ящ", lm[2]];
+  }
+  if (loose) {
+    const [looseCount, unit, rawName] = loose;
+    if (looseCount <= 0) return null;
+    let looseName = resolveLooseName(rawName, unit) ?? rawName;
+    looseName = toCanonicalItemName(looseName);
+    looseName = strip(looseName.replace(/\s*\(Ящик\)\s*$/u, ""));
+    return [looseCount, looseName, parseAvSettings(looseSettingsRaw, defaults)];
+  }
+
+  const lastComma = s.lastIndexOf(",");
+  if (lastComma === -1) return null;
+  const namePart = strip(s.slice(0, lastComma));
+  const count = pyInt(s.slice(lastComma + 1));
+  if (!namePart) return null;
+  if (count === null || count <= 0) return null;
+
+  const m = /^([\s\S]+?)(?:\s*\[([^\]]*)\])?\s*$/u.exec(namePart);
+  if (!m) return null;
+  let name = strip(m[1]);
+  const settingsRaw = m[2] ?? "";
+
+  name = toCanonicalItemName(name);
+  name = strip(name.replace(/\s*\(Ящик\)\s*$/u, ""));
+
+  return [count, name, parseAvSettings(settingsRaw, defaults)];
 }
 
 /** Обратно в CSV; если всё совпадает с дефолтами — без [...]. */
