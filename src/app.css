@@ -1,0 +1,182 @@
+/* Оформление повторяет Qt-стили старой версии: белый фон, синие кнопки
+   #0066FF, толстые чёрные рамки 3px, скругления 8–12px. */
+:root {
+  --primary: #0066ff;
+  --primary-hover: #1a7bff;
+  --primary-pressed: #0047b3;
+  --ink: #071422;
+  --border: 3px solid #000;
+  --bg: #ffffff;
+  --font: "Inter", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", "Cascadia Mono", Consolas, "DejaVu Sans Mono", monospace;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 13px;
+  overflow: hidden;
+}
+
+#app {
+  height: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* ---------- кнопки ---------- */
+.btn {
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 700;
+  color: #fff;
+  border: var(--border);
+  background: var(--primary);
+  cursor: pointer;
+  user-select: none;
+}
+.btn:hover {
+  background: var(--primary-hover);
+}
+.btn:active {
+  background: var(--primary-pressed);
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+.btn.small {
+  padding: 6px 12px;
+  border-radius: 10px;
+}
+
+/* ---------- поля ввода ---------- */
+.field,
+select.field {
+  border: var(--border);
+  border-radius: 8px;
+  padding: 6px;
+  background: #fff;
+  min-width: 0;
+  outline: none;
+}
+.field:focus {
+  border-color: #000;
+  box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.25);
+}
+input[type="number"].field {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+input[type="number"].field::-webkit-inner-spin-button,
+input[type="number"].field::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+select.field {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 6px;
+}
+
+textarea.area,
+.area {
+  border: var(--border);
+  border-radius: 12px;
+  padding: 8px;
+  background: transparent;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.35;
+  resize: vertical;
+  width: 100%;
+  outline: none;
+}
+textarea.area:focus {
+  box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.25);
+}
+
+/* ---------- флажки ---------- */
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+.check input {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  border: var(--border);
+  border-radius: 3px;
+  background: #fff;
+  cursor: pointer;
+  flex: none;
+}
+.check input:checked {
+  background: var(--primary);
+}
+.check input[type="radio"] {
+  border-radius: 50%;
+}
+
+/* ---------- группы ---------- */
+.group {
+  border: var(--border);
+  border-radius: 12px;
+  padding: 10px 12px 12px;
+  margin-top: 8px;
+  background: #fff;
+}
+.group > .group-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+label.lbl,
+.lbl {
+  display: block;
+  margin: 6px 0 3px;
+}
+
+/* ---------- полосы прокрутки ---------- */
+::-webkit-scrollbar {
+  width: 18px;
+  height: 18px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border: 3px solid #000;
+  border-radius: 9px;
+  min-height: 30px;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+[title] {
+  cursor: default;
+}

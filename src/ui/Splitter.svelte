@@ -1,0 +1,361 @@
+<script lang="ts">
+  // Вкладка «Распределитель» — UI ResourceSplitter.
+  import { tr, WEEKDAYS } from "../core/i18n";
+  import type { AvSettings } from "../core/quotaParse";
+  import {
+    applyAviationSettings,
+    aviationOrders,
+    AVIATION_DEFAULT,
+    calculateQuota,
+    OMTO_DEFAULT,
+    todayLocal,
+    type AviationOrder,
+    type SplitterInput,
+  } from "../core/splitter";
+  import { calculateInBackground } from "../lib/calcClient";
+  import { toast } from "../lib/dialogs.svelte";
+  import { copyText } from "../lib/platform";
+  import { app, ensureLengths, results, splitter as s } from "../lib/state.svelte";
+  import AviationDialog from "./AviationDialog.svelte";
+  import ListEditor from "./ListEditor.svelte";
+  import NumberField from "./NumberField.svelte";
+
+  const L = $derived(app.lang);
+  let avDialog = $state<AviationOrder[] | null>(null);
+
+  function setCount(key: "divisionCount" | "omtoCount" | "aviationCount", v: number) {
+    s[key] = v;
+    ensureLengths(s);
+  }
+
+  function onCalcQuota() {
+    const r = calculateQuota(s.storageInput, s.requiredInput, s.omtoList, s.aviationList, app.lang);
+    s.quotaText = r.main;
+    s.modsText = r.mods;
+    s.equipmentText = r.equipment;
+    s.aviationText = r.aviation;
+  }
+
+  function buildInput(): SplitterInput {
+    const snap = $state.snapshot(s);
+    return {
+      lang: app.lang,
+      quotaText: snap.quotaText,
+      divisions: snap.divisions.slice(0, snap.divisionCount),
+      unitName: snap.unitName,
+      storageName: snap.storageName,
+      storagePass: snap.storagePass,
+      weekdayIndex: snap.weekdayIndex,
+      today: todayLocal(),
+      omtoName: snap.omtoName,
+      omtoCount: snap.omtoCount,
+      omtoNames: snap.omtoNames.slice(0, snap.omtoCount),
+      modsText: snap.modsText,
+      equipmentText: snap.equipmentText,
+      aviationCount: snap.aviationCount,
+      aviationNames: snap.aviationNames.slice(0, snap.aviationCount),
+      aviationText: snap.aviationText,
+      enforceMul4: snap.enforceMul4,
+      freeEmats: snap.freeEmats,
+      freeHemats: snap.freeHemats,
+      freeRmats: snap.freeRmats,
+      omtoList: snap.omtoList,
+      aviationList: snap.aviationList,
+      avDefaults: snap.avDefaults,
+    };
+  }
+
+  async function onCalculate() {
+    if (results.busy) return;
+    results.busy = true;
+    try {
+      const r = await calculateInBackground(buildInput());
+      results.output = r.output;
+      if (r.undefinedLines) results.undefinedLines = r.undefinedLines;
+    } catch (e) {
+      results.output = tr("calc_error", app.lang, { e: e instanceof Error ? e.message : String(e) });
+    } finally {
+      results.busy = false;
+    }
+  }
+
+  function openAviationDialog() {
+    avDialog = aviationOrders(s.aviationText, s.avDefaults);
+  }
+
+  function saveAviationDialog(defaults: AvSettings, perLine: Map<number, AvSettings>) {
+    const orders = avDialog ?? [];
+    s.aviationText = applyAviationSettings(s.aviationText, orders, defaults, perLine, app.lang);
+    s.avDefaults = defaults;
+    avDialog = null;
+  }
+
+  async function copyOutput() {
+    if (results.output && (await copyText(results.output))) toast(tr("copied_toast", app.lang));
+  }
+
+  const undefColor = { aviation: "#3ba0ff", factory: "#ffe600", unknown: "#ff3b3b" } as const;
+</script>
+
+<div class="splitter">
+  <!-- ===== Расчёт квоты ===== -->
+  <section class="group">
+    <div class="group-title">{tr("calc_quota_group", L)}</div>
+    <div class="two">
+      <div class="col">
+        <span class="lbl">{tr("storage_label", L)}</span>
+        <textarea class="area" style:min-height="200px" placeholder={tr("storage_placeholder", L)} bind:value={s.storageInput}
+        ></textarea>
+      </div>
+      <div class="col">
+        <span class="lbl">{tr("required_label", L)}</span>
+        <textarea class="area" style:min-height="200px" placeholder={tr("required_placeholder", L)} bind:value={s.requiredInput}
+        ></textarea>
+      </div>
+    </div>
+    <button class="btn wide" title={tr("calc_quota_tooltip", L)} onclick={onCalcQuota}>{tr("calc_quota_btn", L)}</button>
+  </section>
+
+  <!-- ===== Шапка плана ===== -->
+  <span class="lbl">{tr("unit_name_label", L)}</span>
+  <input class="field block" bind:value={s.unitName} />
+  <span class="lbl">{tr("main_storage_label", L)}</span>
+  <input class="field block" bind:value={s.storageName} />
+  <span class="lbl">{tr("storage_password_label", L)}</span>
+  <input class="field block" bind:value={s.storagePass} />
+  <span class="lbl">{tr("plan_until_label", L)}</span>
+  <select class="field block" bind:value={s.weekdayIndex}>
+    {#each WEEKDAYS[L] as day, i (i)}
+      <option value={i}>{day}</option>
+    {/each}
+  </select>
+  <span class="lbl">{tr("division_count_label", L)}</span>
+  <NumberField value={s.divisionCount} min={1} max={100} width="100%" onchange={(v) => setCount("divisionCount", v)} />
+
+  <div class="divisions">
+    {#each s.divisions.slice(0, s.divisionCount) as d, i (i)}
+      <div class="division">
+        <span>{tr("division_number_label", L, { i: i + 1 })}</span>
+        <input class="field name" placeholder={tr("unit_name_input_placeholder", L)} bind:value={d.name} />
+        <span>{tr("people_suffix_label", L)}</span>
+        <NumberField value={d.people} min={1} max={100} onchange={(v) => (d.people = v)} />
+      </div>
+    {/each}
+  </div>
+
+  <span class="lbl">{tr("quota_label", L)}</span>
+  <textarea class="area" style:min-height="300px" bind:value={s.quotaText}></textarea>
+
+  <!-- ===== Завод ===== -->
+  <section class="group">
+    <div class="group-title">{tr("factory_group", L)}</div>
+
+    <section class="group">
+      <div class="group-title">{tr("omto_subgroup", L)}</div>
+      <div class="row">
+        <span>{tr("omto_name_label", L)}</span>
+        <input class="field grow" bind:value={s.omtoName} />
+        <span>{tr("headcount_label", L)}</span>
+        <NumberField value={s.omtoCount} min={0} max={50} onchange={(v) => setCount("omtoCount", v)} />
+      </div>
+      {#each s.omtoNames.slice(0, s.omtoCount) as _n, i (i)}
+        <input class="field block person" placeholder={tr("person_name_placeholder", L, { i: i + 1 })} bind:value={s.omtoNames[i]} />
+      {/each}
+      <div class="two">
+        <div class="col">
+          <span class="lbl">{tr("mods_label", L)}</span>
+          <textarea class="area" style:min-height="300px" bind:value={s.modsText}></textarea>
+        </div>
+        <div class="col">
+          <span class="lbl">{tr("equipment_label", L)}</span>
+          <textarea class="area" style:min-height="300px" bind:value={s.equipmentText}></textarea>
+        </div>
+      </div>
+      <ListEditor
+        title={tr("omto_editor_group", L)}
+        open={s.omtoEditorOpen}
+        ontoggle={(v) => (s.omtoEditorOpen = v)}
+        list={s.omtoList}
+        exclude={s.aviationList}
+        pool={s.omtoList}
+        defaults={OMTO_DEFAULT}
+        lang={L}
+        onchange={(next) => (s.omtoList = next)}
+        labels={{
+          search: tr("omto_search_placeholder", L),
+          selected: tr("in_omto_label", L),
+          addTip: tr("add_to_omto_tooltip", L),
+          removeTip: tr("remove_from_omto_tooltip", L),
+          resetTip: tr("reset_omto_tooltip", L),
+          resetTitle: tr("reset_omto_dialog_title", L),
+          resetText: tr("reset_omto_dialog_text", L),
+        }}
+      />
+    </section>
+
+    <section class="group">
+      <div class="group-title">{tr("aviation_subgroup", L)}</div>
+      <div class="row">
+        <span>{tr("headcount_label", L)}</span>
+        <NumberField value={s.aviationCount} min={0} max={50} onchange={(v) => setCount("aviationCount", v)} />
+      </div>
+      {#each s.aviationNames.slice(0, s.aviationCount) as _n, i (i)}
+        <input class="field block person" placeholder={tr("pilot_name_placeholder", L, { i: i + 1 })} bind:value={s.aviationNames[i]} />
+      {/each}
+      <span class="lbl">{tr("aviation_label", L)}</span>
+      <textarea class="area" style:min-height="300px" bind:value={s.aviationText}></textarea>
+      <button class="btn wide" title={tr("aviation_recipe_tooltip", L)} onclick={openAviationDialog}>{tr("aviation_recipe_btn", L)}</button>
+      <ListEditor
+        title={tr("aviation_editor_group", L)}
+        open={s.aviationEditorOpen}
+        ontoggle={(v) => (s.aviationEditorOpen = v)}
+        list={s.aviationList}
+        exclude={s.omtoList}
+        pool={s.omtoList}
+        defaults={AVIATION_DEFAULT}
+        lang={L}
+        onchange={(next) => (s.aviationList = next)}
+        labels={{
+          search: tr("aviation_search_placeholder", L),
+          selected: tr("in_aviation_label", L),
+          addTip: tr("add_to_aviation_tooltip", L),
+          removeTip: tr("remove_from_aviation_tooltip", L),
+          resetTip: tr("reset_aviation_tooltip", L),
+          resetTitle: tr("reset_aviation_dialog_title", L),
+          resetText: tr("reset_aviation_dialog_text", L),
+        }}
+      />
+    </section>
+  </section>
+
+  <!-- ===== Флажки и расчёт ===== -->
+  <div class="checks">
+    <label class="check"><input type="checkbox" bind:checked={s.enforceMul4} />{tr("mul4_checkbox", L)}</label>
+    <label class="check"><input type="checkbox" bind:checked={s.freeEmats} />{tr("free_emats_checkbox", L)}</label>
+    <label class="check"><input type="checkbox" bind:checked={s.freeHemats} />{tr("free_hemats_checkbox", L)}</label>
+    <label class="check"><input type="checkbox" bind:checked={s.freeRmats} />{tr("free_rmats_checkbox", L)}</label>
+  </div>
+
+  <button class="btn wide glow" disabled={results.busy} onclick={onCalculate}>
+    {results.busy ? tr("calculating", L) : tr("calculate_btn", L)}
+  </button>
+
+  <!-- ===== Результат ===== -->
+  <div class="results">
+    <div class="col">
+      <div class="res-head">
+        <span class="lbl">{tr("result_label", L)}</span>
+        <button class="btn small" disabled={!results.output} onclick={copyOutput}>{tr("copy_btn", L)}</button>
+      </div>
+      <textarea class="area out" readonly value={results.output}></textarea>
+    </div>
+    <div class="col">
+      <div class="res-head"><span class="lbl unknown">{tr("unknown_positions_label", L)}</span></div>
+      <div class="area undef" role="log">
+        {#each results.undefinedLines as u, i (i)}
+          <div style:color={undefColor[u.kind]}>{u.text}</div>
+        {/each}
+      </div>
+    </div>
+  </div>
+</div>
+
+{#if avDialog}
+  <AviationDialog orders={avDialog} defaults={s.avDefaults} lang={L} onsave={saveAviationDialog} oncancel={() => (avDialog = null)} />
+{/if}
+
+<style>
+  .splitter {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px;
+  }
+  .two {
+    display: flex;
+    gap: 10px;
+  }
+  .col {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .wide {
+    width: 100%;
+    margin-top: 8px;
+  }
+  .block {
+    display: block;
+    width: 100%;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .grow {
+    flex: 1;
+  }
+  .person {
+    margin-top: 6px;
+  }
+  .divisions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 6px;
+  }
+  .division {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .division .name {
+    min-width: 250px;
+    flex: 1;
+  }
+  .checks {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 10px 0 4px;
+  }
+  .glow {
+    box-shadow: 0 0 12px rgba(0, 102, 255, 0.55);
+    transition: box-shadow 0.18s cubic-bezier(0.33, 1, 0.68, 1);
+  }
+  .glow:hover {
+    box-shadow: 0 0 28px rgba(0, 102, 255, 0.55);
+  }
+  .glow:active {
+    box-shadow: 0 0 8px rgba(0, 102, 255, 0.55);
+    transition-duration: 0.09s;
+  }
+  .results {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+  }
+  .res-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    min-height: 34px;
+  }
+  .unknown {
+    color: red;
+  }
+  .out {
+    min-height: 300px;
+    height: 460px;
+  }
+  .undef {
+    min-height: 300px;
+    height: 460px;
+    overflow: auto;
+    white-space: pre-wrap;
+    user-select: text;
+    cursor: text;
+  }
+</style>
