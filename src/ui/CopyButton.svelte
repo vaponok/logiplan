@@ -69,6 +69,10 @@
   .copybtn:active {
     background: var(--primary-pressed);
   }
+  .copybtn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
   .copybtn.done {
     background: #28a745;
   }

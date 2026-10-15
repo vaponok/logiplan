@@ -29,6 +29,11 @@ export async function closeWindow() {
   else window.close();
 }
 
+export async function isMaximized(): Promise<boolean> {
+  const w = await appWindow();
+  return w ? w.isMaximized() : false;
+}
+
 /** Подписка на «развёрнуто/не развёрнуто». */
 export async function watchMaximized(cb: (maximized: boolean) => void) {
   const w = await appWindow();

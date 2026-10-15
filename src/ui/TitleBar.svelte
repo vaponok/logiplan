@@ -16,7 +16,7 @@
   <img class="icon" src="/icon.png" alt="" width="28" height="28" draggable="false" />
   <div class="spacer" data-tauri-drag-region></div>
   <!-- вкладки и флаги в одной строке: флаги по центру высоты вкладок -->
-  <div class="tabrow">
+  <div class="tabrow" data-tauri-drag-region>
     <div class="tabs" role="tablist">
       {#each tabs as key, i (key)}
         <button
@@ -28,7 +28,7 @@
         >
       {/each}
     </div>
-    <div class="flags">
+    <div class="flags" data-tauri-drag-region>
       {#each LANGS as code (code)}
         <button
           class="flag"
@@ -105,10 +105,16 @@
     padding: 8px 18px;
     min-height: 36px;
     font-size: 14px;
+    white-space: nowrap;
     cursor: pointer;
     transition:
       padding 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
       background 0.2s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tab {
+      transition: none;
+    }
   }
   .tab.selected {
     background: var(--primary-pressed);

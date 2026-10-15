@@ -8,11 +8,22 @@
     footer,
     wide = false,
   }: { title: string; onclose: () => void; children: Snippet; footer?: Snippet; wide?: boolean } = $props();
+
+  // Окно переносится прямо в <body>: внутри сдвигаемой ленты вкладок
+  // (transform) position: fixed считался бы от ленты, а не от окна.
+  function portal(node: HTMLElement) {
+    document.body.appendChild(node);
+    return {
+      destroy() {
+        node.remove();
+      },
+    };
+  }
 </script>
 
 <svelte:window onkeydown={(e) => e.key === "Escape" && onclose()} />
 
-<div class="backdrop" role="presentation" onmousedown={(e) => e.target === e.currentTarget && onclose()}>
+<div class="backdrop" role="presentation" use:portal onmousedown={(e) => e.target === e.currentTarget && onclose()}>
   <div class="card" class:wide role="dialog" aria-modal="true" aria-label={title}>
     <div class="title">{title}</div>
     <div class="body">{@render children()}</div>

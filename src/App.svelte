@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, untrack } from "svelte";
   import { save } from "./lib/storage";
   import { watchMaximized } from "./lib/platform";
   import { app, quotaWriter, splitter, timers } from "./lib/state.svelte";
@@ -10,7 +10,10 @@
   import DialogHost from "./ui/DialogHost.svelte";
 
   const TABS = 3;
-  let maximized = $state(false);
+  // Начальное состояние узнаём до первого кадра (main.ts), чтобы развёрнутое
+  // окно не мелькнуло скруглёнными углами.
+  let { initialMaximized = false }: { initialMaximized?: boolean } = $props();
+  let maximized = $state(untrack(() => initialMaximized));
   onMount(() => {
     void watchMaximized((m) => (maximized = m));
   });
@@ -54,7 +57,8 @@
     flex-direction: column;
     background: #fff;
     border-radius: var(--win-radius);
-    overflow: hidden;
+    /* clip, а не hidden: такой контейнер нельзя прокрутить даже фокусом */
+    overflow: clip;
     position: relative;
   }
   /* тонкий контур поверх содержимого, чтобы окно не терялось на светлом фоне */
@@ -75,7 +79,8 @@
     min-height: 0;
     padding: 8px 0;
     border-top: var(--border);
-    overflow: hidden;
+    /* clip: фокус в соседней вкладке посреди анимации не сдвинет ленту */
+    overflow: clip;
   }
   .track {
     display: flex;
