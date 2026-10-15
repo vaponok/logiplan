@@ -1,0 +1,1549 @@
+{
+ "pages": [
+  {
+   "page": 1,
+   "scroll": false,
+   "white": false,
+   "buttons": [
+    {
+     "key": "p1_b1",
+     "index": 1,
+     "item": "Штурмовая винтовка Booker Model 838 (Ящик)",
+     "image": "booker-storm-rifle-model-838.webp",
+     "imageBasename": "Booker_Storm_Rifle_Model_838.png"
+    },
+    {
+     "key": "p1_b2",
+     "index": 2,
+     "item": "Штурмовая винтовка Aalto 24 (Ящик)",
+     "image": "aalto-storm-rifle-24.webp",
+     "imageBasename": "Aalto_Storm_Rifle_24.png"
+    },
+    {
+     "key": "p1_b3",
+     "index": 3,
+     "item": "7.92-мм (Ящик)",
+     "image": "7-92mm.webp",
+     "imageBasename": "7_92mm.png"
+    },
+    {
+     "key": "p1_b4",
+     "index": 4,
+     "item": "Malone MK.2 (Ящик)",
+     "image": "malone-mk-2.webp",
+     "imageBasename": "Malone_MK_2.png"
+    },
+    {
+     "key": "p1_b5",
+     "index": 5,
+     "item": "Осколочная граната A3 Harpa (Ящик)",
+     "image": "a3-harpa-fragmentation-grenade.webp",
+     "imageBasename": "A3_Harpa_Fragmentation_Grenade.png"
+    },
+    {
+     "key": "p1_b6",
+     "index": 6,
+     "item": "Cascadier 873 (Ящик)",
+     "image": "cascadier-873.webp",
+     "imageBasename": "Cascadier_873.png"
+    },
+    {
+     "key": "p1_b7",
+     "index": 7,
+     "item": "8-мм (Ящик)",
+     "image": "8mm.webp",
+     "imageBasename": "8mm.png"
+    },
+    {
+     "key": "p1_b8",
+     "index": 8,
+     "item": "Cometa T2-9 (Ящик)",
+     "image": "cometa-t2-9.webp",
+     "imageBasename": "Cometa_T2_9.png"
+    },
+    {
+     "key": "p1_b9",
+     "index": 9,
+     "item": "Хангман 757 (Ящик)",
+     "image": "the-hangman-757.webp",
+     "imageBasename": "The_Hangman_757.png"
+    },
+    {
+     "key": "p1_b10",
+     "index": 10,
+     "item": ".44 Магнум (Ящик)",
+     "image": "44.webp",
+     "imageBasename": "44.png"
+    },
+    {
+     "key": "p1_b11",
+     "index": 11,
+     "item": "Автоматическая винтовка Sampo 77 (Ящик)",
+     "image": "sampo-auto-rifle-77.webp",
+     "imageBasename": "Sampo_Auto_Rifle_77.png"
+    },
+    {
+     "key": "p1_b12",
+     "index": 12,
+     "item": "Blakerow 871 (Ящик)",
+     "image": "blakerow-871.webp",
+     "imageBasename": "Blakerow_871.png"
+    },
+    {
+     "key": "p1_b13",
+     "index": 13,
+     "item": "Clancy Cinder M3 (Ящик)",
+     "image": "clancy-cinder-m3.webp",
+     "imageBasename": "Clancy_Cinder_M3.png"
+    },
+    {
+     "key": "p1_b14",
+     "index": 14,
+     "item": "No.2B Hawthorne (Ящик)",
+     "image": "no-2b-hawthorne.webp",
+     "imageBasename": "No_2B_Hawthorne.png"
+    },
+    {
+     "key": "p1_b15",
+     "index": 15,
+     "item": "No.2 Loughcaster (Ящик)",
+     "image": "no-2-loughcaster.webp",
+     "imageBasename": "No_2_Loughcaster.png"
+    },
+    {
+     "key": "p1_b16",
+     "index": 16,
+     "item": "7.62-мм (Ящик)",
+     "image": "7-62mm.webp",
+     "imageBasename": "7_62mm.png"
+    },
+    {
+     "key": "p1_b17",
+     "index": 17,
+     "item": "No.4 The Pillory Scattergun (Ящик)",
+     "image": "no-4-the-pillary-scattergun.webp",
+     "imageBasename": "No_4_The_Pillary_Scattergun.png"
+    },
+    {
+     "key": "p1_b18",
+     "index": 18,
+     "item": "Дробь (Ящик)",
+     "image": "buckshot.webp",
+     "imageBasename": "Buckshot.png"
+    },
+    {
+     "key": "p1_b19",
+     "index": 19,
+     "item": "Пистолет-пулемет No.1 “The Liar” (Ящик)",
+     "image": "no-1-the-liar-submachine-gun.webp",
+     "imageBasename": "No_1_The_Liar_Submachine_Gun.png"
+    },
+    {
+     "key": "p1_b20",
+     "index": 20,
+     "item": "Пистолет-пулемет Fiddler Model 868 (Ящик)",
+     "image": "fiddler-submachine-gun-model-868.webp",
+     "imageBasename": "Fiddler_Submachine_Gun_Model_868.png"
+    },
+    {
+     "key": "p1_b21",
+     "index": 21,
+     "item": "9-мм (Ящик)",
+     "image": "9mm-smg.webp",
+     "imageBasename": "9mm_SMG.png"
+    },
+    {
+     "key": "p1_b22",
+     "index": 22,
+     "item": "Дымовая граната PT-815 (Ящик)",
+     "image": "pt-815-smoke-grenade.webp",
+     "imageBasename": "PT_815_Smoke_Grenade.png"
+    },
+    {
+     "key": "p1_b23",
+     "index": 23,
+     "item": "Газовая граната (Ящик)",
+     "image": "green-ash-grenade.webp",
+     "imageBasename": "Green_Ash_Grenade.png"
+    },
+    {
+     "key": "p1_b24",
+     "index": 24,
+     "item": "12.7-мм (Ящик)",
+     "image": "12-7mm.webp",
+     "imageBasename": "12_7mm.png"
+    }
+   ],
+   "navIcon": "1.webp"
+  },
+  {
+   "page": 2,
+   "scroll": false,
+   "white": false,
+   "buttons": [
+    {
+     "key": "p2_b1",
+     "index": 1,
+     "item": "Противотанковое ружье Neville  (Ящик)",
+     "image": "135-neville-anti-tank-rifle.webp",
+     "imageBasename": "135_Neville_Anti_Tank_Rifle.png"
+    },
+    {
+     "key": "p2_b2",
+     "index": 2,
+     "item": "14.5mm (Ящик)",
+     "image": "20mm.webp",
+     "imageBasename": "20mm.png"
+    },
+    {
+     "key": "p2_b3",
+     "index": 3,
+     "item": "РПГ \"Carnyx\" (Ящик)",
+     "image": "carnyx-anti-tank-rocket-launcher.webp",
+     "imageBasename": "Carnyx_Anti_Tank_Rocket_Launcher.png"
+    },
+    {
+     "key": "p2_b4",
+     "index": 4,
+     "item": "Бронебойный/РПГ (Ящик)",
+     "image": "a-t-r-p-g-shell.webp",
+     "imageBasename": "A_T_R_P_G_Shell.png"
+    },
+    {
+     "key": "p2_b5",
+     "index": 5,
+     "item": "Станковый Bonesaw MK.3 (Ящик)",
+     "image": "mounted-bonesaw-mk-3.webp",
+     "imageBasename": "Mounted_Bonesaw_MK_3.png"
+    },
+    {
+     "key": "p2_b6",
+     "index": 6,
+     "item": "Bonesaw MK.3 (Ящик)",
+     "image": "bonesaw-mk-3.webp",
+     "imageBasename": "Bonesaw_MK_3.png"
+    },
+    {
+     "key": "p2_b7",
+     "index": 7,
+     "item": "Бронебойный навесной/РПГ (Ящик)",
+     "image": "a-t-r-p-g-indirect-shell.webp",
+     "imageBasename": "A_T_R_P_G_Indirect_Shell.png"
+    },
+    {
+     "key": "p2_b8",
+     "index": 8,
+     "item": "Willow’s Bane Model 845 (Ящик)",
+     "image": "willows-bane-model-845.webp",
+     "imageBasename": "Willows_Bane_Model_845.png"
+    },
+    {
+     "key": "p2_b9",
+     "index": 9,
+     "item": "Граната Tremola Gpb-1 (Ящик)",
+     "image": "tremola-grenade-gpb-1.webp",
+     "imageBasename": "Tremola_Grenade_GPb_1.png"
+    },
+    {
+     "key": "p2_b10",
+     "index": 10,
+     "item": "Malone Ratcatcher MK.1 (Ящик)",
+     "image": "malone-ratcatcher-mk-1.webp",
+     "imageBasename": "Malone_Ratcatcher_MK_1.png"
+    },
+    {
+     "key": "p2_b11",
+     "index": 11,
+     "item": "30мм (Ящик)",
+     "image": "30mm.webp",
+     "imageBasename": "30mm.png"
+    },
+    {
+     "key": "p2_b12",
+     "index": 12,
+     "item": "Миномёт Cremari (Ящик)",
+     "image": "cremari-mortar.webp",
+     "imageBasename": "Cremari_Mortar.png"
+    },
+    {
+     "key": "p2_b13",
+     "index": 13,
+     "item": "Осветительный Минометный Снаряд (Ящик)",
+     "image": "mortar-shell-flare.webp",
+     "imageBasename": "Mortar_Shell_Flare.png"
+    },
+    {
+     "key": "p2_b14",
+     "index": 14,
+     "item": "Осколочный минометный снаряд (Ящик)",
+     "image": "mortar-shell-shrapnel.webp",
+     "imageBasename": "Mortar_Shell_Shrapnel.png"
+    },
+    {
+     "key": "p2_b15",
+     "index": 15,
+     "item": "Минометный Снаряд (Ящик)",
+     "image": "mortar-shell.webp",
+     "imageBasename": "Mortar_Shell.png"
+    },
+    {
+     "key": "p2_b16",
+     "index": 16,
+     "item": "Граната BF5 White Ash Flask (Ящик)",
+     "image": "bf5-white-ash-flask-grenade.webp",
+     "imageBasename": "BF5_White_Ash_Flask_Grenade.png"
+    },
+    {
+     "key": "p2_b17",
+     "index": 17,
+     "item": "B2 Varsi Anti-Tank Grenade (Ящик)",
+     "image": "b2-varsi-anti-tank-grenade.webp",
+     "imageBasename": "B2_Varsi_Anti_Tank_Grenade.png"
+    },
+    {
+     "key": "p2_b18",
+     "index": 18,
+     "item": "Mammon 91-b (Ящик)",
+     "image": "mammon-91-b.webp",
+     "imageBasename": "Mammon_91_b.png"
+    },
+    {
+     "key": "p2_b19",
+     "index": 19,
+     "item": "Противотанковая липкая бомба (Ящик)",
+     "image": "anti-tank-sticky-bomb.webp",
+     "imageBasename": "Anti_Tank_Sticky_Bomb.png"
+    },
+    {
+     "key": "p2_b20",
+     "index": 20,
+     "item": "Cutler Foebreaker (Ящик)",
+     "image": "cutler-foebreaker.webp",
+     "imageBasename": "Cutler_Foebreaker.png"
+    },
+    {
+     "key": "p2_b21",
+     "index": 21,
+     "item": "Cutler Launcher 4 (Ящик)",
+     "image": "cutler-launcher-4.webp",
+     "imageBasename": "Cutler_Launcher_4.png"
+    },
+    {
+     "key": "p2_b22",
+     "index": 22,
+     "item": "РПГ (Ящик)",
+     "image": "r-p-g-shell.webp",
+     "imageBasename": "R_P_G_Shell.png"
+    }
+   ],
+   "navIcon": "2.webp"
+  },
+  {
+   "page": 3,
+   "scroll": false,
+   "white": false,
+   "buttons": [
+    {
+     "key": "p3_b1",
+     "index": 1,
+     "item": "Зенитный снаряд 950-70b (Ящик)",
+     "image": "950-70b-anti-aircraft-shell.webp",
+     "imageBasename": "950-70b Anti-Aircraft Shell.png"
+    },
+    {
+     "key": "p3_b2",
+     "index": 2,
+     "item": "20мм (Ящик)",
+     "image": "20.webp",
+     "imageBasename": "20мм.png"
+    },
+    {
+     "key": "p3_b3",
+     "index": 3,
+     "item": "Разрушающая ракета (Ящик)",
+     "image": "shatter-missile.webp",
+     "imageBasename": "Shatter Missile.png"
+    },
+    {
+     "key": "p3_b4",
+     "index": 4,
+     "item": "150-мм (Ящик)",
+     "image": "150mm.webp",
+     "imageBasename": "150mm.png"
+    },
+    {
+     "key": "p3_b5",
+     "index": 5,
+     "item": "Зенитный снаряд “Absol” (Ящик)",
+     "image": "lightaaammoicon.webp",
+     "imageBasename": "LightAAAmmoIcon.png"
+    },
+    {
+     "key": "p3_b6",
+     "index": 6,
+     "item": "120-мм (Ящик)",
+     "image": "120mm.webp",
+     "imageBasename": "120mm.png"
+    },
+    {
+     "key": "p3_b7",
+     "index": 7,
+     "item": "Торпеда \"Квилбек\" (Ящик)",
+     "image": "quillback-torpedo.webp",
+     "imageBasename": "Quillback Torpedo.png"
+    },
+    {
+     "key": "p3_b8",
+     "index": 8,
+     "item": "250mm \"Purity\" Shell (Ящик)",
+     "image": "250mm.webp",
+     "imageBasename": "250mm.png"
+    },
+    {
+     "key": "p3_b9",
+     "index": 9,
+     "item": "250mm \"Fury\" Shell (Ящик)",
+     "image": "250mm-fury-shell.webp",
+     "imageBasename": "250mm Fury Shell.png"
+    },
+    {
+     "key": "p3_b10",
+     "index": 10,
+     "item": "E681-B Hullbreaker Mine (Ящик)",
+     "image": "e681-b-hullbreaker-mine.webp",
+     "imageBasename": "E681-B Hullbreaker Mine.png"
+    },
+    {
+     "key": "p3_b11",
+     "index": 11,
+     "item": "68мм (Ящик)",
+     "image": "68mm.webp",
+     "imageBasename": "68mm.png"
+    },
+    {
+     "key": "p3_b12",
+     "index": 12,
+     "item": "40-мм (Ящик)",
+     "image": "40mm.webp",
+     "imageBasename": "40mm.png"
+    },
+    {
+     "key": "p3_b13",
+     "index": 13,
+     "item": "Naval Buoy (Ящик)",
+     "image": "naval-buoy.webp",
+     "imageBasename": "Naval_Buoy.png"
+    }
+   ],
+   "navIcon": "3.webp"
+  },
+  {
+   "page": 4,
+   "scroll": false,
+   "white": false,
+   "buttons": [
+    {
+     "key": "p4_b1",
+     "index": 1,
+     "item": "Колючая проволока (Ящик)",
+     "image": "barbed-wire.webp",
+     "imageBasename": "Barbed_Wire.png"
+    },
+    {
+     "key": "p4_b2",
+     "index": 2,
+     "item": "Buckhorn CCQ-18 (Ящик)",
+     "image": "buckhorn-ccq-18.webp",
+     "imageBasename": "Buckhorn_CCQ_18.png"
+    },
+    {
+     "key": "p4_b3",
+     "index": 3,
+     "item": "Бинокль (Ящик)",
+     "image": "binoculars.webp",
+     "imageBasename": "Binoculars.png"
+    },
+    {
+     "key": "p4_b4",
+     "index": 4,
+     "item": "Хавок Заряд (Ящик)",
+     "image": "havoc-charge.webp",
+     "imageBasename": "Havoc_Charge.png"
+    },
+    {
+     "key": "p4_b5",
+     "index": 5,
+     "item": "Топливо для Willow’s Bane (Ящик)",
+     "image": "willows-bane-ammo.webp",
+     "imageBasename": "Willows_Bane_Ammo.png"
+    },
+    {
+     "key": "p4_b6",
+     "index": 6,
+     "item": "Набор для прослушивания (Ящик)",
+     "image": "listening-kit.webp",
+     "imageBasename": "Listening_Kit.png"
+    },
+    {
+     "key": "p4_b7",
+     "index": 7,
+     "item": "Falias Raiding Club (Ящик)",
+     "image": "falias-raiding-club.webp",
+     "imageBasename": "Falias_Raiding_Club.png"
+    },
+    {
+     "key": "p4_b8",
+     "index": 8,
+     "item": "Металлическая балка (Ящик)",
+     "image": "metal-beam.webp",
+     "imageBasename": "Metal_Beam.png"
+    },
+    {
+     "key": "p4_b9",
+     "index": 9,
+     "item": "Радиорюкзак (Ящик)",
+     "image": "radio-backpack.webp",
+     "imageBasename": "Radio_Backpack.png"
+    },
+    {
+     "key": "p4_b10",
+     "index": 10,
+     "item": "Мешок с песком (Ящик)",
+     "image": "sandbag.webp",
+     "imageBasename": "Sandbag.png"
+    },
+    {
+     "key": "p4_b11",
+     "index": 11,
+     "item": "Детонатор Хавок Заряда (Ящик)",
+     "image": "havoc-charge-detonator.webp",
+     "imageBasename": "Havoc_Charge_Detonator.png"
+    },
+    {
+     "key": "p4_b12",
+     "index": 12,
+     "item": "Alligator Charge (Ящик)",
+     "image": "alligator-charge.webp",
+     "imageBasename": "Alligator_Charge.png"
+    },
+    {
+     "key": "p4_b13",
+     "index": 13,
+     "item": "Лопата (Ящик)",
+     "image": "shovel.webp",
+     "imageBasename": "Shovel.png"
+    },
+    {
+     "key": "p4_b14",
+     "index": 14,
+     "item": "Кувалда (Ящик)",
+     "image": "sledge-hammer.webp",
+     "imageBasename": "Sledge_Hammer.png"
+    },
+    {
+     "key": "p4_b15",
+     "index": 15,
+     "item": "Тренога (Ящик)",
+     "image": "tripod.webp",
+     "imageBasename": "Tripod.png"
+    },
+    {
+     "key": "p4_b16",
+     "index": 16,
+     "item": "Ветроуказатель (Ящик)",
+     "image": "wind-sock.webp",
+     "imageBasename": "Wind_Sock.png"
+    },
+    {
+     "key": "p4_b17",
+     "index": 17,
+     "item": "Гаечный ключ (Ящик)",
+     "image": "wrench.webp",
+     "imageBasename": "Wrench.png"
+    },
+    {
+     "key": "p4_b18",
+     "index": 18,
+     "item": "Ведро для воды (Ящик)",
+     "image": "water-bucket.webp",
+     "imageBasename": "Water_Bucket.png"
+    },
+    {
+     "key": "p4_b19",
+     "index": 19,
+     "item": "Противогаз (Ящик)",
+     "image": "gas-mask.webp",
+     "imageBasename": "Gas_Mask.png"
+    },
+    {
+     "key": "p4_b20",
+     "index": 20,
+     "item": "Фильтр для противогаза (Ящик)",
+     "image": "gas-mask-filter.webp",
+     "imageBasename": "Gas_Mask_Filter.png"
+    },
+    {
+     "key": "p4_b21",
+     "index": 21,
+     "item": "Подствольный гранатомёт (Ящик)",
+     "image": "the-ospreay.webp",
+     "imageBasename": "The_Ospreay.png"
+    },
+    {
+     "key": "p4_b22",
+     "index": 22,
+     "item": "Flight Mask (Ящик)",
+     "image": "flight-mask.webp",
+     "imageBasename": "Flight_Mask.png"
+    },
+    {
+     "key": "p4_b23",
+     "index": 23,
+     "item": "Рация (Ящик)",
+     "image": "radio.webp",
+     "imageBasename": "Radio.png"
+    },
+    {
+     "key": "p4_b24",
+     "index": 24,
+     "item": "Air Raid Siren (Ящик)",
+     "image": "air-raid-siren.webp",
+     "imageBasename": "Air_Raid_Siren.png"
+    }
+   ],
+   "navIcon": "4.webp"
+  },
+  {
+   "page": 5,
+   "scroll": false,
+   "white": false,
+   "buttons": [
+    {
+     "key": "p5_b1",
+     "index": 1,
+     "item": "Припасы Обслуживания (Ящик)",
+     "image": "maintenance-supplies.webp",
+     "imageBasename": "Maintenance_Supplies.png"
+    }
+   ],
+   "navIcon": "5.webp"
+  },
+  {
+   "page": 6,
+   "scroll": false,
+   "white": false,
+   "buttons": [
+    {
+     "key": "p6_b1",
+     "index": 1,
+     "item": "Бинты (Ящик)",
+     "image": "bandages.webp",
+     "imageBasename": "Bandages.png"
+    },
+    {
+     "key": "p6_b2",
+     "index": 2,
+     "item": "Набор Первой Помощи (Ящик)",
+     "image": "first-aid-kit.webp",
+     "imageBasename": "First_Aid_kit.png"
+    },
+    {
+     "key": "p6_b3",
+     "index": 3,
+     "item": "Реанимационный набор (Ящик)",
+     "image": "trauma-kit.webp",
+     "imageBasename": "Trauma_Kit.png"
+    },
+    {
+     "key": "p6_b4",
+     "index": 4,
+     "item": "Плазма (Ящик)",
+     "image": "blood-plasma.webp",
+     "imageBasename": "Blood_Plasma.png"
+    },
+    {
+     "key": "p6_b5",
+     "index": 5,
+     "item": "Солдатское снаряжение (Ящик)",
+     "image": "soldier-supplies.webp",
+     "imageBasename": "Soldier_Supplies.png"
+    }
+   ],
+   "navIcon": "6.webp"
+  },
+  {
+   "page": 7,
+   "scroll": false,
+   "white": false,
+   "buttons": [
+    {
+     "key": "p7_b1",
+     "index": 1,
+     "item": "Шинель специалиста (Ящик)",
+     "image": "specialists-overcoat.webp",
+     "imageBasename": "Specialists_Overcoat.png"
+    },
+    {
+     "key": "p7_b2",
+     "index": 2,
+     "item": "Стальная кираса (Ящик)",
+     "image": "gunners-breastplate.webp",
+     "imageBasename": "Gunners_Breastplate.png"
+    },
+    {
+     "key": "p7_b3",
+     "index": 3,
+     "item": "Сапёрное снаряжение (Ящик)",
+     "image": "sapper-gear.webp",
+     "imageBasename": "Sapper_Gear.png"
+    },
+    {
+     "key": "p7_b4",
+     "index": 4,
+     "item": "Куртка врача (Ящик)",
+     "image": "physicians-jacket.webp",
+     "imageBasename": "Physicians_Jacket.png"
+    },
+    {
+     "key": "p7_b5",
+     "index": 5,
+     "item": "Gentleman’s Peacoat (Ящик)",
+     "image": "gentlemans-peacoat.webp",
+     "imageBasename": "Gentlemans_Peacoat.png"
+    },
+    {
+     "key": "p7_b6",
+     "index": 6,
+     "item": "Офицерская регалия (Ящик)",
+     "image": "officers-regalia.webp",
+     "imageBasename": "Officers_Regalia.png"
+    },
+    {
+     "key": "p7_b7",
+     "index": 7,
+     "item": "Дозорная мантия (Ящик)",
+     "image": "outriders-mantle.webp",
+     "imageBasename": "Outriders_Mantle.png"
+    },
+    {
+     "key": "p7_b8",
+     "index": 8,
+     "item": "Парка Caoivish (Ящик)",
+     "image": "caoivish-parka.webp",
+     "imageBasename": "Caoivish_Parka.png"
+    },
+    {
+     "key": "p7_b9",
+     "index": 9,
+     "item": "Стеганный Комбинезон (Ящик)",
+     "image": "padded-boiler-suit.webp",
+     "imageBasename": "Padded_Boiler_Suit.png"
+    }
+   ],
+   "navIcon": "7.webp"
+  },
+  {
+   "page": 8,
+   "scroll": true,
+   "white": false,
+   "buttons": [
+    {
+     "key": "p8_b1",
+     "index": 1,
+     "item": "O’Brien V.190 Knave (Ящик)",
+     "image": "o-brien-v-190-knave.webp",
+     "imageBasename": "O_Brien_v_190_Knave.png"
+    },
+    {
+     "key": "p8_b2",
+     "index": 2,
+     "item": "O’Brien V.110 (Ящик)",
+     "image": "o-brien-v-110.webp",
+     "imageBasename": "O_Brien_v_110.png"
+    },
+    {
+     "key": "p8_b3",
+     "index": 3,
+     "item": "Noble Widow MK. XIV (Ящик)",
+     "image": "noble-widow-mk-xiv.webp",
+     "imageBasename": "Noble_Widow_MK_XIV.png"
+    },
+    {
+     "key": "p8_b4",
+     "index": 4,
+     "item": "Collins орудие 68-мм (Ящик)",
+     "image": "collins-cannon-68mm.webp",
+     "imageBasename": "Collins_Cannon_68mm.png"
+    },
+    {
+     "key": "p8_b5",
+     "index": 5,
+     "item": "Balfour Wolfhound 40мм (Ящик)",
+     "image": "balfour-wolfhound-40mm.webp",
+     "imageBasename": "Balfour_Wolfhound_40mm.png"
+    },
+    {
+     "key": "p8_b6",
+     "index": 6,
+     "item": "Swallowtail 988/127-2 (Ящик)",
+     "image": "swallowtail-988-127-2.webp",
+     "imageBasename": "Swallowtail_988_127_2.png"
+    },
+    {
+     "key": "p8_b7",
+     "index": 7,
+     "item": "Balfour Falconer 250-мм (Ящик)",
+     "image": "balfour-falconer-250mm.webp",
+     "imageBasename": "Balfour_Falconer_250mm.png"
+    },
+    {
+     "key": "p8_b8",
+     "index": 8,
+     "item": "Полугусеничный Бронетранспортер Niska Mk. I (Ящик)",
+     "image": "niska-mk-i-gun-motor-carriage.webp",
+     "imageBasename": "Niska_Mk_I_Gun_Motor_Carriage.png"
+    },
+    {
+     "key": "p8_b9",
+     "index": 9,
+     "item": "Mulloy LPC (Ящик)",
+     "image": "mulloy-lpc.webp",
+     "imageBasename": "Mulloy_LPC.png"
+    },
+    {
+     "key": "p8_b10",
+     "index": 10,
+     "item": "Sharkey-Devitt Birdeater Mk. I (Ящик)",
+     "image": "lighttank3wvehicleicon.webp",
+     "imageBasename": "LightTank3WVehicleIcon.png"
+    },
+    {
+     "key": "p8_b11",
+     "index": 11,
+     "item": "Devitt Mk. III (Ящик)",
+     "image": "devitt-mk-iii.webp",
+     "imageBasename": "Devitt_Mk_III.png"
+    },
+    {
+     "key": "p8_b12",
+     "index": 12,
+     "item": "Dunne Responder 3e (Ящик)",
+     "image": "dunne-responder-3e.webp",
+     "imageBasename": "Dunne_Responder_3e.png"
+    },
+    {
+     "key": "p8_b13",
+     "index": 13,
+     "item": "Dunne Caravaner 2f (Ящик)",
+     "image": "dunne-caravaner-2f.webp",
+     "imageBasename": "Dunne_Caravaner_2F.png"
+    },
+    {
+     "key": "p8_b14",
+     "index": 14,
+     "item": "BMS - Universal Assembly Rig (Ящик)",
+     "image": "bms-universal-assemly-rig.webp",
+     "imageBasename": "BMS_Universal_Assemly_Rig.png"
+    },
+    {
+     "key": "p8_b15",
+     "index": 15,
+     "item": "Мобильный автокран БМС 2 класса (Ящик)",
+     "image": "bms-class-2-mobile-auto-crane.webp",
+     "imageBasename": "BMS_Class_2_Mobile_Auto_Crane.png"
+    },
+    {
+     "key": "p8_b16",
+     "index": 16,
+     "item": "Бортовой грузовик BMS - Packmule (Ящик)",
+     "image": "bms-packmule-flatbed.webp",
+     "imageBasename": "BMS_Packmule_Flatbed.png"
+    },
+    {
+     "key": "p8_b17",
+     "index": 17,
+     "item": "Dunne Fuelrunner 2d (Ящик)",
+     "image": "dunne-fuelrunner-2d.webp",
+     "imageBasename": "Dunne_Fuelrunner_2d.png"
+    },
+    {
+     "key": "p8_b18",
+     "index": 18,
+     "item": "Gallagher Brigand Mk. I (Ящик)",
+     "image": "gallagher-brigand-mk-i.webp",
+     "imageBasename": "Gallagher_Brigand_Mk_I.png"
+    },
+    {
+     "key": "p8_b19",
+     "index": 19,
+     "item": "Silverhand - Mk. IV (Ящик)",
+     "image": "silverhand-mk-iv.webp",
+     "imageBasename": "Silverhand_Mk_IV.png"
+    },
+    {
+     "key": "p8_b20",
+     "index": 20,
+     "item": "Kivela Power Wheel 80-1 (Ящик)",
+     "image": "kivela-power-wheel-80-1.webp",
+     "imageBasename": "Kivela_Power_Wheel_80_1.png"
+    },
+    {
+     "key": "p8_b21",
+     "index": 21,
+     "item": "King Spire Mk. I (Ящик)",
+     "image": "king-spire-mk-i.webp",
+     "imageBasename": "King_Spire_Mk_I.png"
+    },
+    {
+     "key": "p8_b22",
+     "index": 22,
+     "item": "Drummond 100a (Ящик)",
+     "image": "drummond-100a.webp",
+     "imageBasename": "Drummond_100a.png"
+    },
+    {
+     "key": "p8_b23",
+     "index": 23,
+     "item": "Rooster - Lamploader (Ящик)",
+     "image": "fueltrailericon.webp",
+     "imageBasename": "FuelTrailerIcon.png"
+    },
+    {
+     "key": "p8_b24",
+     "index": 24,
+     "item": "Rooster - Tumblebox (Ящик)",
+     "image": "materialtrailericon.webp",
+     "imageBasename": "MaterialTrailerIcon.png"
+    },
+    {
+     "key": "p8_b25",
+     "index": 25,
+     "item": "Rooster - Junkwagon (Ящик)",
+     "image": "rooster-junkwagon.webp",
+     "imageBasename": "Rooster_Junkwagon.png"
+    },
+    {
+     "key": "p8_b26",
+     "index": 26,
+     "item": "Самосвал Dunne Loadlugger 3c (Ящик)",
+     "image": "dunne-loadlugger-3c.webp",
+     "imageBasename": "Dunne_Loadlugger_3c.png"
+    },
+    {
+     "key": "p8_b27",
+     "index": 27,
+     "item": "Dunne Transport (Ящик)",
+     "image": "dunne-transport.webp",
+     "imageBasename": "Dunne_Transport.png"
+    },
+    {
+     "key": "p8_b28",
+     "index": 28,
+     "item": "81f-f Ronan Blackguard (Ящик)",
+     "image": "81f-f-ronan-blackguard.webp",
+     "imageBasename": "81f-f Ronan Blackguard.png"
+    },
+    {
+     "key": "p8_b29",
+     "index": 29,
+     "item": "74b-1 Ronan Gunship (Ящик)",
+     "image": "74b-1-ronan-gunship.webp",
+     "imageBasename": "74b_1_Ronan_Gunship.png"
+    },
+    {
+     "key": "p8_b30",
+     "index": 30,
+     "item": "Das Krokodil by VAC (Ящик)",
+     "image": "das-krokodil-by-vac.webp",
+     "imageBasename": "Das Krokodil by VAC.png"
+    },
+    {
+     "key": "p8_b31",
+     "index": 31,
+     "item": "68A-4 Ronan Fathomer (Ящик)",
+     "image": "68a-4-ronan-fathomer.webp",
+     "imageBasename": "68A-4 Ronan Fathomer.png"
+    },
+    {
+     "key": "p8_b32",
+     "index": 32,
+     "item": "BMS - Aquatipper (Ящик)",
+     "image": "bms-aquatipper.webp",
+     "imageBasename": "BMS_Aquatipper.png"
+    },
+    {
+     "key": "p8_b33",
+     "index": 33,
+     "item": "BMS - Ironship (Ящик)",
+     "image": "bms-ironship.webp",
+     "imageBasename": "BMS_Ironship.png"
+    },
+    {
+     "key": "p8_b34",
+     "index": 34,
+     "item": "Rinnspeir Ornitier-Class Gunship (Ящик)",
+     "image": "rinnspeir-ornitier-class-gunship.webp",
+     "imageBasename": "Rinnspeir Ornitier-Class Gunship.png"
+    },
+    {
+     "key": "p8_b35",
+     "index": 35,
+     "item": "Bellweather by VAC (Ящик)",
+     "image": "bellweather-by-vac.webp",
+     "imageBasename": "Bellweather by VAC.png"
+    }
+   ],
+   "navIcon": "8.webp"
+  },
+  {
+   "page": 9,
+   "scroll": false,
+   "white": false,
+   "buttons": [
+    {
+     "key": "p9_b1",
+     "index": 1,
+     "item": "Поддон для материалов (Ящик)",
+     "image": "material-pallet.webp",
+     "imageBasename": "Material_Pallet.png"
+    },
+    {
+     "key": "p9_b2",
+     "index": 2,
+     "item": "Контейнер для ресурсов (Ящик)",
+     "image": "resource-container.webp",
+     "imageBasename": "Resource_Container.png"
+    },
+    {
+     "key": "p9_b3",
+     "index": 3,
+     "item": "Грузовой контейнер (Ящик)",
+     "image": "shipping-container.webp",
+     "imageBasename": "Shipping_Container.png"
+    },
+    {
+     "key": "p9_b4",
+     "index": 4,
+     "item": "Leary AA-70 Bolas (Ящик)",
+     "image": "leary-aa-70-bolas.webp",
+     "imageBasename": "Leary AA-70 Bolas.png"
+    },
+    {
+     "key": "p9_b5",
+     "index": 5,
+     "item": "Leary Shellbore 68-мм (Ящик)",
+     "image": "68mm-anti-tank-cannon.webp",
+     "imageBasename": "68mm_Anti_Tank_Cannon.png"
+    },
+    {
+     "key": "p9_b6",
+     "index": 6,
+     "item": "Huber Exalt 150mm (Ящик)",
+     "image": "huber-exalt-150mm.webp",
+     "imageBasename": "Huber_Exalt_150mm.png"
+    },
+    {
+     "key": "p9_b7",
+     "index": 7,
+     "item": "Leary Snare Trap 20 (Ящик)",
+     "image": "12-7-anti-infantry-flak-gun.webp",
+     "imageBasename": "12_7_Anti_Infantry_Flak_Gun.png"
+    },
+    {
+     "key": "p9_b8",
+     "index": 8,
+     "item": "Huber Lariat 120мм (Ящик)",
+     "image": "huber-lariat-120mm.webp",
+     "imageBasename": "Huber_Lariat_120mm.png"
+    },
+    {
+     "key": "p9_b9",
+     "index": 9,
+     "item": "Бетономешалка (Ящик)",
+     "image": "concrete-mixer.webp",
+     "imageBasename": "Concrete_Mixer.png"
+    },
+    {
+     "key": "p9_b10",
+     "index": 10,
+     "item": "Строительное оборудование (Ящик)",
+     "image": "construction-equipment.webp",
+     "imageBasename": "Construction_Equipment.png"
+    },
+    {
+     "key": "p9_b11",
+     "index": 11,
+     "item": "Жидкостный контейнер (Ящик)",
+     "image": "fuel-container.webp",
+     "imageBasename": "Fuel_Container.png"
+    }
+   ],
+   "navIcon": "9.webp"
+  },
+  {
+   "page": 10,
+   "scroll": false,
+   "white": false,
+   "buttons": [
+    {
+     "key": "p10_b1",
+     "index": 1,
+     "item": "Базовые материалы (Ящик)",
+     "image": "bmat.webp",
+     "imageBasename": "bmat.png"
+    },
+    {
+     "key": "p10_b2",
+     "index": 2,
+     "item": "Рафинированные материалы (Ящик)",
+     "image": "refinedmaterialsicon.webp",
+     "imageBasename": "RefinedMaterialsIcon.png"
+    },
+    {
+     "key": "p10_b3",
+     "index": 3,
+     "item": "Порох (Ящик)",
+     "image": "explosivematerialicon.webp",
+     "imageBasename": "ExplosiveMaterialIcon.png"
+    },
+    {
+     "key": "p10_b4",
+     "index": 4,
+     "item": "Тяжёлый порох (Ящик)",
+     "image": "100px-heavyexplosivematerialsicon.webp",
+     "imageBasename": "100px-HeavyExplosiveMaterialsIcon.png"
+    },
+    {
+     "key": "p10_b5",
+     "index": 5,
+     "item": "Редкий металл (Ящик)",
+     "image": "rare-metal.webp",
+     "imageBasename": "Rare_Metal.png"
+    }
+   ],
+   "navIcon": "10.webp"
+  },
+  {
+   "page": 11,
+   "scroll": true,
+   "white": true,
+   "buttons": [
+    {
+     "key": "p11_b1",
+     "index": 1,
+     "item": "Dunne Dousing Engine 3r",
+     "image": "ambulanceflamew.webp",
+     "imageBasename": "AmbulanceFlameW.png"
+    },
+    {
+     "key": "p11_b2",
+     "index": 2,
+     "item": "O’Brien V.101 Freeman",
+     "image": "armoredcar2largew.webp",
+     "imageBasename": "ArmoredCar2LargeW.png"
+    },
+    {
+     "key": "p11_b3",
+     "index": 3,
+     "item": "O’Brien v.200 Squire",
+     "image": "armoredcar2multiw.webp",
+     "imageBasename": "ArmoredCar2MultiW.png"
+    },
+    {
+     "key": "p11_b4",
+     "index": 4,
+     "item": "O’Brien V.113 Gravekeeper",
+     "image": "armoredcaratw.webp",
+     "imageBasename": "ArmoredCarATW.png"
+    },
+    {
+     "key": "p11_b5",
+     "index": 5,
+     "item": "O’Brien V.130 Wild Jack",
+     "image": "armoredcarflamew.webp",
+     "imageBasename": "ArmoredCarFlameW.png"
+    },
+    {
+     "key": "p11_b6",
+     "index": 6,
+     "item": "94.5мм (Ящик)",
+     "image": "atlargeammo-crated.webp",
+     "imageBasename": "ATLargeAmmo-crated.png"
+    },
+    {
+     "key": "p11_b7",
+     "index": 7,
+     "item": "228 Satterley Heavy Storm Rifle (Ящик)",
+     "image": "atrifleassaultw-crated.webp",
+     "imageBasename": "ATRifleAssaultW-crated.png"
+    },
+    {
+     "key": "p11_b8",
+     "index": 8,
+     "item": "Booker Greyhound Model 910 (Ящик)",
+     "image": "atrifleautomaticw-crated.webp",
+     "imageBasename": "ATRifleAutomaticW-crated.png"
+    },
+    {
+     "key": "p11_b9",
+     "index": 9,
+     "item": "75-мм (Ящик)",
+     "image": "battletankammo-crated.webp",
+     "imageBasename": "BattleTankAmmo-crated.png"
+    },
+    {
+     "key": "p11_b10",
+     "index": 10,
+     "item": "BMS - Fabricator",
+     "image": "constructionutility.webp",
+     "imageBasename": "ConstructionUtility.png"
+    },
+    {
+     "key": "p11_b11",
+     "index": 11,
+     "item": "Model-7 “Evie” (Ящик)",
+     "image": "depthchargeammo-crated.webp",
+     "imageBasename": "DepthChargeAmmo-crated.png"
+    },
+    {
+     "key": "p11_b12",
+     "index": 12,
+     "item": "Noble Firebrand Mk. XVII",
+     "image": "destroyertankflamew.webp",
+     "imageBasename": "DestroyerTankFlameW.png"
+    },
+    {
+     "key": "p11_b13",
+     "index": 13,
+     "item": "Нестабильные материалы (Ящик)",
+     "image": "facilitymaterials10-crated.webp",
+     "imageBasename": "FacilityMaterials10-crated.png"
+    },
+    {
+     "key": "p11_b14",
+     "index": 14,
+     "item": "Редкие сплавы (Ящик)",
+     "image": "facilitymaterials9-crated.webp",
+     "imageBasename": "FacilityMaterials9-crated.png"
+    },
+    {
+     "key": "p11_b15",
+     "index": 15,
+     "item": "Balfour Rampart 68-мм",
+     "image": "fieldatdamagew.webp",
+     "imageBasename": "FieldATDamageW.png"
+    },
+    {
+     "key": "p11_b16",
+     "index": 16,
+     "item": "4C-Зажигательная ракета (Ящик)",
+     "image": "firerocketammo-crated.webp",
+     "imageBasename": "FireRocketAmmo-crated.png"
+    },
+    {
+     "key": "p11_b17",
+     "index": 17,
+     "item": "Niska-Rycker Mk. IX Skycaller",
+     "image": "halftrackmultiw.webp",
+     "imageBasename": "HalftrackMultiW.png"
+    },
+    {
+     "key": "p11_b18",
+     "index": 18,
+     "item": "Niska Mk. II Blinder",
+     "image": "halftrackoffensivew.webp",
+     "imageBasename": "HalfTrackOffensiveW.png"
+    },
+    {
+     "key": "p11_b19",
+     "index": 19,
+     "item": "Niska Mk. III Scar Twin",
+     "image": "halftracktwinw.webp",
+     "imageBasename": "HalfTrackTwinW.png"
+    },
+    {
+     "key": "p11_b20",
+     "index": 20,
+     "item": "BMS - Scrap Hauler",
+     "image": "harvester.webp",
+     "imageBasename": "Harvester.png"
+    },
+    {
+     "key": "p11_b21",
+     "index": 21,
+     "item": "Cnute Cliffwrest",
+     "image": "heavytruckw.webp",
+     "imageBasename": "HeavyTruckW.png"
+    },
+    {
+     "key": "p11_b22",
+     "index": 22,
+     "item": "3C-Фугасная ракета (Ящик)",
+     "image": "herocketammo-crated.webp",
+     "imageBasename": "HERocketAmmo-crated.png"
+    },
+    {
+     "key": "p11_b23",
+     "index": 23,
+     "item": "Crow’s Foot Mine (Ящик)",
+     "image": "infantrymine-crated.webp",
+     "imageBasename": "InfantryMine-crated.png"
+    },
+    {
+     "key": "p11_b24",
+     "index": 24,
+     "item": "Balfour Stockade 75-мм",
+     "image": "largefieldcannonw.webp",
+     "imageBasename": "LargeFieldCannonW.png"
+    },
+    {
+     "key": "p11_b25",
+     "index": 25,
+     "item": "Rycker 4/3-F Wasp Nest",
+     "image": "largefieldmultiw.webp",
+     "imageBasename": "LargeFieldMultiW.png"
+    },
+    {
+     "key": "p11_b26",
+     "index": 26,
+     "item": "Devitt-Caine Mk. IV MMR",
+     "image": "lighttankartilleryw.webp",
+     "imageBasename": "LightTankArtilleryW.png"
+    },
+    {
+     "key": "p11_b27",
+     "index": 27,
+     "item": "Devitt Ironhide Mk. IV",
+     "image": "lighttankdefensivew.webp",
+     "imageBasename": "LightTankDefensiveW.png"
+    },
+    {
+     "key": "p11_b28",
+     "index": 28,
+     "item": "300-мм (Ящик)",
+     "image": "lrartilleryammo-crated.webp",
+     "imageBasename": "LRArtilleryAmmo-crated.png"
+    },
+    {
+     "key": "p11_b29",
+     "index": 29,
+     "item": "Gallagher Thornfall Mk. VI",
+     "image": "mediumtank2indirectw.webp",
+     "imageBasename": "MediumTank2IndirectW.png"
+    },
+    {
+     "key": "p11_b30",
+     "index": 30,
+     "item": "Gallagher Highwayman Mk. III",
+     "image": "mediumtank2multiw.webp",
+     "imageBasename": "MediumTank2MultiW.png"
+    },
+    {
+     "key": "p11_b31",
+     "index": 31,
+     "item": "Gallagher Outlaw Mk. II",
+     "image": "mediumtank2rangew.webp",
+     "imageBasename": "MediumTank2RangeW.png"
+    },
+    {
+     "key": "p11_b32",
+     "index": 32,
+     "item": "Silverhand Lordscar - Mk. X",
+     "image": "mediumtankatw.webp",
+     "imageBasename": "MediumTankATW.png"
+    },
+    {
+     "key": "p11_b33",
+     "index": 33,
+     "item": "Silverhand Chieftain - Mk. VI",
+     "image": "mediumtanksiegew.webp",
+     "imageBasename": "MediumTankSiegeW.png"
+    },
+    {
+     "key": "p11_b34",
+     "index": 34,
+     "item": "King Jester Mk. I-1",
+     "image": "scouttankmultiw.webp",
+     "imageBasename": "ScoutTankMultiW.png"
+    },
+    {
+     "key": "p11_b35",
+     "index": 35,
+     "item": "King Gallant Mk. II",
+     "image": "scouttankoffensivew.webp",
+     "imageBasename": "ScoutTankOffensiveW.png"
+    },
+    {
+     "key": "p11_b36",
+     "index": 36,
+     "item": "Drummond Spitfire 100d",
+     "image": "scoutvehicleoffensivew.webp",
+     "imageBasename": "ScoutVehicleOffensiveW.png"
+    },
+    {
+     "key": "p11_b37",
+     "index": 37,
+     "item": "Drummond Loscann 55c",
+     "image": "scoutvehicleutilityw.webp",
+     "imageBasename": "ScoutVehicleUtilityW.png"
+    },
+    {
+     "key": "p11_b38",
+     "index": 38,
+     "item": "Abisme AT-99 Mine (Ящик)",
+     "image": "tankmine-crated.webp",
+     "imageBasename": "TankMine-crated.png"
+    },
+    {
+     "key": "p11_b39",
+     "index": 39,
+     "item": "Rooster - Lamploader",
+     "image": "trailerliquid.webp",
+     "imageBasename": "TrailerLiquid.png"
+    },
+    {
+     "key": "p11_b40",
+     "index": 40,
+     "item": "Rooster - Tumblebox",
+     "image": "trailermaterial.webp",
+     "imageBasename": "TrailerMaterial.png"
+    },
+    {
+     "key": "p11_b41",
+     "index": 41,
+     "item": "Dunne Leatherback 2a",
+     "image": "truckdefensivew.webp",
+     "imageBasename": "TruckDefensiveW.png"
+    },
+    {
+     "key": "p11_b42",
+     "index": 42,
+     "item": "Dunne Landrunner 12c",
+     "image": "truckmobilityw.webp",
+     "imageBasename": "TruckMobilityW.png"
+    },
+    {
+     "key": "p11_b43",
+     "index": 43,
+     "item": "E680-S Rudder Lock (Ящик)",
+     "image": "watermine-crated.webp",
+     "imageBasename": "WaterMine-crated.png"
+    },
+    {
+     "key": "p11_b44",
+     "index": 44,
+     "item": "Зажигательный минометный снаряд (Ящик)",
+     "image": "mortarammoflame-crated.webp",
+     "imageBasename": "MortarAmmoFlame-crated.png"
+    }
+   ],
+   "navIcon": "scoutvehicleoffensivew.webp"
+  },
+  {
+   "page": 12,
+   "scroll": false,
+   "white": false,
+   "buttons": [
+    {
+     "key": "p12_b1",
+     "index": 1,
+     "item": "Tulka I1.9 White Raven",
+     "image": "tulka-i1-9-white-raven.webp",
+     "imageBasename": "Tulka I1.9 White Raven.png"
+    },
+    {
+     "key": "p12_b2",
+     "index": 2,
+     "item": "Luminary Mk. II Harbinger",
+     "image": "luminary-mk-ii-harbinger.webp",
+     "imageBasename": "Luminary Mk. II Harbinger.png"
+    },
+    {
+     "key": "p12_b3",
+     "index": 3,
+     "item": "Luminary Mk. IV Herald",
+     "image": "luminary-mk-iv-herald.webp",
+     "imageBasename": "Luminary Mk. IV Herald.png"
+    },
+    {
+     "key": "p12_b4",
+     "index": 4,
+     "item": "Luminary Mk. VI Emissary",
+     "image": "luminary-mk-vi-emissary.webp",
+     "imageBasename": "Luminary Mk. VI Emissary.png"
+    },
+    {
+     "key": "p12_b5",
+     "index": 5,
+     "item": "M925 Austringer Man-O-War",
+     "image": "m925-austringer-man-o-war.webp",
+     "imageBasename": "M925 Austringer Man-O-War.png"
+    },
+    {
+     "key": "p12_b6",
+     "index": 6,
+     "item": "Rinnspeir Mk. I Zealot",
+     "image": "rinnspeir-mk-i-zealot.webp",
+     "imageBasename": "Rinnspeir Mk. I Zealot.png"
+    },
+    {
+     "key": "p12_b7",
+     "index": 7,
+     "item": "Tulka P4 Welkinrive",
+     "image": "tulka-p4-welkinrive.webp",
+     "imageBasename": "Tulka P4 Welkinrive.png"
+    },
+    {
+     "key": "p12_b8",
+     "index": 8,
+     "item": "Авиационные детали Варденов (Малые)",
+     "image": "warden-aircraft-mechanical-parts-small.webp",
+     "imageBasename": "Warden Aircraft Mechanical Parts (Small).png"
+    },
+    {
+     "key": "p12_b9",
+     "index": 9,
+     "item": "Warden Aircraft Mechanical Parts (Large)",
+     "image": "warden-aircraft-mechanical-parts-large.webp",
+     "imageBasename": "Warden Aircraft Mechanical Parts (Large).png"
+    },
+    {
+     "key": "p12_b10",
+     "index": 10,
+     "item": "Варденский авиадвигатель (Малый)",
+     "image": "warden-aircraft-engine-small.webp",
+     "imageBasename": "Warden Aircraft Engine (Small).png"
+    },
+    {
+     "key": "p12_b11",
+     "index": 11,
+     "item": "Warden Aircraft Engine (Large)",
+     "image": "warden-aircraft-engine-large.webp",
+     "imageBasename": "Warden Aircraft Engine (Large).png"
+    },
+    {
+     "key": "p12_b12",
+     "index": 12,
+     "item": "Cloudrunner’s Vesture (Ящик)",
+     "image": "100px-paratrooperuniformwicon.webp",
+     "imageBasename": "100px-ParatrooperUniformWIcon.png"
+    },
+    {
+     "key": "p12_b13",
+     "index": 13,
+     "item": "Одеяние авиатора (Ящик)",
+     "image": "100px-pilotuniformwicon.webp",
+     "imageBasename": "100px-PilotUniformWIcon.png"
+    },
+    {
+     "key": "p12_b14",
+     "index": 14,
+     "item": "Рюкзак парашютиста (Ящик)",
+     "image": "100px-paratrooperbackpackitemicon.webp",
+     "imageBasename": "100px-ParatrooperBackpackItemIcon.png"
+    }
+   ],
+   "navIcon": "luminary-mk-ii-harbinger.webp"
+  }
+ ]
+}
