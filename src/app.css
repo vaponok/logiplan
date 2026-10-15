@@ -9,6 +9,8 @@
   --bg: #ffffff;
   --font: "Inter", "Segoe UI", system-ui, sans-serif;
   --mono: "JetBrains Mono", "Cascadia Mono", Consolas, "DejaVu Sans Mono", monospace;
+  /* скругление окна; в развёрнутом окне — 0 (ставит App.svelte) */
+  --win-radius: 16px;
   color-scheme: light;
 }
 
@@ -20,7 +22,8 @@ html,
 body {
   margin: 0;
   height: 100%;
-  background: var(--bg);
+  /* окно прозрачное (tauri.conf.json): скругление рисует .window */
+  background: transparent;
   color: var(--ink);
   font-family: var(--font);
   font-size: 13px;
@@ -179,4 +182,9 @@ label.lbl,
 
 [title] {
   cursor: default;
+}
+
+/* обёртка поля с кнопкой «копировать» в углу (CopyButton.svelte) */
+.copywrap {
+  position: relative;
 }

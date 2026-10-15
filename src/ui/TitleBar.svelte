@@ -15,29 +15,32 @@
 <header class="titlebar" data-tauri-drag-region>
   <img class="icon" src="/icon.png" alt="" width="28" height="28" draggable="false" />
   <div class="spacer" data-tauri-drag-region></div>
-  <div class="tabs" role="tablist">
-    {#each tabs as key, i (key)}
-      <button
-        class="tab"
-        class:selected={app.tab === i}
-        role="tab"
-        aria-selected={app.tab === i}
-        onclick={() => (app.tab = i)}>{tr(key, app.lang)}</button
-      >
-    {/each}
-  </div>
-  <div class="flags">
-    {#each LANGS as code (code)}
-      <button
-        class="flag"
-        class:checked={app.lang === code}
-        title={tr(flagTips[code], app.lang)}
-        aria-label={tr(flagTips[code], app.lang)}
-        onclick={() => (app.lang = code)}
-      >
-        <Flag kind={code} />
-      </button>
-    {/each}
+  <!-- вкладки и флаги в одной строке: флаги по центру высоты вкладок -->
+  <div class="tabrow">
+    <div class="tabs" role="tablist">
+      {#each tabs as key, i (key)}
+        <button
+          class="tab"
+          class:selected={app.tab === i}
+          role="tab"
+          aria-selected={app.tab === i}
+          onclick={() => (app.tab = i)}>{tr(key, app.lang)}</button
+        >
+      {/each}
+    </div>
+    <div class="flags">
+      {#each LANGS as code (code)}
+        <button
+          class="flag"
+          class:checked={app.lang === code}
+          title={tr(flagTips[code], app.lang)}
+          aria-label={tr(flagTips[code], app.lang)}
+          onclick={() => (app.lang = code)}
+        >
+          <Flag kind={code} />
+        </button>
+      {/each}
+    </div>
   </div>
   <div class="grow" data-tauri-drag-region></div>
   <div class="winbtns">
@@ -83,6 +86,11 @@
     flex: 1;
     align-self: stretch;
   }
+  .tabrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
   .tabs {
     display: flex;
     align-items: flex-end;
@@ -98,7 +106,9 @@
     min-height: 36px;
     font-size: 14px;
     cursor: pointer;
-    transition: padding 0.12s ease;
+    transition:
+      padding 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
+      background 0.2s;
   }
   .tab.selected {
     background: var(--primary-pressed);
@@ -110,7 +120,6 @@
     display: flex;
     gap: 6px;
     padding-left: 10px;
-    align-self: center;
   }
   .flag {
     width: 38px;

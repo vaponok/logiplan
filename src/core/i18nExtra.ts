@@ -7,7 +7,7 @@ export const EXTRA_UI_STRINGS: Record<string, Tr> = {
   btn_no: { ru: "Нет", en: "No", fr: "Non" },
   btn_ok: { ru: "ОК", en: "OK", fr: "OK" },
   btn_restore: { ru: "Восстановить", en: "Restore", fr: "Restaurer" },
-  copy_btn: { ru: "📋 Копировать", en: "📋 Copy", fr: "📋 Copier" },
+  copy_tooltip: { ru: "Копировать", en: "Copy", fr: "Copier" },
   copied_toast: { ru: "Скопировано", en: "Copied", fr: "Copié" },
   calculating: { ru: "Считаю…", en: "Calculating…", fr: "Calcul…" },
   calc_error: { ru: "Ошибка расчёта: {e}", en: "Calculation error: {e}", fr: "Erreur de calcul : {e}" },

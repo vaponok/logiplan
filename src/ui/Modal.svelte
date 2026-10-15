@@ -25,6 +25,8 @@
     position: fixed;
     inset: 0;
     background: rgba(7, 20, 34, 0.35);
+    /* затемнение не должно вылезать за скруглённые углы окна */
+    border-radius: var(--win-radius);
     display: grid;
     place-items: center;
     z-index: 100;

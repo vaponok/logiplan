@@ -4,6 +4,7 @@
   import pagesJson from "../data/quotaPages.json";
   import { tr, trItem } from "../core/i18n";
   import { app, quotaWriter as q } from "../lib/state.svelte";
+  import CopyButton from "./CopyButton.svelte";
   import NumberField from "./NumberField.svelte";
 
   interface Btn {
@@ -70,7 +71,10 @@
       <NumberField value={q.qty} min={1} max={999999} width="100px" title={tr("qty_tooltip", L)} onchange={(v) => (q.qty = v)} />
     </div>
     <span class="lbl">{tr("quota_label", L)}</span>
-    <textarea class="area notes" bind:this={notesEl} placeholder={tr("notes_placeholder", L)} bind:value={q.notes}></textarea>
+    <div class="copywrap notes-wrap">
+      <textarea class="area notes" bind:this={notesEl} placeholder={tr("notes_placeholder", L)} bind:value={q.notes}></textarea>
+      <CopyButton text={q.notes} />
+    </div>
   </div>
 </div>
 
@@ -165,10 +169,14 @@
     align-items: center;
     gap: 8px;
   }
-  .notes {
+  .notes-wrap {
     flex: 1;
     min-height: 200px;
-    padding: 10px;
+    display: flex;
+  }
+  .notes {
+    flex: 1;
+    padding: 10px 66px 10px 10px;
     resize: none;
     background: #fff;
   }

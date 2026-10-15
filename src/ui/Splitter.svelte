@@ -13,10 +13,9 @@
     type SplitterInput,
   } from "../core/splitter";
   import { calculateInBackground } from "../lib/calcClient";
-  import { toast } from "../lib/dialogs.svelte";
-  import { copyText } from "../lib/platform";
   import { app, ensureLengths, results, splitter as s } from "../lib/state.svelte";
   import AviationDialog from "./AviationDialog.svelte";
+  import CopyButton from "./CopyButton.svelte";
   import ListEditor from "./ListEditor.svelte";
   import NumberField from "./NumberField.svelte";
 
@@ -90,9 +89,6 @@
     avDialog = null;
   }
 
-  async function copyOutput() {
-    if (results.output && (await copyText(results.output))) toast(tr("copied_toast", app.lang));
-  }
 
   const undefColor = { aviation: "#3ba0ff", factory: "#ffe600", unknown: "#ff3b3b" } as const;
 </script>
@@ -243,14 +239,14 @@
   <!-- ===== Результат ===== -->
   <div class="results">
     <div class="col">
-      <div class="res-head">
-        <span class="lbl">{tr("result_label", L)}</span>
-        <button class="btn small" disabled={!results.output} onclick={copyOutput}>{tr("copy_btn", L)}</button>
+      <span class="lbl">{tr("result_label", L)}</span>
+      <div class="copywrap">
+        <textarea class="area out" readonly value={results.output}></textarea>
+        <CopyButton text={results.output} />
       </div>
-      <textarea class="area out" readonly value={results.output}></textarea>
     </div>
     <div class="col">
-      <div class="res-head"><span class="lbl unknown">{tr("unknown_positions_label", L)}</span></div>
+      <span class="lbl unknown">{tr("unknown_positions_label", L)}</span>
       <div class="area undef" role="log">
         {#each results.undefinedLines as u, i (i)}
           <div class="uline" style:color={undefColor[u.kind]}>{u.text}</div>
@@ -337,18 +333,14 @@
     gap: 10px;
     margin-top: 6px;
   }
-  .res-head {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    min-height: 34px;
-  }
   .unknown {
     color: red;
   }
   .out {
     min-height: 300px;
     height: 460px;
+    /* место под кнопку «копировать» в углу */
+    padding-right: 66px;
   }
   .uline {
     /* пустое имя (строка Лётки вида "(Ящик),2") — всё равно видимая строка */
