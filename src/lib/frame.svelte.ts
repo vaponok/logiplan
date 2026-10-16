@@ -59,7 +59,9 @@ export async function computeFrame(): Promise<Frame | null> {
   };
 }
 
-/** Следить за окном: размер, положение, развёртывание. Пачки событий схлопываются. */
+/** Следить за окном: размер, положение, развёртывание. Пока окно тянут,
+ *  пересчёт не чаще раза в 150 мс (первый — сразу, последний — обязательно),
+ *  чтобы запросы к окну не мешали WebView2 перерисовываться. */
 export async function watchFrame() {
   const w = await appWindow();
   if (!w) return;
@@ -81,7 +83,24 @@ export async function watchFrame() {
       running = false;
     }
   };
-  await w.onResized(update);
-  await w.onMoved(update);
+  const THROTTLE_MS = 150;
+  let last = -Infinity;
+  let timer: ReturnType<typeof setTimeout> | null = null;
+  const schedule = () => {
+    if (timer) return;
+    const wait = THROTTLE_MS - (performance.now() - last);
+    if (wait <= 0) {
+      last = performance.now();
+      void update();
+    } else {
+      timer = setTimeout(() => {
+        timer = null;
+        last = performance.now();
+        void update();
+      }, wait);
+    }
+  };
+  await w.onResized(schedule);
+  await w.onMoved(schedule);
   await update();
 }

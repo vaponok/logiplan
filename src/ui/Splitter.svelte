@@ -314,6 +314,8 @@
   .checks {
     display: flex;
     flex-direction: column;
+    /* флажок нажимается по своей подписи, а не по всей строке */
+    align-items: flex-start;
     gap: 6px;
     margin: 10px 0 4px;
   }

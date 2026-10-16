@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, untrack } from "svelte";
   import { save } from "./lib/storage";
   import { frame, watchFrame } from "./lib/frame.svelte";
   import { inTauri } from "./lib/platform";
@@ -28,6 +28,29 @@
   $effect(() => {
     document.documentElement.lang = app.lang;
   });
+
+  // Неактивные вкладки не отрисовываются (content-visibility: hidden) — так
+  // растягивание окна не пересчитывает разметку всех трёх вкладок. На время
+  // сдвига ленты видны все вкладки между старой и новой.
+  let from = $state<number | null>(null);
+  let current = untrack(() => app.tab);
+  let slideTimer: ReturnType<typeof setTimeout> | null = null;
+  $effect(() => {
+    const t = app.tab;
+    untrack(() => {
+      if (t === current) return;
+      from = current;
+      current = t;
+      if (slideTimer) clearTimeout(slideTimer);
+      // запасной выход, если transitionend не придёт (prefers-reduced-motion)
+      slideTimer = setTimeout(() => (from = null), 700);
+    });
+  });
+  const rendered = (i: number) =>
+    i === app.tab || (from !== null && i >= Math.min(from, app.tab) && i <= Math.max(from, app.tab));
+  function slideEnd(e: TransitionEvent) {
+    if (e.target === e.currentTarget && e.propertyName === "transform") from = null;
+  }
 </script>
 
 <div class="window" class:maximized>
@@ -36,12 +59,16 @@
     <!-- Все вкладки остаются в DOM (состояние полей сохраняется) и стоят
          в ряд; переключение — сдвиг ленты вбок. Неактивные — inert:
          в них не попасть клавишей Tab. -->
-    <div class="track" style:transform="translateX(-{(app.tab * 100) / TABS}%)">
-      <section class="page" inert={app.tab !== 0} aria-hidden={app.tab !== 0}>
+    <div class="track" style:transform="translateX(-{(app.tab * 100) / TABS}%)" ontransitionend={slideEnd}>
+      <section class="page" class:offscreen={!rendered(0)} inert={app.tab !== 0} aria-hidden={app.tab !== 0}>
         <div class="canvas"><Splitter /></div>
       </section>
-      <section class="page" inert={app.tab !== 1} aria-hidden={app.tab !== 1}><QuotaWriter /></section>
-      <section class="page" inert={app.tab !== 2} aria-hidden={app.tab !== 2}><Timers /></section>
+      <section class="page" class:offscreen={!rendered(1)} inert={app.tab !== 1} aria-hidden={app.tab !== 1}>
+        <QuotaWriter />
+      </section>
+      <section class="page" class:offscreen={!rendered(2)} inert={app.tab !== 2} aria-hidden={app.tab !== 2}>
+        <Timers />
+      </section>
     </div>
   </main>
 </div>
@@ -93,6 +120,9 @@
     height: 100%;
     /* без will-change: постоянный GPU-слой отключал бы ClearType у текста */
     transition: transform 0.38s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .page.offscreen {
+    content-visibility: hidden;
   }
   .page {
     width: calc(100% / 3);
