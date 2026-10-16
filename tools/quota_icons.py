@@ -5,6 +5,8 @@
 Источник — оригинальные иконки игры с официальной вики (foxhole.wiki.gg).
 Часть из них в игре 100x100 или 128x128; такие увеличиваются нейросетью
 Real-ESRGAN (x4plus) и уменьшаются до 256x256, остальные берутся как есть.
+Поддон для материалов нарисован заново (tools/draw_pallet.py): в игре он
+100x100, и нейросеть не может восстановить доски.
 
 Какой файл вики у какой кнопки — tools/quota_icons.json (ключ кнопки ->
 имя файла). Его можно пересобрать по английским названиям предметов:
@@ -19,6 +21,7 @@ Real-ESRGAN (x4plus) и уменьшаются до 256x256, остальные 
 """
 import argparse
 import hashlib
+import importlib
 import json
 import os
 import re
@@ -52,8 +55,8 @@ FILE_OVERRIDES = {
     "Gas Mask Filter": "GasMaskFilterIcon.png",
     "Havoc Charge Detonator": "SatchelChargeTIcon.png",
 }
-# Нейросеть превращает решётку поддона в полосы — тут обычное увеличение.
-PLAIN_RESIZE = {"MaterialPlatformItemIcon.png"}
+# Иконки, нарисованные заново: исходник слишком мелкий даже для нейросети.
+REDRAWN = {"MaterialPlatformItemIcon.png": "draw_pallet"}  # модуль в tools/
 # Иконки вкладок 1-9 — значки категорий игры (128x128: на кнопке 64 px,
 # двойной запас); 10-12 — картинка одной из кнопок вкладки.
 NAV_ICONS = {
@@ -159,19 +162,16 @@ def load_model():
     return ModelLoader().load_from_file(path).eval()
 
 
-def to_256(img, model, plain=False):
+def to_256(img, model):
     """RGBA любого размера -> 256x256; меньшие — через Real-ESRGAN x4."""
     import numpy as np
     import torch
-    from PIL import Image, ImageFilter
+    from PIL import Image
 
     if img.size == (TARGET, TARGET):
         return img
     if min(img.size) > TARGET:
         return img.resize((TARGET, TARGET), Image.LANCZOS)
-    if plain:
-        big = img.resize((TARGET, TARGET), Image.BICUBIC)
-        return big.filter(ImageFilter.UnsharpMask(radius=1.2, percent=60, threshold=2))
 
     def sr(rgb):
         t = torch.from_numpy(np.ascontiguousarray(rgb)).permute(2, 0, 1)[None]
@@ -220,13 +220,15 @@ def build(quality, alpha_quality):
     for f in files:
         # увеличенная копия кэшируется: пересжатие не гоняет нейросеть заново
         cached = os.path.join(CACHE, "256", f)
-        if os.path.exists(cached):
+        if f in REDRAWN:
+            img = importlib.import_module(REDRAWN[f]).draw()
+        elif os.path.exists(cached):
             img = Image.open(cached)
         else:
             if model is None:
                 model = load_model()
             img = Image.open(os.path.join(CACHE, "wiki", f)).convert("RGBA")
-            img = to_256(img, model, plain=f in PLAIN_RESIZE)
+            img = to_256(img, model)
             img.save(cached)
         name = slug(f) + ".webp"
         # прозрачность с потерями (alpha_quality < 100) на глаз не отличить,
