@@ -14,7 +14,8 @@ Real-ESRGAN (x4plus) и уменьшаются до 256x256, остальные 
 Сборка картинок (нужны torch, spandrel, Pillow, numpy; модель скачивается
 сама в tools/.cache):
     python tools/quota_icons.py
-Результат: public/images/items/*.webp и поле image в src/data/quotaPages.json.
+Результат: public/images/items/*.webp, public/images/nav/*.webp (иконки
+вкладок) и поля image / navIcon в src/data/quotaPages.json.
 """
 import argparse
 import hashlib
@@ -53,8 +54,21 @@ FILE_OVERRIDES = {
 }
 # Нейросеть превращает решётку поддона в полосы — тут обычное увеличение.
 PLAIN_RESIZE = {"MaterialPlatformItemIcon.png"}
-# Вкладки 11 и 12 в старой программе показывали картинку одной из своих кнопок.
-NAV_FROM_BUTTON = {11: "p11_b36", 12: "p12_b2"}
+# Иконки вкладок 1-9 — значки категорий игры (128x128: на кнопке 64 px,
+# двойной запас); 10-12 — картинка одной из кнопок вкладки.
+NAV_ICONS = {
+    1: "IconFilterSmallWeapons.png",
+    2: "IconFilterHeavyWeapons.png",
+    3: "IconFilterHeavyAmmunition.png",
+    4: "IconFilterUtility.png",
+    5: "IconFilterResource.png",
+    6: "IconFilterMedical.png",
+    7: "IconFilterUniforms.png",
+    8: "IconFilterVehicle.png",
+    9: "IconFilterShippables.png",
+}
+NAV_FROM_BUTTON = {10: "p10_b1", 11: "p11_b36", 12: "p12_b2"}
+NAV_DIR = os.path.join(ROOT, "public", "images", "nav")
 
 
 def fetch(url, retries=4):
@@ -198,7 +212,7 @@ def build(quality, alpha_quality):
     mapping = json.load(open(MAP_FILE, encoding="utf-8"))
     files = sorted({f for f in mapping.values() if f})
     print(f"Вики: {len(files)} файлов")
-    download(files)
+    download(files + sorted(NAV_ICONS.values()))
     model = None
     os.makedirs(OUT_DIR, exist_ok=True)
     os.makedirs(os.path.join(CACHE, "256"), exist_ok=True)
@@ -224,8 +238,21 @@ def build(quality, alpha_quality):
         if old not in names.values():
             os.remove(os.path.join(OUT_DIR, old))
 
+    os.makedirs(NAV_DIR, exist_ok=True)
+    nav_names = {}
+    for page, f in NAV_ICONS.items():
+        name = slug(f) + ".webp"
+        img = Image.open(os.path.join(CACHE, "wiki", f)).convert("RGBA")
+        img.save(os.path.join(NAV_DIR, name), "WEBP", quality=quality, method=6)
+        nav_names[page] = "nav/" + name
+    for old in os.listdir(NAV_DIR):
+        if "nav/" + old not in nav_names.values():
+            os.remove(os.path.join(NAV_DIR, old))
+
     pages = json.load(open(PAGES_FILE, encoding="utf-8"))
     for p in pages["pages"]:
+        if p["page"] in nav_names:
+            p["navIcon"] = nav_names[p["page"]]
         for b in p["buttons"]:
             f = mapping.get(b["key"])
             if f:

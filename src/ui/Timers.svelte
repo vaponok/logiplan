@@ -65,8 +65,8 @@
       <div class="wh">
         <div class="wh-name">{w.name}</div>
         <div class="timer {v.zone}">{v.text}</div>
-        <button class="btn refresh" title={tr("wt_refresh_tooltip", L)} onclick={() => refresh(w)}>{tr("wt_refresh_btn", L)}</button>
-        <button class="btn del" title={tr("wt_delete_tooltip", L)} aria-label={tr("wt_delete_tooltip", L)} onclick={() => remove(w)}
+        <button class="btn refresh" onclick={() => refresh(w)}>{tr("wt_refresh_btn", L)}</button>
+        <button class="btn del" aria-label={tr("wt_delete_tooltip", L)} onclick={() => remove(w)}
           >🗑️</button
         >
       </div>

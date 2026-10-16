@@ -174,7 +174,7 @@
      "imageBasename": "12_7mm.png"
     }
    ],
-   "navIcon": "1.webp"
+   "navIcon": "nav/iconfiltersmallweapons.webp"
   },
   {
    "page": 2,
@@ -336,7 +336,7 @@
      "imageBasename": "R_P_G_Shell.png"
     }
    ],
-   "navIcon": "2.webp"
+   "navIcon": "nav/iconfilterheavyweapons.webp"
   },
   {
    "page": 3,
@@ -435,7 +435,7 @@
      "imageBasename": "Naval_Buoy.png"
     }
    ],
-   "navIcon": "3.webp"
+   "navIcon": "nav/iconfilterheavyammunition.webp"
   },
   {
    "page": 4,
@@ -611,7 +611,7 @@
      "imageBasename": "Air_Raid_Siren.png"
     }
    ],
-   "navIcon": "4.webp"
+   "navIcon": "nav/iconfilterutility.webp"
   },
   {
    "page": 5,
@@ -626,7 +626,7 @@
      "imageBasename": "Maintenance_Supplies.png"
     }
    ],
-   "navIcon": "5.webp"
+   "navIcon": "nav/iconfilterresource.webp"
   },
   {
    "page": 6,
@@ -669,7 +669,7 @@
      "imageBasename": "Soldier_Supplies.png"
     }
    ],
-   "navIcon": "6.webp"
+   "navIcon": "nav/iconfiltermedical.webp"
   },
   {
    "page": 7,
@@ -740,7 +740,7 @@
      "imageBasename": "Padded_Boiler_Suit.png"
     }
    ],
-   "navIcon": "7.webp"
+   "navIcon": "nav/iconfilteruniforms.webp"
   },
   {
    "page": 8,
@@ -993,7 +993,7 @@
      "imageBasename": "Bellweather by VAC.png"
     }
    ],
-   "navIcon": "8.webp"
+   "navIcon": "nav/iconfiltervehicle.webp"
   },
   {
    "page": 9,
@@ -1078,7 +1078,7 @@
      "imageBasename": "Fuel_Container.png"
     }
    ],
-   "navIcon": "9.webp"
+   "navIcon": "nav/iconfiltershippables.webp"
   },
   {
    "page": 10,
@@ -1121,7 +1121,7 @@
      "imageBasename": "Rare_Metal.png"
     }
    ],
-   "navIcon": "10.webp"
+   "navIcon": "items/basicmaterialsicon.webp"
   },
   {
    "page": 11,

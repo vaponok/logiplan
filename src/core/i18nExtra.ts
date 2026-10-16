@@ -1,5 +1,6 @@
 // Строки интерфейса, которых не было в Python-версии (там их рисовал Qt
-// сам или функций не было). Остальные переводы — src/data/i18n.json.
+// сам или функций не было), и строки, изменённые по сравнению с ней
+// (перекрывают одноимённые). Остальные переводы — src/data/i18n.json.
 type Tr = { ru: string; en: string; fr: string };
 
 export const EXTRA_UI_STRINGS: Record<string, Tr> = {
@@ -7,6 +8,12 @@ export const EXTRA_UI_STRINGS: Record<string, Tr> = {
   btn_no: { ru: "Нет", en: "No", fr: "Non" },
   btn_ok: { ru: "ОК", en: "OK", fr: "OK" },
   btn_restore: { ru: "Восстановить", en: "Restore", fr: "Restaurer" },
+  // в старой версии с «⚙ » в начале
+  aviation_recipe_btn: {
+    ru: "Настроить цены самолётов",
+    en: "Configure Aircraft Prices",
+    fr: "Configurer le prix des avions",
+  },
   copy_tooltip: { ru: "Копировать", en: "Copy", fr: "Copier" },
   copied_toast: { ru: "Скопировано", en: "Copied", fr: "Copié" },
   calculating: { ru: "Считаю…", en: "Calculating…", fr: "Calcul…" },

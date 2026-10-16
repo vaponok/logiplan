@@ -23,7 +23,6 @@
   class="copybtn"
   class:done
   disabled={!text}
-  title={tr("copy_tooltip", app.lang)}
   aria-label={tr("copy_tooltip", app.lang)}
   onclick={copy}
 >

@@ -109,7 +109,7 @@
         ></textarea>
       </div>
     </div>
-    <button class="btn wide" title={tr("calc_quota_tooltip", L)} onclick={onCalcQuota}>{tr("calc_quota_btn", L)}</button>
+    <button class="btn wide" onclick={onCalcQuota}>{tr("calc_quota_btn", L)}</button>
   </section>
 
   <!-- ===== Шапка плана ===== -->
@@ -200,7 +200,7 @@
       {/each}
       <span class="lbl">{tr("aviation_label", L)}</span>
       <textarea class="area" style:min-height="300px" bind:value={s.aviationText}></textarea>
-      <button class="btn wide" title={tr("aviation_recipe_tooltip", L)} onclick={openAviationDialog}>{tr("aviation_recipe_btn", L)}</button>
+      <button class="btn wide" onclick={openAviationDialog}>{tr("aviation_recipe_btn", L)}</button>
       <ListEditor
         title={tr("aviation_editor_group", L)}
         open={s.aviationEditorOpen}

@@ -38,7 +38,6 @@
         <button
           class="flag"
           class:checked={app.lang === code}
-          title={tr(flagTips[code], app.lang)}
           aria-label={tr(flagTips[code], app.lang)}
           onclick={() => (app.lang = code)}
         >
@@ -47,8 +46,8 @@
       {/each}
     </div>
     <div class="winbtns" data-tauri-drag-region>
-      <button class="winbtn" title={tr("btn_minimize", app.lang)} onclick={minimize}>─</button>
-      <button class="winbtn" title={tr("btn_maximize", app.lang)} onclick={toggleMaximize} aria-label={tr("btn_maximize", app.lang)}>
+      <button class="winbtn" aria-label={tr("btn_minimize", app.lang)} onclick={minimize}>─</button>
+      <button class="winbtn" onclick={toggleMaximize} aria-label={tr("btn_maximize", app.lang)}>
         {#if maximized}
           <svg width="20" height="20" viewBox="0 0 20 20"
             ><rect x="2" y="6" width="12" height="12" fill="none" stroke="#fff" stroke-width="2" /><path
@@ -62,7 +61,7 @@
           <svg width="20" height="20" viewBox="0 0 20 20"><rect x="2" y="2" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" /></svg>
         {/if}
       </button>
-      <button class="winbtn" title={tr("btn_close", app.lang)} onclick={closeWindow}>✕</button>
+      <button class="winbtn" aria-label={tr("btn_close", app.lang)} onclick={closeWindow}>✕</button>
     </div>
   </div>
 </header>

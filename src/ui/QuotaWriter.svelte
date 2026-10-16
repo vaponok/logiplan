@@ -53,7 +53,7 @@
     <div class="pagebox" class:white={current.white}>
       <div class="grid">
         {#each current.buttons as b (b.key)}
-          <button class="imgbtn" title={b.item ? trItem(b.item, L) : ""} onclick={() => press(b)}>
+          <button class="imgbtn" onclick={() => press(b)}>
             {#if b.image}
               <img src="/images/{b.image}" alt={b.item ? trItem(b.item, L) : ""} loading="lazy" draggable="false" />
             {:else}

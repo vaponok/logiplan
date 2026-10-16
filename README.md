@@ -42,7 +42,7 @@ npm run tauri build  # сборка exe (на Windows)
 ```
 legacy/                исходники Python-версии без изменений — эталон поведения
 tools/export_data.py   i18n.py / items.py / quota_writer.py -> src/data/*.json, картинки -> WebP
-tools/quota_icons.py   картинки кнопок квоты: иконки игры с вики -> 256x256 WebP (Real-ESRGAN)
+tools/quota_icons.py   картинки кнопок и вкладок квоты: иконки игры с вики -> WebP (Real-ESRGAN)
 tools/golden/          прогон Python-версии на случайных квотах -> tests/golden/*.json
 src/core/              логика без интерфейса (перенос из Python)
   splitter.ts            распределение, МТО, Лётка, «Рассчитать квоту», формат вывода
@@ -84,12 +84,13 @@ QT_QPA_PLATFORM=offscreen python tools/export_data.py --images <папка image
 в одном размере 256×256. В самой игре часть иконок 100×100 или 128×128 —
 их `tools/quota_icons.py` увеличивает нейросетью Real-ESRGAN (x4plus).
 Какой файл вики у какой кнопки — `tools/quota_icons.json`.
+Иконки вкладок — значки категорий игры 128×128 (на кнопке 64 px).
 
 ```bash
 pip install torch --index-url https://download.pytorch.org/whl/cpu
 pip install spandrel pillow numpy
 python tools/quota_icons.py --resolve   # дописать новые кнопки в quota_icons.json
-python tools/quota_icons.py             # скачать, увеличить, записать public/images/items
+python tools/quota_icons.py             # скачать, увеличить, записать public/images/items и nav
 ```
 
 `export_data.py` ставит кнопкам старые картинки из архива — после него нужно

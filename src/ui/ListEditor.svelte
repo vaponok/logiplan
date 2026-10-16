@@ -103,8 +103,8 @@
         <ItemList items={available} {lang} bind:selected={selAvail} onactivate={(n) => add([n])} />
       </div>
       <div class="btncol">
-        <button class="btn" title={labels.addTip} onclick={() => add(selAvail)}>→&nbsp;&nbsp;+</button>
-        <button class="btn" title={labels.removeTip} onclick={() => remove(selChosen)}>−&nbsp;&nbsp;←</button>
+        <button class="btn" aria-label={labels.addTip} onclick={() => add(selAvail)}>→&nbsp;&nbsp;+</button>
+        <button class="btn" aria-label={labels.removeTip} onclick={() => remove(selChosen)}>−&nbsp;&nbsp;←</button>
       </div>
       <div class="col">
         <span class="lbl">{labels.selected}</span>
@@ -112,7 +112,7 @@
       </div>
     </div>
     <div class="bottom">
-      <button class="btn" title={labels.resetTip} onclick={reset}>{tr("reset_default_btn", lang)}</button>
+      <button class="btn" onclick={reset}>{tr("reset_default_btn", lang)}</button>
     </div>
   {/if}
 </section>
