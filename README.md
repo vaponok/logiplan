@@ -42,6 +42,7 @@ npm run tauri build  # сборка exe (на Windows)
 ```
 legacy/                исходники Python-версии без изменений — эталон поведения
 tools/export_data.py   i18n.py / items.py / quota_writer.py -> src/data/*.json, картинки -> WebP
+tools/quota_icons.py   картинки кнопок квоты: иконки игры с вики -> 256x256 WebP (Real-ESRGAN)
 tools/golden/          прогон Python-версии на случайных квотах -> tests/golden/*.json
 src/core/              логика без интерфейса (перенос из Python)
   splitter.ts            распределение, МТО, Лётка, «Рассчитать квоту», формат вывода
@@ -76,6 +77,23 @@ src-tauri/             Rust: окно, хранилище, чтение реес
 QT_QPA_PLATFORM=offscreen python tools/golden/gen_golden.py --splitter 250
 QT_QPA_PLATFORM=offscreen python tools/export_data.py --images <папка images из старого архива>
 ```
+
+### Картинки «Написания квоты»
+
+Все кнопки — оригинальные иконки игры с [официальной вики](https://foxhole.wiki.gg)
+в одном размере 256×256. В самой игре часть иконок 100×100 или 128×128 —
+их `tools/quota_icons.py` увеличивает нейросетью Real-ESRGAN (x4plus).
+Какой файл вики у какой кнопки — `tools/quota_icons.json`.
+
+```bash
+pip install torch --index-url https://download.pytorch.org/whl/cpu
+pip install spandrel pillow numpy
+python tools/quota_icons.py --resolve   # дописать новые кнопки в quota_icons.json
+python tools/quota_icons.py             # скачать, увеличить, записать public/images/items
+```
+
+`export_data.py` ставит кнопкам старые картинки из архива — после него нужно
+снова запустить `quota_icons.py`.
 
 ## Исправленные ошибки старой версии
 

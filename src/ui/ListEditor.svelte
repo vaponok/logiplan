@@ -91,10 +91,10 @@
 </script>
 
 <section class="group">
-  <label class="group-title check">
-    <input type="checkbox" checked={open} onchange={(e) => ontoggle(e.currentTarget.checked)} />
-    {title}
-  </label>
+  <div class="group-title check">
+    <input type="checkbox" checked={open} aria-label={title} onchange={(e) => ontoggle(e.currentTarget.checked)} />
+    <span>{title}</span>
+  </div>
   {#if open}
     <div class="lists">
       <div class="col">

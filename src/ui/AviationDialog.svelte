@@ -41,13 +41,13 @@
   <div class="grid">
     <span>{tr("coke_label", lang)}</span>
     <div class="row">
-      <label class="check"><input type="radio" checked={s.coke === "with_sulfur"} onchange={() => (s.coke = "with_sulfur")} />{tr("coke_with_sulfur", lang)}</label>
-      <label class="check"><input type="radio" checked={s.coke === "no_sulfur"} onchange={() => (s.coke = "no_sulfur")} />{tr("coke_no_sulfur", lang)}</label>
+      <span class="check"><input type="radio" checked={s.coke === "with_sulfur"} onchange={() => (s.coke = "with_sulfur")} aria-label={tr("coke_with_sulfur", lang)} /><span>{tr("coke_with_sulfur", lang)}</span></span>
+      <span class="check"><input type="radio" checked={s.coke === "no_sulfur"} onchange={() => (s.coke = "no_sulfur")} aria-label={tr("coke_no_sulfur", lang)} /><span>{tr("coke_no_sulfur", lang)}</span></span>
     </div>
     <span>{tr("fuel_label", lang)}</span>
     <div class="row">
-      <label class="check"><input type="radio" checked={s.fuel === "sulfur"} onchange={() => (s.fuel = "sulfur")} />{tr("fuel_sulfur", lang)}</label>
-      <label class="check"><input type="radio" checked={s.fuel === "coal"} onchange={() => (s.fuel = "coal")} />{tr("fuel_coal", lang)}</label>
+      <span class="check"><input type="radio" checked={s.fuel === "sulfur"} onchange={() => (s.fuel = "sulfur")} aria-label={tr("fuel_sulfur", lang)} /><span>{tr("fuel_sulfur", lang)}</span></span>
+      <span class="check"><input type="radio" checked={s.fuel === "coal"} onchange={() => (s.fuel = "coal")} aria-label={tr("fuel_coal", lang)} /><span>{tr("fuel_coal", lang)}</span></span>
     </div>
     <span>{scrapLabel}</span>
     <div class="row">
@@ -71,7 +71,7 @@
       <div class="order">
         <div class="head">
           <b>#{r.order.lineIndex + 1}: {trItem(r.order.name, lang)} (×{r.order.count})</b>
-          <label class="check"><input type="checkbox" bind:checked={r.custom} />{tr("custom_settings_cb", lang)}</label>
+          <span class="check"><input type="checkbox" bind:checked={r.custom} aria-label={tr("custom_settings_cb", lang)} /><span>{tr("custom_settings_cb", lang)}</span></span>
         </div>
         {#if r.custom}
           <div class="sub">{@render settingsForm(r.s, tr("via_scrap_label", lang))}</div>

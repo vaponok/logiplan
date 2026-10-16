@@ -226,10 +226,10 @@
 
   <!-- ===== Флажки и расчёт ===== -->
   <div class="checks">
-    <label class="check"><input type="checkbox" bind:checked={s.enforceMul4} />{tr("mul4_checkbox", L)}</label>
-    <label class="check"><input type="checkbox" bind:checked={s.freeEmats} />{tr("free_emats_checkbox", L)}</label>
-    <label class="check"><input type="checkbox" bind:checked={s.freeHemats} />{tr("free_hemats_checkbox", L)}</label>
-    <label class="check"><input type="checkbox" bind:checked={s.freeRmats} />{tr("free_rmats_checkbox", L)}</label>
+    <span class="check"><input type="checkbox" bind:checked={s.enforceMul4} aria-label={tr("mul4_checkbox", L)} /><span>{tr("mul4_checkbox", L)}</span></span>
+    <span class="check"><input type="checkbox" bind:checked={s.freeEmats} aria-label={tr("free_emats_checkbox", L)} /><span>{tr("free_emats_checkbox", L)}</span></span>
+    <span class="check"><input type="checkbox" bind:checked={s.freeHemats} aria-label={tr("free_hemats_checkbox", L)} /><span>{tr("free_hemats_checkbox", L)}</span></span>
+    <span class="check"><input type="checkbox" bind:checked={s.freeRmats} aria-label={tr("free_rmats_checkbox", L)} /><span>{tr("free_rmats_checkbox", L)}</span></span>
   </div>
 
   <button class="btn wide" disabled={results.busy} onclick={onCalculate}>
