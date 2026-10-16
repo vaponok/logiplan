@@ -232,7 +232,7 @@
     <label class="check"><input type="checkbox" bind:checked={s.freeRmats} />{tr("free_rmats_checkbox", L)}</label>
   </div>
 
-  <button class="btn wide glow" disabled={results.busy} onclick={onCalculate}>
+  <button class="btn wide" disabled={results.busy} onclick={onCalculate}>
     {results.busy ? tr("calculating", L) : tr("calculate_btn", L)}
   </button>
 
@@ -316,17 +316,6 @@
     flex-direction: column;
     gap: 6px;
     margin: 10px 0 4px;
-  }
-  .glow {
-    box-shadow: 0 0 12px rgba(0, 102, 255, 0.55);
-    transition: box-shadow 0.18s cubic-bezier(0.33, 1, 0.68, 1);
-  }
-  .glow:hover {
-    box-shadow: 0 0 28px rgba(0, 102, 255, 0.55);
-  }
-  .glow:active {
-    box-shadow: 0 0 8px rgba(0, 102, 255, 0.55);
-    transition-duration: 0.09s;
   }
   .results {
     display: flex;

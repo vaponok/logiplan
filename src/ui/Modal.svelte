@@ -34,7 +34,8 @@
 <style>
   .backdrop {
     position: fixed;
-    inset: 0;
+    /* только поверх самого окна, не поверх прозрачной полосы с тенью */
+    inset: var(--win-gutter);
     background: rgba(7, 20, 34, 0.35);
     /* затемнение не должно вылезать за скруглённые углы окна */
     border-radius: var(--win-radius);

@@ -29,6 +29,20 @@ export async function closeWindow() {
   else window.close();
 }
 
+export type ResizeDirection = "East" | "North" | "NorthEast" | "NorthWest" | "South" | "SouthEast" | "SouthWest" | "West";
+
+/** Растягивание окна за прозрачную полосу вокруг него (см. ResizeFrame.svelte). */
+export async function startResize(dir: ResizeDirection) {
+  await (await appWindow())?.startResizeDragging(dir);
+}
+
+/** Скругление и полоса под тень; у развёрнутого окна — ни того, ни другого. */
+export function applyFrame(maximized: boolean) {
+  const st = document.documentElement.style;
+  st.setProperty("--win-radius", maximized ? "0px" : "16px");
+  st.setProperty("--win-gutter", maximized ? "0px" : "14px");
+}
+
 export async function isMaximized(): Promise<boolean> {
   const w = await appWindow();
   return w ? w.isMaximized() : false;

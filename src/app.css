@@ -9,8 +9,10 @@
   --bg: #ffffff;
   --font: "Inter", "Segoe UI", system-ui, sans-serif;
   --mono: "JetBrains Mono", "Cascadia Mono", Consolas, "DejaVu Sans Mono", monospace;
-  /* скругление окна; в развёрнутом окне — 0 (ставит App.svelte) */
+  /* скругление окна и прозрачная полоса вокруг него под тень (она же —
+     рамка для растягивания); в развёрнутом окне обе 0 (ставит applyFrame) */
   --win-radius: 16px;
+  --win-gutter: 14px;
   color-scheme: light;
 }
 
@@ -22,12 +24,16 @@ html,
 body {
   margin: 0;
   height: 100%;
-  /* окно прозрачное (tauri.conf.json): скругление рисует .window */
+  /* окно прозрачное (tauri.conf.json): скругление и тень рисует .window */
   background: transparent;
   color: var(--ink);
   font-family: var(--font);
   font-size: 13px;
   overflow: hidden;
+}
+
+body {
+  padding: var(--win-gutter);
 }
 
 #app {
@@ -106,7 +112,8 @@ textarea.area,
   font-family: var(--mono);
   font-size: 12.5px;
   line-height: 1.35;
-  resize: vertical;
+  /* поля фиксированной высоты: растягивание мышью отключено */
+  resize: none;
   width: 100%;
   outline: none;
 }
@@ -180,7 +187,13 @@ label.lbl,
   background: transparent;
 }
 
-[title] {
+/* рука-указатель на всём, что нажимается */
+button,
+select,
+summary {
+  cursor: pointer;
+}
+button:disabled {
   cursor: default;
 }
 

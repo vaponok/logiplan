@@ -58,7 +58,9 @@
     border-radius: 8px;
     padding: 4px;
     background: #fff;
+    /* растягивается до низа колонки: левый и правый списки кончаются вровень */
     height: 300px;
+    flex: 1 0 auto;
     overflow-y: auto;
     outline: none;
     user-select: none;

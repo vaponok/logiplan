@@ -1,13 +1,14 @@
 <script lang="ts">
   import { onMount, untrack } from "svelte";
   import { save } from "./lib/storage";
-  import { watchMaximized } from "./lib/platform";
+  import { applyFrame, inTauri, watchMaximized } from "./lib/platform";
   import { app, quotaWriter, splitter, timers } from "./lib/state.svelte";
   import TitleBar from "./ui/TitleBar.svelte";
   import Splitter from "./ui/Splitter.svelte";
   import QuotaWriter from "./ui/QuotaWriter.svelte";
   import Timers from "./ui/Timers.svelte";
   import DialogHost from "./ui/DialogHost.svelte";
+  import ResizeFrame from "./ui/ResizeFrame.svelte";
 
   const TABS = 3;
   // Начальное состояние узнаём до первого кадра (main.ts), чтобы развёрнутое
@@ -27,10 +28,8 @@
   $effect(() => {
     document.documentElement.lang = app.lang;
   });
-  // Развёрнутое окно — без скруглений (их видно бы было по краям экрана).
-  $effect(() => {
-    document.documentElement.style.setProperty("--win-radius", maximized ? "0px" : "16px");
-  });
+  // Развёрнутое окно — без скруглений и тени (их видно бы было по краям экрана).
+  $effect(() => applyFrame(maximized));
 </script>
 
 <div class="window" class:maximized>
@@ -49,10 +48,11 @@
   </main>
 </div>
 <DialogHost />
+{#if inTauri() && !maximized}<ResizeFrame />{/if}
 
 <style>
   .window {
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     background: #fff;
@@ -60,6 +60,13 @@
     /* clip, а не hidden: такой контейнер нельзя прокрутить даже фокусом */
     overflow: clip;
     position: relative;
+    /* мягкая тень в прозрачной полосе вокруг окна (--win-gutter) */
+    box-shadow:
+      0 4px 12px -2px rgba(0, 0, 0, 0.45),
+      0 0 3px rgba(0, 0, 0, 0.25);
+  }
+  .window.maximized {
+    box-shadow: none;
   }
   /* тонкий контур поверх содержимого, чтобы окно не терялось на светлом фоне */
   .window::after {
