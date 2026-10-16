@@ -20,7 +20,7 @@
     <img class="icon" src="/icon.png" alt="" width="28" height="28" draggable="false" data-tauri-drag-region />
   </div>
   <div class="spacer" data-tauri-drag-region></div>
-  <div class="tabs" role="tablist">
+  <div class="tabs" role="tablist" data-tauri-drag-region>
     {#each tabs as key, i (key)}
       <button
         class="tab"

@@ -9,10 +9,16 @@
   --bg: #ffffff;
   --font: "Inter", "Segoe UI", system-ui, sans-serif;
   --mono: "JetBrains Mono", "Cascadia Mono", Consolas, "DejaVu Sans Mono", monospace;
-  /* скругление окна и прозрачная полоса вокруг него под тень (она же —
-     рамка для растягивания); в развёрнутом окне обе 0 (ставит applyFrame) */
-  --win-radius: 16px;
-  --win-gutter: 14px;
+  /* прозрачная полоса вокруг окна под тень (она же — рамка для растягивания)
+     и скругления углов; актуальные значения ставит lib/frame.svelte.ts */
+  --g-top: 6px;
+  --g-right: 10px;
+  --g-bottom: 14px;
+  --g-left: 10px;
+  --r-tl: 16px;
+  --r-tr: 16px;
+  --r-br: 16px;
+  --r-bl: 16px;
   color-scheme: light;
 }
 
@@ -33,7 +39,7 @@ body {
 }
 
 body {
-  padding: var(--win-gutter);
+  padding: var(--g-top) var(--g-right) var(--g-bottom) var(--g-left);
 }
 
 #app {
@@ -190,7 +196,8 @@ label.lbl,
 /* рука-указатель на всём, что нажимается */
 button,
 select,
-summary {
+summary,
+input[type="range"] {
   cursor: pointer;
 }
 button:disabled {

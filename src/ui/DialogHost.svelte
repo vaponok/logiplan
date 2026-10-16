@@ -27,7 +27,7 @@
   .toast {
     position: fixed;
     left: 50%;
-    bottom: calc(24px + var(--win-gutter));
+    bottom: calc(24px + var(--g-bottom));
     transform: translateX(-50%);
     background: var(--ink);
     color: #fff;

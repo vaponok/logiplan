@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { onMount, untrack } from "svelte";
+  import { onMount } from "svelte";
   import { save } from "./lib/storage";
-  import { applyFrame, inTauri, watchMaximized } from "./lib/platform";
+  import { frame, watchFrame } from "./lib/frame.svelte";
+  import { inTauri } from "./lib/platform";
   import { app, quotaWriter, splitter, timers } from "./lib/state.svelte";
   import TitleBar from "./ui/TitleBar.svelte";
   import Splitter from "./ui/Splitter.svelte";
@@ -11,12 +12,11 @@
   import ResizeFrame from "./ui/ResizeFrame.svelte";
 
   const TABS = 3;
-  // Начальное состояние узнаём до первого кадра (main.ts), чтобы развёрнутое
-  // окно не мелькнуло скруглёнными углами.
-  let { initialMaximized = false }: { initialMaximized?: boolean } = $props();
-  let maximized = $state(untrack(() => initialMaximized));
+  // Рамка окна (полоса под тень, скругления, «развёрнуто») — lib/frame.svelte.ts;
+  // начальное значение выставляет main.ts до первого кадра.
+  const maximized = $derived(frame.maximized);
   onMount(() => {
-    void watchMaximized((m) => (maximized = m));
+    void watchFrame();
   });
 
   // Любое изменение состояния — отложенная запись на диск.
@@ -28,8 +28,6 @@
   $effect(() => {
     document.documentElement.lang = app.lang;
   });
-  // Развёрнутое окно — без скруглений и тени (их видно бы было по краям экрана).
-  $effect(() => applyFrame(maximized));
 </script>
 
 <div class="window" class:maximized>
@@ -56,11 +54,11 @@
     display: flex;
     flex-direction: column;
     background: #fff;
-    border-radius: var(--win-radius);
+    border-radius: var(--r-tl) var(--r-tr) var(--r-br) var(--r-bl);
     /* clip, а не hidden: такой контейнер нельзя прокрутить даже фокусом */
     overflow: clip;
     position: relative;
-    /* мягкая тень в прозрачной полосе вокруг окна (--win-gutter) */
+    /* мягкая тень в прозрачной полосе вокруг окна (--g-*) */
     box-shadow:
       0 4px 12px -2px rgba(0, 0, 0, 0.45),
       0 0 3px rgba(0, 0, 0, 0.25);

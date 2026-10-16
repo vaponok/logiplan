@@ -36,26 +36,6 @@ export async function startResize(dir: ResizeDirection) {
   await (await appWindow())?.startResizeDragging(dir);
 }
 
-/** Скругление и полоса под тень; у развёрнутого окна — ни того, ни другого. */
-export function applyFrame(maximized: boolean) {
-  const st = document.documentElement.style;
-  st.setProperty("--win-radius", maximized ? "0px" : "16px");
-  st.setProperty("--win-gutter", maximized ? "0px" : "14px");
-}
-
-export async function isMaximized(): Promise<boolean> {
-  const w = await appWindow();
-  return w ? w.isMaximized() : false;
-}
-
-/** Подписка на «развёрнуто/не развёрнуто». */
-export async function watchMaximized(cb: (maximized: boolean) => void) {
-  const w = await appWindow();
-  if (!w) return;
-  cb(await w.isMaximized());
-  await w.onResized(async () => cb(await w.isMaximized()));
-}
-
 /** Перед закрытием окна — дождаться сохранения настроек. */
 export async function beforeClose(fn: () => Promise<void>) {
   const w = await appWindow();

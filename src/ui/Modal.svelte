@@ -35,10 +35,10 @@
   .backdrop {
     position: fixed;
     /* только поверх самого окна, не поверх прозрачной полосы с тенью */
-    inset: var(--win-gutter);
+    inset: var(--g-top) var(--g-right) var(--g-bottom) var(--g-left);
     background: rgba(7, 20, 34, 0.35);
     /* затемнение не должно вылезать за скруглённые углы окна */
-    border-radius: var(--win-radius);
+    border-radius: var(--r-tl) var(--r-tr) var(--r-br) var(--r-bl);
     display: grid;
     place-items: center;
     z-index: 100;
@@ -48,16 +48,16 @@
     border: var(--border);
     border-radius: 12px;
     min-width: 340px;
-    max-width: min(560px, calc(100vw - 32px));
-    max-height: calc(100vh - 48px);
+    max-width: min(560px, calc(100vw - var(--g-left) - var(--g-right) - 32px));
+    max-height: calc(100vh - var(--g-top) - var(--g-bottom) - 48px);
     display: flex;
     flex-direction: column;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   }
   .card.wide {
-    width: min(760px, calc(100vw - 32px));
+    width: min(760px, calc(100vw - var(--g-left) - var(--g-right) - 32px));
     max-width: none;
-    min-height: min(500px, calc(100vh - 48px));
+    min-height: min(500px, calc(100vh - var(--g-top) - var(--g-bottom) - 48px));
   }
   .title {
     font-weight: 700;
