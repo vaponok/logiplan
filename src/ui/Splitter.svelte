@@ -18,6 +18,7 @@
   import CopyButton from "./CopyButton.svelte";
   import ListEditor from "./ListEditor.svelte";
   import NumberField from "./NumberField.svelte";
+  import Select from "./Select.svelte";
 
   const L = $derived(app.lang);
   let avDialog = $state<AviationOrder[] | null>(null);
@@ -120,11 +121,7 @@
   <span class="lbl">{tr("storage_password_label", L)}</span>
   <input class="field block" bind:value={s.storagePass} />
   <span class="lbl">{tr("plan_until_label", L)}</span>
-  <select class="field block" bind:value={s.weekdayIndex}>
-    {#each WEEKDAYS[L] as day, i (i)}
-      <option value={i}>{day}</option>
-    {/each}
-  </select>
+  <Select bind:value={s.weekdayIndex} options={WEEKDAYS[L].map((day, i) => ({ value: i, label: day }))} />
   <span class="lbl">{tr("division_count_label", L)}</span>
   <NumberField value={s.divisionCount} min={1} max={100} width="100%" onchange={(v) => setCount("divisionCount", v)} />
 
@@ -143,8 +140,13 @@
   <textarea class="area" style:min-height="300px" bind:value={s.quotaText}></textarea>
 
   <!-- ===== Завод ===== -->
-  <section class="group">
-    <div class="group-title">{tr("factory_group", L)}</div>
+  <section class="group" class:folded={!s.factoryOpen}>
+    <button type="button" class="group-title fold" aria-expanded={s.factoryOpen} onclick={() => (s.factoryOpen = !s.factoryOpen)}>
+      <svg class="chev" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"
+        ><path d="M1 3l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" /></svg
+      >{tr("factory_group", L)}
+    </button>
+    {#if s.factoryOpen}
 
     <section class="group">
       <div class="group-title">{tr("omto_subgroup", L)}</div>
@@ -189,8 +191,13 @@
       />
     </section>
 
-    <section class="group">
-      <div class="group-title">{tr("aviation_subgroup", L)}</div>
+    <section class="group" class:folded={!s.aviationOpen}>
+      <button type="button" class="group-title fold" aria-expanded={s.aviationOpen} onclick={() => (s.aviationOpen = !s.aviationOpen)}>
+        <svg class="chev" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"
+          ><path d="M1 3l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" /></svg
+        >{tr("aviation_subgroup", L)}
+      </button>
+      {#if s.aviationOpen}
       <div class="row">
         <span>{tr("headcount_label", L)}</span>
         <NumberField value={s.aviationCount} min={0} max={50} onchange={(v) => setCount("aviationCount", v)} />
@@ -221,7 +228,9 @@
           resetText: tr("reset_aviation_dialog_text", L),
         }}
       />
+      {/if}
     </section>
+    {/if}
   </section>
 
   <!-- ===== Флажки и расчёт ===== -->
@@ -332,6 +341,29 @@
     height: 460px;
     /* место под кнопку «копировать» в углу */
     padding-right: 66px;
+  }
+  /* заголовок сворачиваемого раздела */
+  .fold {
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    text-align: left;
+    font: inherit;
+    font-weight: 600;
+  }
+  .folded {
+    padding-bottom: 10px;
+  }
+  .fold[aria-expanded="false"] {
+    margin-bottom: 0;
+  }
+  .chev {
+    flex: none;
+    transition: transform 0.15s;
+  }
+  .fold[aria-expanded="false"] .chev {
+    transform: rotate(-90deg);
   }
   .uline {
     /* пустое имя (строка Лётки вида "(Ящик),2") — всё равно видимая строка */

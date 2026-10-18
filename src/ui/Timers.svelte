@@ -2,6 +2,7 @@
   // Вкладка «Таймеры складов»: склад живёт 50 часов от последнего обновления.
   import { tr } from "../core/i18n";
   import { regions } from "../data/depots.json";
+  import Select from "./Select.svelte";
   import { alertDialog, confirmDialog } from "../lib/dialogs.svelte";
   import { app, newId, timers, type Warehouse } from "../lib/state.svelte";
 
@@ -87,18 +88,20 @@
     }}
   >
     <input class="field name-input" placeholder={tr("wt_name_placeholder", L)} bind:value={name} />
-    <select class="field" class:empty={!hex} bind:value={hex} onchange={() => (depot = "")}>
-      <option value="">{tr("wt_hex_placeholder", L)}</option>
-      {#each regions as r (r.region)}
-        <option value={r.region}>{r.region}</option>
-      {/each}
-    </select>
-    <select class="field depot-select" class:empty={!depot} bind:value={depot} disabled={!hex}>
-      <option value="">{tr("wt_depot_placeholder", L)}</option>
-      {#each depots as [type, town], i (i)}
-        <option value={String(i)}>{depotLabel(type, town)}</option>
-      {/each}
-    </select>
+    <Select
+      class="hex-select"
+      bind:value={hex}
+      options={regions.map((r) => ({ value: r.region, label: r.region }))}
+      placeholder={tr("wt_hex_placeholder", L)}
+      onchange={() => (depot = "")}
+    />
+    <Select
+      class="depot-select"
+      bind:value={depot}
+      options={depots.map(([type, town], i) => ({ value: String(i), label: depotLabel(type, town) }))}
+      placeholder={tr("wt_depot_placeholder", L)}
+      disabled={!hex}
+    />
     <input
       class="field password-input"
       placeholder={tr("wt_password_placeholder", L)}
@@ -172,24 +175,17 @@
   .password-input {
     flex: 0 1 110px;
   }
-  select.field {
-    padding-right: 30px;
-    background: #fff
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E")
-      no-repeat right 12px center;
+  /* выпадающие списки (Select.svelte) — как поля ввода рядом */
+  .input-row :global(.hex-select) {
+    flex: 1 1 140px;
   }
-  select.field:disabled {
-    opacity: 0.5;
-    cursor: default;
-  }
-  .depot-select {
+  .input-row :global(.depot-select) {
     flex: 2 1 200px;
   }
-  .empty {
-    color: #757575;
-  }
-  .empty option {
-    color: #000;
+  .input-row :global(.btn-sel) {
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 13px;
   }
   .add {
     padding: 10px 20px;
