@@ -7,7 +7,8 @@
   --ink: #071422;
   --border: 3px solid #000;
   --bg: #ffffff;
-  --font: "Inter", "Segoe UI", system-ui, sans-serif;
+  /* один шрифт на всю программу — тот, что был в полях ввода */
+  --font: "JetBrains Mono", "Cascadia Mono", Consolas, "DejaVu Sans Mono", monospace;
   /* прозрачная полоса вокруг окна под тень (она же — рамка для растягивания)
      и скругления углов; актуальные значения ставит lib/frame.svelte.ts */
   --g-top: 6px;
@@ -114,7 +115,7 @@ textarea.area,
   border-radius: 12px;
   padding: 8px;
   background: transparent;
-  /* тот же шрифт, что во всей программе (font: inherit выше) */
+  font-size: 12.5px;
   line-height: 1.35;
   /* поля фиксированной высоты: растягивание мышью отключено */
   resize: none;
