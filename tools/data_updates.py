@@ -6,26 +6,38 @@
   * tools/golden/gen_golden.py — в Python-версии на время прогона эталонов.
 """
 
-# Трейлеры Rooster больше не делаются на заводе (МТО): теперь это ящики
-# массовой фабрики — 300 бмат за ящик, по 5 ящиков в очереди (per_person),
-# как у прочей техники (group 8).
+# Трейлеры Rooster — ящики массовой фабрики: 300 бмат за ящик, по 5 ящиков
+# в очереди (per_person), как у прочей техники (group 8). Lamploader и
+# Tumblebox при этом больше не делаются на заводе (МТО); Junkwagon раньше
+# стоил 30 рмат за ящик.
 NOT_FACTORY = ["Rooster - Lamploader", "Rooster - Tumblebox"]
 _MPF_TRAILER = {"resource": ["Бмат"], "cost_per_box": [300], "distribution": "per_person", "group": 8}
 NEW_RESOURCES = {
+    "Rooster - Junkwagon (Ящик)": _MPF_TRAILER,
     "Rooster - Lamploader (Ящик)": _MPF_TRAILER,
     "Rooster - Tumblebox (Ящик)": _MPF_TRAILER,
 }
-NEW_RESOURCES_AFTER = "Rooster - Junkwagon (Ящик)"  # куда вставить в resources.json
+NEW_RESOURCES_AFTER = "Rooster - Junkwagon (Ящик)"  # куда вставить новые в resources.json
+
+# Строки интерфейса, изменённые по сравнению со старой версией.
+UI_OVERRIDES = {
+    "aviation_recipe_btn": {"ru": "Настроить цены самолётов", "en": "Configure Aircraft Prices",
+                            "fr": "Configurer le prix des avions"},  # было с «⚙ »
+    "wt_header": {"ru": "Таймеры складов", "en": "Warehouse Timers", "fr": "Minuteries d'entrepôt"},  # было с «⏱️ »
+    "wt_add_btn": {"ru": "Добавить склад", "en": "Add Warehouse", "fr": "Ajouter un entrepôt"},  # было с «➕ »
+}
 
 
 def update_resources(db):
-    """Новый dict ресурсов: NEW_RESOURCES встают сразу после NEW_RESOURCES_AFTER."""
+    """Новый dict ресурсов: имеющиеся записи из NEW_RESOURCES заменяются на
+    месте, новые встают сразу после NEW_RESOURCES_AFTER."""
     out = {}
     for name, entry in db.items():
-        if name not in NEW_RESOURCES:
-            out[name] = entry
+        out[name] = dict(NEW_RESOURCES[name]) if name in NEW_RESOURCES else entry
         if name == NEW_RESOURCES_AFTER:
-            out.update({k: dict(v) for k, v in NEW_RESOURCES.items()})
+            for k, v in NEW_RESOURCES.items():
+                if k not in db:
+                    out[k] = dict(v)
     for k, v in NEW_RESOURCES.items():
         out.setdefault(k, dict(v))
     return out

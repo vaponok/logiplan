@@ -43,7 +43,6 @@ UNUSED_UI = {
     "err_quota_writer_missing", "err_quota_writer_create",
     "err_timer_missing", "err_timer_create", "db_load_error",
     "wt_refresh_tooltip", "calc_quota_tooltip", "aviation_recipe_tooltip",
-    "aviation_recipe_btn",  # переопределена в src/core/i18nExtra.ts
 }
 
 
@@ -107,7 +106,7 @@ def main():
         "langs": list(i18n.LANGS),
         "defaultLang": i18n.DEFAULT_LANG,
         "items": item_translations(),
-        "ui": {k: v for k, v in i18n.UI_STRINGS.items() if k not in UNUSED_UI},
+        "ui": {k: data_updates.UI_OVERRIDES.get(k, v) for k, v in i18n.UI_STRINGS.items() if k not in UNUSED_UI},
         "resources": i18n.RESOURCE_LABELS,
         "aviationResources": i18n.AVIATION_RESOURCE_LABELS,
         "weekdays": i18n.WEEKDAYS,

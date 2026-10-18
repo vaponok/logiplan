@@ -1283,9 +1283,9 @@
    "fr": ""
   },
   "wt_header": {
-   "ru": "⏱️ Таймеры складов",
-   "en": "⏱️ Warehouse Timers",
-   "fr": "⏱️ Minuteries d'entrepôt"
+   "ru": "Таймеры складов",
+   "en": "Warehouse Timers",
+   "fr": "Minuteries d'entrepôt"
   },
   "wt_name_placeholder": {
    "ru": "Название склада",
@@ -1293,9 +1293,9 @@
    "fr": "Nom de l'entrepôt"
   },
   "wt_add_btn": {
-   "ru": "➕ Добавить склад",
-   "en": "➕ Add Warehouse",
-   "fr": "➕ Ajouter un entrepôt"
+   "ru": "Добавить склад",
+   "en": "Add Warehouse",
+   "fr": "Ajouter un entrepôt"
   },
   "wt_error_title": {
    "ru": "Ошибка",
@@ -1496,6 +1496,11 @@
    "ru": "Лётное:",
    "en": "Air Wing:",
    "fr": "Escadrille :"
+  },
+  "aviation_recipe_btn": {
+   "ru": "Настроить цены самолётов",
+   "en": "Configure Aircraft Prices",
+   "fr": "Configurer le prix des avions"
   },
   "omto_editor_group": {
    "ru": "Предметы МТО (заводская квота)",

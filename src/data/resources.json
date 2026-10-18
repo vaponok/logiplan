@@ -931,10 +931,10 @@
   },
   "Rooster - Junkwagon (Ящик)": {
     "resource": [
-      "Рмат"
+      "Бмат"
     ],
     "cost_per_box": [
-      30
+      300
     ],
     "distribution": "per_person",
     "group": 8
