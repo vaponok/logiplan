@@ -36,6 +36,10 @@ export interface SplitterState {
 export interface Warehouse {
   id: string;
   name: string;
+  hex: string;
+  depot: string;
+  /** 6 цифр или пусто. */
+  password: string;
   /** Момент истечения, мс с 1970 (UTC). */
   expire: number;
 }
@@ -140,7 +144,14 @@ export function sanitizeWarehouses(v: unknown): Warehouse[] {
   return v
     .map((x) => (x && typeof x === "object" ? (x as Record<string, unknown>) : null))
     .filter((x): x is Record<string, unknown> => !!x && typeof x.name === "string" && typeof x.expire === "number")
-    .map((x) => ({ id: str(x.id) || newId(), name: x.name as string, expire: x.expire as number }));
+    .map((x) => ({
+      id: str(x.id) || newId(),
+      name: x.name as string,
+      hex: str(x.hex),
+      depot: str(x.depot),
+      password: str(x.password).replace(/\D/g, "").slice(0, 6),
+      expire: x.expire as number,
+    }));
 }
 
 export function newId(): string {

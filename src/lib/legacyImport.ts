@@ -88,7 +88,7 @@ export function applyLegacyTimers(s: Record<string, string>): boolean {
     for (const w of list) {
       if (!w || typeof w.name !== "string") continue;
       const expire = typeof w.expire_time === "string" ? parseNaiveIso(w.expire_time) : null;
-      out.push({ id: newId(), name: w.name, expire: expire ?? Date.now() });
+      out.push({ id: newId(), name: w.name, hex: "", depot: "", password: "", expire: expire ?? Date.now() });
     }
     timers.warehouses = out;
     return out.length > 0;

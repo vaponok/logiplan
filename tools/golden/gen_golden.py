@@ -96,7 +96,7 @@ _AV_LOOSE_SRC = r'''def _parse_aviation_loose(line: str):
     body, settings_raw = (m.group(1), m.group(2)) if m else (s, "")
     m = _LOOSE_LINE_RE.match(body)
     if m:
-        count, unit, raw_name = int(m.group(1)), m.group(2).lower(), m.group(3)
+        count, unit, raw_name = int(m.group(1)), _loose_unit(m.group(2)), m.group(3)
     else:
         m = _LOOSE_NOUNIT_RE.match(body)
         if not m or ',' in body:
@@ -174,6 +174,20 @@ def load_patched_resource_splitter():
          "                    or f\"{av_name} (Ящик)\" in i18n.ITEM_I18N):\n"
          "                annotated_undefined.append(av_name)\n"
          "        self.undefined_area.setPlainText(\"\\n\".join(annotated_undefined))"),
+    ]
+    # единицы строк квоты на языке интерфейса (tools/data_updates.py)
+    patches += [
+        ("_LOOSE_LINE_RE = re.compile(r'^\\s*(\\d+)\\s*(ящ|шт)\\.?",
+         "_UNITS = __import__('data_updates')\n"
+         "def _loose_unit(u):\n"
+         "    return 'шт' if u.lower() in _UNITS.PIECE_UNITS else 'ящ'\n"
+         "_LOOSE_LINE_RE = re.compile(r'^\\s*(\\d+)\\s*(' + '|'.join(_UNITS.CRATE_UNITS + _UNITS.PIECE_UNITS) + r')\\.?"),
+        ("        count, unit, raw_name = int(m.group(1)), m.group(2).lower(), m.group(3)",
+         "        count, unit, raw_name = int(m.group(1)), _loose_unit(m.group(2)), m.group(3)"),
+        ('            return f"{cnt} ящ. - {localized[:-len(suf)]}"\n'
+         '    return f"{cnt} шт. - {localized}"',
+         '            return f"{cnt} {_UNITS.QUOTA_UNITS[lang][0]} - {localized[:-len(suf)]}"\n'
+         '    return f"{cnt} {_UNITS.QUOTA_UNITS[lang][1]} - {localized}"'),
     ]
     # изменения игры: resources.json — через tools/data_updates.py
     patches.append(("                self.resource_db = json.load(f)",
@@ -268,7 +282,7 @@ def quota_line(rng, name, cnt):
         sep = rng.choice([",", ", ", " ,", " , "])
         return f"{disp}{sep}{cnt}"
     if style < 0.75:
-        unit = rng.choice(["ящ.", "ящ", "Ящ.", "шт.", "шт"]) if disp.endswith(("(Ящик)", "(Crate)", "(Caisse)")) else rng.choice(["шт.", "ящ."])
+        unit = rng.choice(["ящ.", "ящ", "Ящ.", "шт.", "шт", "crates", "Crate", "caisses", "pcs"]) if disp.endswith(("(Ящик)", "(Crate)", "(Caisse)")) else rng.choice(["шт.", "ящ.", "pcs", "PC.", "crates"])
         base = strip_crate(disp)
         if rng.random() < 0.3:
             base = mangle(rng, base)
@@ -281,7 +295,8 @@ def quota_line(rng, name, cnt):
 
 JUNK = ["Неведомая штука (Ящик),3", "foo,bar", "просто текст", ",5", "Бинты (Ящик),0",
         "Бинты (Ящик),-2", "X: 12.5 Y: 7.25 Главный склад", "", "   ", "Sampo 77,2",
-        "7 ящ. - Несуществующий предмет", "3 - ???", "Бинты (Ящик),1_0", "Бинты (Ящик), +4"]
+        "7 ящ. - Несуществующий предмет", "3 - ???", "Бинты (Ящик),1_0", "Бинты (Ящик), +4",
+        "72 crates - Soldier Supplies", "3 pcs - Bandages", "5 caisses - Bandages", "2 crate - Неведомая штука"]
 
 
 # Предметы страницы «Лётное» без записи в resources.json — есть только в i18n
@@ -313,7 +328,7 @@ def aviation_loose_line(rng, name, cnt):
     dash = rng.choice(["-", "–", "—"])
     if rng.random() < 0.6:
         crated = disp.endswith(("(Ящик)", "(Crate)", "(Caisse)"))
-        unit = rng.choice(["ящ.", "ящ", "Ящ.", "ЯЩ."] if crated else ["шт.", "шт", "Шт."])
+        unit = rng.choice(["ящ.", "ящ", "Ящ.", "ЯЩ.", "crates", "Caisses", "crate."] if crated else ["шт.", "шт", "Шт.", "pcs", "PCS."])
         base = strip_crate(disp) if rng.random() < 0.8 else disp
         if rng.random() < 0.25:
             base = mangle(rng, base)

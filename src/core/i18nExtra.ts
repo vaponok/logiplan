@@ -11,6 +11,14 @@ export const EXTRA_UI_STRINGS: Record<string, Tr> = {
   copied_toast: { ru: "Скопировано", en: "Copied", fr: "Copié" },
   calculating: { ru: "Считаю…", en: "Calculating…", fr: "Calcul…" },
   calc_error: { ru: "Ошибка расчёта: {e}", en: "Calculation error: {e}", fr: "Erreur de calcul : {e}" },
+  wt_hex_placeholder: { ru: "Гекс склада", en: "Hex", fr: "Hexagone" },
+  wt_depot_placeholder: { ru: "Склад", en: "Depot", fr: "Dépôt" },
+  wt_password_placeholder: { ru: "Пароль", en: "Password", fr: "Mot de passe" },
+  wt_password_error: {
+    ru: "Пароль — 6 цифр",
+    en: "The password must be 6 digits",
+    fr: "Le mot de passe doit comporter 6 chiffres",
+  },
   migrated_toast: {
     ru: "Настройки перенесены из старой версии программы",
     en: "Settings imported from the old version",

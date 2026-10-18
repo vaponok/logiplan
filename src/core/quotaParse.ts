@@ -2,8 +2,26 @@
 import { ITEM_I18N, LANGS, hasItem, normalizeText, toCanonicalItemName, trItem, type Lang } from "./i18n";
 import { pyInt, strip } from "./py";
 
-// "27 ящ. - 7.92-мм"
-const LOOSE_LINE_RE = /^\s*(\d+)\s*(ящ|шт)\.?\s*[-–—]\s*(.+?)\s*$/iu;
+// Единицы в строках квоты на языке интерфейса; разбор понимает все
+// (тот же список — tools/data_updates.py, по нему считаются эталоны).
+const QUOTA_UNITS: Record<Lang, [crate: string, piece: string]> = {
+  ru: ["ящ.", "шт."],
+  en: ["crates", "pcs"],
+  fr: ["caisses", "pcs"],
+};
+const CRATE_UNITS = ["ящ", "crates", "crate", "caisses", "caisse"];
+const PIECE_UNITS = ["шт", "pcs", "pc"];
+
+/** Единица из строки -> "ящ" или "шт" (так их различает resolveLooseName). */
+function looseUnit(u: string): string {
+  return PIECE_UNITS.includes(u.toLowerCase()) ? "шт" : "ящ";
+}
+
+// "27 ящ. - 7.92-мм", "72 crates - Soldier Supplies"
+const LOOSE_LINE_RE = new RegExp(
+  `^\\s*(\\d+)\\s*(${[...CRATE_UNITS, ...PIECE_UNITS].join("|")})\\.?\\s*[-–—]\\s*(.+?)\\s*$`,
+  "iu",
+);
 // "27 - №.2 Loughcaster (Ящик)" — без единицы; дефис отделён пробелом слева,
 // чтобы не съедать CSV-строки вида "40-мм (Ящик),18".
 const LOOSE_NOUNIT_RE = /^\s*(\d+)\s+[-–—]\s*(.+?)\s*$/u;
@@ -93,13 +111,14 @@ export function resolveLooseName(name: string, unit: string): string | null {
   return null;
 }
 
-/** "N ящ. - Имя" (ящичные, суффикс убирается) или "N шт. - Имя". */
+/** "N ящ. - Имя" (ящичные, суффикс убирается) или "N шт. - Имя"; en/fr — crates/caisses, pcs. */
 export function formatQuotaLine(name: string, cnt: number, lang: Lang): string {
   const localized = trItem(name, lang);
+  const [crate, piece] = QUOTA_UNITS[lang];
   for (const suf of CRATE_SUFFIXES) {
-    if (localized.endsWith(suf)) return `${cnt} ящ. - ${localized.slice(0, -suf.length)}`;
+    if (localized.endsWith(suf)) return `${cnt} ${crate} - ${localized.slice(0, -suf.length)}`;
   }
-  return `${cnt} шт. - ${localized}`;
+  return `${cnt} ${piece} - ${localized}`;
 }
 
 /**
@@ -115,7 +134,7 @@ export function parseCsvLine(line: string): [number, string] | null {
   let m = LOOSE_LINE_RE.exec(s);
   if (m) {
     const count = parseInt(m[1], 10);
-    const unit = m[2].toLowerCase();
+    const unit = looseUnit(m[2]);
     const raw = m[3];
     if (count <= 0) return null;
     return [count, resolveLooseName(raw, unit) ?? raw];
@@ -199,7 +218,7 @@ export function parseAviationQuotaLine(
   let loose: [number, string, string] | null = null;
   let lm = LOOSE_LINE_RE.exec(body);
   if (lm) {
-    loose = [parseInt(lm[1], 10), lm[2].toLowerCase(), lm[3]];
+    loose = [parseInt(lm[1], 10), looseUnit(lm[2]), lm[3]];
   } else {
     lm = LOOSE_NOUNIT_RE.exec(body);
     if (lm && !body.includes(",")) loose = [parseInt(lm[1], 10), "ящ", lm[2]];

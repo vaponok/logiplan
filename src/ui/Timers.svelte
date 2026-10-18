@@ -7,6 +7,9 @@
   const HOURS_50 = 50 * 3600 * 1000;
   const L = $derived(app.lang);
   let name = $state("");
+  let hex = $state("");
+  let depot = $state("");
+  let password = $state("");
   let now = $state(Date.now());
 
   $effect(() => {
@@ -20,8 +23,19 @@
       await alertDialog(tr("wt_error_title", app.lang), tr("wt_error_text", app.lang));
       return;
     }
-    timers.warehouses.push({ id: newId(), name: n, expire: Date.now() + HOURS_50 });
-    name = "";
+    if (password && password.length !== 6) {
+      await alertDialog(tr("wt_error_title", app.lang), tr("wt_password_error", app.lang));
+      return;
+    }
+    timers.warehouses.push({
+      id: newId(),
+      name: n,
+      hex: hex.trim(),
+      depot: depot.trim(),
+      password,
+      expire: Date.now() + HOURS_50,
+    });
+    name = hex = depot = password = "";
   }
 
   function refresh(w: Warehouse) {
@@ -33,6 +47,13 @@
     if (await confirmDialog(tr("wt_confirm_title", app.lang), tr("wt_confirm_text", app.lang, { name: w.name }))) {
       timers.warehouses = timers.warehouses.filter((x) => x.id !== w.id);
     }
+  }
+
+  /** Гекс · склад · пароль под названием. */
+  function meta(w: Warehouse) {
+    const parts = [w.hex, w.depot].filter(Boolean);
+    if (w.password) parts.push(`${tr("wt_password_placeholder", L)}: ${w.password}`);
+    return parts.join(" · ");
   }
 
   function view(expire: number) {
@@ -56,14 +77,32 @@
       add();
     }}
   >
-    <input class="name-input" placeholder={tr("wt_name_placeholder", L)} bind:value={name} />
+    <input class="field name-input" placeholder={tr("wt_name_placeholder", L)} bind:value={name} />
+    <input class="field" placeholder={tr("wt_hex_placeholder", L)} bind:value={hex} />
+    <input class="field" placeholder={tr("wt_depot_placeholder", L)} bind:value={depot} />
+    <input
+      class="field password-input"
+      placeholder={tr("wt_password_placeholder", L)}
+      inputmode="numeric"
+      maxlength="6"
+      autocomplete="off"
+      value={password}
+      oninput={(e) => {
+        password = e.currentTarget.value.replace(/\D/g, "").slice(0, 6);
+        e.currentTarget.value = password;
+      }}
+    />
     <button class="btn add" type="submit">{tr("wt_add_btn", L)}</button>
   </form>
   <div class="list">
     {#each timers.warehouses as w (w.id)}
       {@const v = view(w.expire)}
+      {@const m = meta(w)}
       <div class="wh">
-        <div class="wh-name">{w.name}</div>
+        <div class="wh-info">
+          <div class="wh-name">{w.name}</div>
+          {#if m}<div class="wh-meta">{m}</div>{/if}
+        </div>
         <div class="timer {v.zone}">{v.text}</div>
         <button class="btn refresh" onclick={() => refresh(w)}>{tr("wt_refresh_btn", L)}</button>
         <button class="btn del" aria-label={tr("wt_delete_tooltip", L)} onclick={() => remove(w)}
@@ -93,18 +132,26 @@
   }
   .input-row {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
   }
-  .name-input {
-    flex: 1;
+  .field {
+    flex: 1 1 120px;
+    min-width: 0;
     border: var(--border);
     border-radius: 12px;
     padding: 10px 14px;
     font-size: 13px;
     outline: none;
   }
-  .name-input:focus {
+  .field:focus {
     border-color: var(--primary);
+  }
+  .name-input {
+    flex: 2 1 180px;
+  }
+  .password-input {
+    flex: 0 1 110px;
   }
   .add {
     padding: 10px 20px;
@@ -128,12 +175,19 @@
     border-radius: 12px;
     padding: 12px 18px;
   }
-  .wh-name {
-    font-size: 14px;
-    font-weight: 600;
+  .wh-info {
     min-width: 180px;
     flex: 1;
     overflow-wrap: anywhere;
+  }
+  .wh-name {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .wh-meta {
+    margin-top: 4px;
+    font-size: 12px;
+    opacity: 0.7;
   }
   .timer {
     font-size: 16px;

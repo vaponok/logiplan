@@ -27,6 +27,12 @@ UI_OVERRIDES = {
     "wt_add_btn": {"ru": "Добавить склад", "en": "Add Warehouse", "fr": "Ajouter un entrepôt"},  # было с «➕ »
 }
 
+# Единицы в строках квоты «N ящ. - Имя» / «N шт. - Имя»: в старой версии
+# они были русскими на любом языке. Разбор понимает все варианты.
+QUOTA_UNITS = {"ru": ("ящ.", "шт."), "en": ("crates", "pcs"), "fr": ("caisses", "pcs")}
+CRATE_UNITS = ("ящ", "crates", "crate", "caisses", "caisse")
+PIECE_UNITS = ("шт", "pcs", "pc")
+
 
 def update_resources(db):
     """Новый dict ресурсов: имеющиеся записи из NEW_RESOURCES заменяются на
