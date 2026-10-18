@@ -4,11 +4,22 @@ on:
   push:
     branches: [main]
     tags: ["v*"]
+    # коммит самой сборки с новым exe не запускает её повторно
+    paths-ignore: ["logiplan.exe", "README.md"]
   pull_request:
   workflow_dispatch:
 
 permissions:
   contents: write
+
+# новый push отменяет недоделанную сборку прошлого
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: source
 
 jobs:
   test:
@@ -20,6 +31,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: source/package-lock.json
       - run: npm ci
       - run: npm run check
       - run: npm test
@@ -34,10 +46,11 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: source/package-lock.json
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
         with:
-          workspaces: src-tauri -> target
+          workspaces: source/src-tauri -> target
       - run: npm ci
       - name: Сборка (exe + установщик)
         run: npx tauri build
@@ -56,13 +69,30 @@ jobs:
         with:
           name: logiplan-windows
           path: |
-            src-tauri/target/release/logiplan.exe
-            src-tauri/target/release/bundle/nsis/*.exe
+            source/src-tauri/target/release/logiplan.exe
+            source/src-tauri/target/release/bundle/nsis/*.exe
           if-no-files-found: error
+      - name: exe в корень репозитория
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        shell: bash
+        working-directory: .
+        run: |
+          cp source/src-tauri/target/release/logiplan.exe logiplan.exe
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add logiplan.exe
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "logiplan.exe: сборка ${GITHUB_SHA::7}"
+          # пока шла сборка, в main могли прийти новые коммиты
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
       - name: Релиз (только для тегов v*)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            src-tauri/target/release/logiplan.exe
-            src-tauri/target/release/bundle/nsis/*.exe
+            source/src-tauri/target/release/logiplan.exe
+            source/src-tauri/target/release/bundle/nsis/*.exe
