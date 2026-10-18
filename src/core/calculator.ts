@@ -125,20 +125,8 @@ function costFuel(count: number, fuelRecipe: string): BaseCost {
 
 const costRare = (count: number) => baseCost({ rare_mats: count });
 
-export const MAT_NAMES: Record<string, string> = {
-  m1: "1-е материалы",
-  m2: "2-е материалы",
-  m3: "3-и материалы",
-  proc: "Обработанные",
-  build: "Стр. материалы",
-  fuel: "Обогащённое топливо",
-  rare: "Редкие материалы",
-  coke: "Кокс (сталь/М5/р.сплав)",
-};
-
 export interface MatDetail {
   matKey: string;
-  matName: string;
   count: number;
   cost: BaseCost;
 }
@@ -152,7 +140,7 @@ export function calculateDetail(
   const fl = expandToFirstLevel(costs);
   const out: MatDetail[] = [];
   const push = (key: keyof FirstLevelMats, cost: BaseCost) =>
-    out.push({ matKey: key, matName: MAT_NAMES[key], count: fl[key], cost });
+    out.push({ matKey: key, count: fl[key], cost });
   if (fl.m1 > 0) push("m1", costM1(fl.m1, cokeRecipe));
   if (fl.m2 > 0) push("m2", costM2(fl.m2));
   if (fl.m3 > 0) push("m3", costM3(fl.m3));

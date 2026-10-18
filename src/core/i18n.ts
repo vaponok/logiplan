@@ -1,20 +1,23 @@
 // Порт legacy/i18n.py. Канонический идентификатор предмета — русское имя
 // (ключ resources.json); язык влияет только на то, что видит пользователь.
-import data from "../data/i18n.json";
+// именованный импорт: в сборку попадают только используемые части JSON
+import { aviationResources, defaultLang, items, langs, resources, ui, weekdays } from "../data/i18n.json";
 import { EXTRA_UI_STRINGS } from "./i18nExtra";
 import { pyFormat, splitWs, strip } from "./py";
 
 export type Lang = "ru" | "en" | "fr";
 type Tr = Partial<Record<Lang, string>>;
 
-export const LANGS: readonly Lang[] = data.langs as Lang[];
-export const DEFAULT_LANG: Lang = data.defaultLang as Lang;
+export const LANGS: readonly Lang[] = langs as Lang[];
+export const DEFAULT_LANG: Lang = defaultLang as Lang;
 
-export const ITEM_I18N: Record<string, Tr> = data.items as Record<string, Tr>;
-const UI_STRINGS: Record<string, Tr> = { ...(data.ui as Record<string, Tr>), ...EXTRA_UI_STRINGS };
-const RESOURCE_LABELS: Record<string, Tr> = data.resources as Record<string, Tr>;
-const AVIATION_RESOURCE_LABELS: Record<string, Tr> = data.aviationResources as Record<string, Tr>;
-export const WEEKDAYS: Record<Lang, string[]> = data.weekdays as Record<Lang, string[]>;
+/** Переводы предметов. В JSON нет повторов: русское имя — это ключ,
+ *  французское, совпадающее с английским, опущено (см. tools/export_data.py). */
+export const ITEM_I18N: Record<string, Tr> = items as Record<string, Tr>;
+const UI_STRINGS: Record<string, Tr> = { ...(ui as Record<string, Tr>), ...EXTRA_UI_STRINGS };
+const RESOURCE_LABELS: Record<string, Tr> = resources as Record<string, Tr>;
+const AVIATION_RESOURCE_LABELS: Record<string, Tr> = aviationResources as Record<string, Tr>;
+export const WEEKDAYS: Record<Lang, string[]> = weekdays as Record<Lang, string[]>;
 
 export function isLang(x: unknown): x is Lang {
   return typeof x === "string" && (LANGS as readonly string[]).includes(x);
@@ -32,6 +35,7 @@ export function normalizeText(s: string): string {
 
 const REVERSE_ITEM = new Map<string, string>();
 for (const [ru, tr] of Object.entries(ITEM_I18N)) {
+  REVERSE_ITEM.set(normalizeText(ru), ru);
   for (const lang of LANGS) {
     const val = tr[lang];
     if (val) REVERSE_ITEM.set(normalizeText(val), ru);
@@ -54,7 +58,7 @@ export function trItem(name: string, lang: Lang): string {
   const canon = toCanonicalItemName(name);
   const entry = hasItem(canon) ? ITEM_I18N[canon] : undefined;
   if (!entry) return name;
-  return entry[lang] ?? canon;
+  return entry[lang] ?? (lang === "fr" ? entry.en : undefined) ?? canon;
 }
 
 /** Перевод статичной UI-строки; незнакомый ключ -> сам ключ. */

@@ -2,7 +2,7 @@
 // Ключи — как в legacy/resource_splitter.py (save_settings/load_settings)
 // и legacy/warehouse_timer.py (save_state).
 import { invoke, isTauri } from "@tauri-apps/api/core";
-import { AVIATION_DEFAULT, OMTO_DEFAULT } from "../core/splitter";
+import { AVIATION_DEFAULT, OMTO_DEFAULT, withoutNotFactory } from "../core/splitter";
 import { clampInt, ensureLengths, newId, sanitizeAv, splitter, timers, type Warehouse } from "./state.svelte";
 
 interface LegacySettings {
@@ -63,7 +63,7 @@ export function applyLegacySplitter(s: Record<string, string>): boolean {
   t.freeEmats = truthy(s.free_emats);
   t.freeHemats = truthy(s.free_hemats);
   t.freeRmats = s.free_rmats !== undefined ? truthy(s.free_rmats) : truthy(s.free_bmats);
-  t.omtoList = jsonList(s.omto_custom_list) ?? [...OMTO_DEFAULT];
+  t.omtoList = withoutNotFactory(jsonList(s.omto_custom_list) ?? [...OMTO_DEFAULT]);
   t.aviationList = jsonList(s.aviation_custom_list) ?? [...AVIATION_DEFAULT];
   t.omtoEditorOpen = truthy(s.omto_group_expanded);
   t.aviationEditorOpen = truthy(s.aviation_group_expanded);

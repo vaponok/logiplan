@@ -24,7 +24,7 @@
     list: string[];
     /** Взаимоисключающий список (МТО <-> Лётка). */
     exclude: string[];
-    /** Откуда берутся «Все предметы»: ITEM_NAMES ∪ pool. */
+    /** Откуда берутся «Все предметы»: известные предметы ∪ pool. */
     pool: string[];
     defaults: readonly string[];
     lang: Lang;

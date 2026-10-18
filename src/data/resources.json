@@ -939,6 +939,26 @@
     "distribution": "per_person",
     "group": 8
   },
+  "Rooster - Lamploader (Ящик)": {
+    "resource": [
+      "Бмат"
+    ],
+    "cost_per_box": [
+      300
+    ],
+    "distribution": "per_person",
+    "group": 8
+  },
+  "Rooster - Tumblebox (Ящик)": {
+    "resource": [
+      "Бмат"
+    ],
+    "cost_per_box": [
+      300
+    ],
+    "distribution": "per_person",
+    "group": 8
+  },
   "Dunne Fuelrunner 2d (Ящик)": {
     "resource": [
       "Бмат"

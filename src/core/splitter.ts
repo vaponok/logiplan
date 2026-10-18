@@ -3,11 +3,11 @@
 // нераспознанных позиций. Порядок операций и формат вывода повторяют
 // Python-версию; сверка — tests/golden.test.ts.
 import resourceDbJson from "../data/resources.json";
-import itemsJson from "../data/items.json";
+import { aviationDefault, mtoModifications, notFactory, omtoDefault } from "../data/items.json";
 import { allocate, DISCOUNT_G, makeChunks, discountedSum, resourcePairs } from "./allocator";
 import type { ResourceDb, ResourceEntry } from "./allocator";
 import { netSulfur, totalCost, type Recipe } from "./calculator";
-import { hasItem, normalizeText, tr, trAviationResource, trItem, trResource, WEEKDAYS, type Lang } from "./i18n";
+import { hasItem, ITEM_I18N, normalizeText, tr, trAviationResource, trItem, trResource, WEEKDAYS, type Lang } from "./i18n";
 import { cmpStr, cmpTuple, floatRepr, floorDiv, pyRoundTo, rstrip, splitlines, strip } from "./py";
 import {
   formatQuotaLine,
@@ -18,10 +18,18 @@ import {
 } from "./quotaParse";
 
 export const RESOURCE_DB = resourceDbJson as ResourceDb;
-export const ITEM_NAMES = itemsJson.itemNames as Record<string, string>;
-export const MTO_MODIFICATIONS: readonly string[] = itemsJson.mtoModifications;
-export const OMTO_DEFAULT: readonly string[] = itemsJson.omtoDefault;
-export const AVIATION_DEFAULT: readonly string[] = itemsJson.aviationDefault;
+export const MTO_MODIFICATIONS: readonly string[] = mtoModifications;
+export const OMTO_DEFAULT: readonly string[] = omtoDefault;
+export const AVIATION_DEFAULT: readonly string[] = aviationDefault;
+/** Позиции, которые раньше были заводскими, а теперь нет (tools/data_updates.py). */
+export const NOT_FACTORY: readonly string[] = notFactory;
+
+/** Список завода без позиций, которые больше не заводские: из сохранённых
+ *  настроек и из старой версии они иначе так и остались бы в нём. */
+export function withoutNotFactory(list: string[]): string[] {
+  const drop = new Set(NOT_FACTORY.map(normalizeText));
+  return list.filter((n) => !drop.has(normalizeText(n)));
+}
 
 const has = (o: object, k: string) => Object.prototype.hasOwnProperty.call(o, k);
 /** db.get(name) с питоновской «истинностью»: пустой dict — как отсутствие. */
@@ -909,10 +917,10 @@ export function applyAviationSettings(
 
 // ---------------- редактор списков МТО / Лётки ----------------
 
-/** Все предметы для редактора: ITEM_NAMES ∪ текущий список, по lower(). */
+/** Все предметы для редактора: известные предметы ∪ текущий список, по lower(). */
 export function allItemNames(extra: string[]): string[] {
   const names = new Set<string>();
-  for (const v of Object.values(ITEM_NAMES)) if (v) names.add(v);
+  for (const v of Object.keys(ITEM_I18N)) names.add(v);
   for (const v of extra) names.add(v);
   return [...names].sort((a, b) => cmpStr(a.toLowerCase(), b.toLowerCase()));
 }

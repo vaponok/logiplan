@@ -1,7 +1,7 @@
 // Состояние приложения (Svelte 5 runes) + приведение загруженных данных.
 import { isLang, type Lang } from "../core/i18n";
 import { AV_FACTORY_DEFAULTS, type AvSettings } from "../core/quotaParse";
-import { AVIATION_DEFAULT, OMTO_DEFAULT, type Division, type UndefinedLine } from "../core/splitter";
+import { AVIATION_DEFAULT, OMTO_DEFAULT, withoutNotFactory, type Division, type UndefinedLine } from "../core/splitter";
 
 export interface SplitterState {
   storageInput: string;
@@ -127,7 +127,7 @@ export function sanitizeSplitter(v: unknown): SplitterState {
     freeEmats: bool(o.freeEmats, false),
     freeHemats: bool(o.freeHemats, false),
     freeRmats: bool(o.freeRmats, false),
-    omtoList: strList(o.omtoList)?.filter(Boolean) ?? d.omtoList,
+    omtoList: withoutNotFactory(strList(o.omtoList)?.filter(Boolean) ?? d.omtoList),
     aviationList: strList(o.aviationList)?.filter(Boolean) ?? d.aviationList,
     omtoEditorOpen: bool(o.omtoEditorOpen, false),
     aviationEditorOpen: bool(o.aviationEditorOpen, false),

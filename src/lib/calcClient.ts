@@ -1,6 +1,6 @@
 // Клиент фонового расчёта; если Worker недоступен — считает в основном потоке.
 import { calculateDistribution, type SplitterInput, type SplitterResult } from "../core/splitter";
-import type { CalcResponse } from "../workers/calc.worker";
+import { CORE_URL, type CalcResponse } from "../core/calcHost";
 
 let worker: Worker | null = null;
 let seq = 0;
@@ -9,7 +9,7 @@ const waiting = new Map<number, { resolve: (r: SplitterResult) => void; reject: 
 function getWorker(): Worker | null {
   if (worker) return worker;
   try {
-    worker = new Worker(new URL("../workers/calc.worker.ts", import.meta.url), { type: "module" });
+    worker = new Worker(CORE_URL, { type: "module" });
     worker.onmessage = (e: MessageEvent<CalcResponse>) => {
       const w = waiting.get(e.data.id);
       if (!w) return;

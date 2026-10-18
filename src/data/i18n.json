@@ -8,1593 +8,1207 @@
  "items": {
   ".44 Магнум (Ящик)": {
    "en": ".44 Mag (Crate)",
-   "fr": ".44 Mag (Caisse)",
-   "ru": ".44 Магнум (Ящик)"
+   "fr": ".44 Mag (Caisse)"
   },
   "12.7-мм (Ящик)": {
    "en": "12.7mm (Crate)",
-   "fr": "12 7mm (Caisse)",
-   "ru": "12.7-мм (Ящик)"
+   "fr": "12 7mm (Caisse)"
   },
   "120-мм (Ящик)": {
    "en": "120mm (Crate)",
-   "fr": "120 mm (Caisse)",
-   "ru": "120-мм (Ящик)"
+   "fr": "120 mm (Caisse)"
   },
   "14.5mm (Ящик)": {
    "en": "14.5mm (Crate)",
-   "fr": "14.5mm (Caisse)",
-   "ru": "14.5mm (Ящик)"
+   "fr": "14.5mm (Caisse)"
   },
   "150-мм (Ящик)": {
    "en": "150mm (Crate)",
-   "fr": "150 mm (Caisse)",
-   "ru": "150-мм (Ящик)"
+   "fr": "150 mm (Caisse)"
   },
   "20мм (Ящик)": {
    "en": "20mm (Crate)",
-   "fr": "20 mm (Caisse)",
-   "ru": "20мм (Ящик)"
+   "fr": "20 mm (Caisse)"
   },
   "228 Satterley Heavy Storm Rifle (Ящик)": {
    "en": "228 Satterley Heavy Storm Rifle (Crate)",
-   "fr": "228 Satterley Heavy Storm Rifle (Caisse)",
-   "ru": "228 Satterley Heavy Storm Rifle (Ящик)"
+   "fr": "228 Satterley Heavy Storm Rifle (Caisse)"
   },
   "250mm \"Fury\" Shell (Ящик)": {
    "en": "250mm \"Fury\" Shell (Crate)",
-   "fr": "250mm \"Fury\" Shell (Caisse)",
-   "ru": "250mm \"Fury\" Shell (Ящик)"
+   "fr": "250mm \"Fury\" Shell (Caisse)"
   },
   "250mm \"Purity\" Shell (Ящик)": {
    "en": "250mm \"Purity\" Shell (Crate)",
-   "fr": "250mm \"Purity\" Shell (Caisse)",
-   "ru": "250mm \"Purity\" Shell (Ящик)"
+   "fr": "250mm \"Purity\" Shell (Caisse)"
   },
   "300-мм (Ящик)": {
    "en": "300mm (Crate)",
-   "fr": "300 mm (Caisse)",
-   "ru": "300-мм (Ящик)"
+   "fr": "300 mm (Caisse)"
   },
   "30мм (Ящик)": {
    "en": "30mm (Crate)",
-   "fr": "30 mm (Caisse)",
-   "ru": "30мм (Ящик)"
+   "fr": "30 mm (Caisse)"
   },
   "3C-Фугасная ракета (Ящик)": {
    "en": "3C-High Explosive Rocket (Crate)",
-   "fr": "Roquette Explosif Lourd 3C (Caisse)",
-   "ru": "3C-Фугасная ракета (Ящик)"
+   "fr": "Roquette Explosif Lourd 3C (Caisse)"
   },
   "40-мм (Ящик)": {
    "en": "40mm (Crate)",
-   "fr": "40 mm (Caisse)",
-   "ru": "40-мм (Ящик)"
+   "fr": "40 mm (Caisse)"
   },
   "4C-Зажигательная ракета (Ящик)": {
    "en": "4C-Fire Rocket (Crate)",
-   "fr": "Roquette Incendiaire 4C (Caisse)",
-   "ru": "4C-Зажигательная ракета (Ящик)"
+   "fr": "Roquette Incendiaire 4C (Caisse)"
   },
   "68A-4 Ronan Fathomer": {
-   "en": "68A-4 Ronan Fathomer",
-   "fr": "68A-4 Ronan Fathomer",
-   "ru": "68A-4 Ronan Fathomer"
+   "en": "68A-4 Ronan Fathomer"
   },
   "68A-4 Ronan Fathomer (Ящик)": {
    "en": "68A-4 Ronan Fathomer (Crate)",
-   "fr": "68A-4 Ronan Fathomer (Caisse)",
-   "ru": "68A-4 Ronan Fathomer (Ящик)"
+   "fr": "68A-4 Ronan Fathomer (Caisse)"
   },
   "68мм (Ящик)": {
    "en": "68mm (Crate)",
-   "fr": "68 mm (Caisse)",
-   "ru": "68мм (Ящик)"
+   "fr": "68 mm (Caisse)"
   },
   "7.62-мм (Ящик)": {
    "en": "7.62mm (Crate)",
-   "fr": "7 62 mm (Caisse)",
-   "ru": "7.62-мм (Ящик)"
+   "fr": "7 62 mm (Caisse)"
   },
   "7.92-мм (Ящик)": {
    "en": "7.92mm (Crate)",
-   "fr": "7 92 mm (Caisse)",
-   "ru": "7.92-мм (Ящик)"
+   "fr": "7 92 mm (Caisse)"
   },
   "74b-1 Ronan Gunship": {
-   "en": "74b-1 Ronan Gunship",
-   "fr": "74b-1 Ronan Gunship",
-   "ru": "74b-1 Ronan Gunship"
+   "en": "74b-1 Ronan Gunship"
   },
   "74b-1 Ronan Gunship (Ящик)": {
    "en": "74b-1 Ronan Gunship (Crate)",
-   "fr": "74b-1 Ronan Gunship (Caisse)",
-   "ru": "74b-1 Ronan Gunship (Ящик)"
+   "fr": "74b-1 Ronan Gunship (Caisse)"
   },
   "75-мм (Ящик)": {
    "en": "75mm (Crate)",
-   "fr": "75 mm (Caisse)",
-   "ru": "75-мм (Ящик)"
+   "fr": "75 mm (Caisse)"
   },
   "8-мм (Ящик)": {
    "en": "8mm (Crate)",
-   "fr": "8 mm (Caisse)",
-   "ru": "8-мм (Ящик)"
+   "fr": "8 mm (Caisse)"
   },
   "81f-f Ronan Blackguard": {
-   "en": "81f-f Ronan Blackguard",
-   "fr": "81f-f Ronan Blackguard",
-   "ru": "81f-f Ronan Blackguard"
+   "en": "81f-f Ronan Blackguard"
   },
   "81f-f Ronan Blackguard (Ящик)": {
    "en": "81f-f Ronan Blackguard (Crate)",
-   "fr": "81f-f Ronan Blackguard (Caisse)",
-   "ru": "81f-f Ronan Blackguard (Ящик)"
+   "fr": "81f-f Ronan Blackguard (Caisse)"
   },
   "9-мм (Ящик)": {
    "en": "9mm (Crate)",
-   "fr": "9 mm (Caisse)",
-   "ru": "9-мм (Ящик)"
+   "fr": "9 mm (Caisse)"
   },
   "94.5мм (Ящик)": {
    "en": "94.5mm (Crate)",
-   "fr": "94 5 mm (Caisse)",
-   "ru": "94.5мм (Ящик)"
+   "fr": "94 5 mm (Caisse)"
   },
   "A0E-9 Ракетная боеголовка": {
    "en": "A0E-9 Rocket Warhead",
-   "fr": "Ogive de Fusée A0E-9",
-   "ru": "A0E-9 Ракетная боеголовка"
+   "fr": "Ogive de Fusée A0E-9"
   },
   "A0E-9 Ракетный Ускоритель": {
    "en": "A0E-9 Rocket Booster",
-   "fr": "Propulseur de Fusée A0E-9",
-   "ru": "A0E-9 Ракетный Ускоритель"
+   "fr": "Propulseur de Fusée A0E-9"
   },
   "Abisme AT-99 Mine (Ящик)": {
    "en": "Abisme AT-99 Mine (Crate)",
-   "fr": "Abisme AT-99 Mine (Caisse)",
-   "ru": "Abisme AT-99 Mine (Ящик)"
+   "fr": "Abisme AT-99 Mine (Caisse)"
   },
   "Ahti Model 2 (Ящик)": {
    "en": "Ahti Model 2 (Crate)",
-   "fr": "Ahti Model 2 (Caisse)",
-   "ru": "Ahti Model 2 (Ящик)"
+   "fr": "Ahti Model 2 (Caisse)"
   },
   "Air Raid Siren (Ящик)": {
    "en": "Air Raid Siren (Crate)",
-   "fr": "Air Raid Siren (Caisse)",
-   "ru": "Air Raid Siren (Ящик)"
+   "fr": "Air Raid Siren (Caisse)"
   },
   "Alligator Charge (Ящик)": {
    "en": "Alligator Charge (Crate)",
-   "fr": "Alligator Charge (Caisse)",
-   "ru": "Alligator Charge (Ящик)"
+   "fr": "Alligator Charge (Caisse)"
   },
   "B2 Varsi Anti-Tank Grenade (Ящик)": {
    "en": "B2 Varsi Anti-Tank Grenade (Crate)",
-   "fr": "B2 Varsi Anti-Tank Grenade (Caisse)",
-   "ru": "B2 Varsi Anti-Tank Grenade (Ящик)"
+   "fr": "B2 Varsi Anti-Tank Grenade (Caisse)"
   },
   "BMS - Aquatipper": {
-   "en": "BMS - Aquatipper",
-   "fr": "BMS - Aquatipper",
-   "ru": "BMS - Aquatipper"
+   "en": "BMS - Aquatipper"
   },
   "BMS - Aquatipper (Ящик)": {
    "en": "BMS - Aquatipper (Crate)",
-   "fr": "BMS - Aquatipper (Caisse)",
-   "ru": "BMS - Aquatipper (Ящик)"
+   "fr": "BMS - Aquatipper (Caisse)"
   },
   "BMS - Fabricator": {
-   "en": "BMS - Fabricator",
-   "fr": "BMS - Fabricator",
-   "ru": "BMS - Fabricator"
+   "en": "BMS - Fabricator"
   },
   "BMS - Ironship": {
-   "en": "BMS - Ironship",
-   "fr": "BMS - Ironship",
-   "ru": "BMS - Ironship"
+   "en": "BMS - Ironship"
   },
   "BMS - Ironship (Ящик)": {
    "en": "BMS - Ironship (Crate)",
-   "fr": "BMS - Ironship (Caisse)",
-   "ru": "BMS - Ironship (Ящик)"
+   "fr": "BMS - Ironship (Caisse)"
   },
   "BMS - Scrap Hauler": {
-   "en": "BMS - Scrap Hauler",
-   "fr": "BMS - Scrap Hauler",
-   "ru": "BMS - Scrap Hauler"
+   "en": "BMS - Scrap Hauler"
   },
   "BMS - Universal Assembly Rig": {
-   "en": "BMS - Universal Assembly Rig",
-   "fr": "BMS - Universal Assembly Rig",
-   "ru": "BMS - Universal Assembly Rig"
+   "en": "BMS - Universal Assembly Rig"
   },
   "BMS - Universal Assembly Rig (Ящик)": {
    "en": "BMS - Universal Assembly Rig (Crate)",
-   "fr": "BMS - Universal Assembly Rig (Caisse)",
-   "ru": "BMS - Universal Assembly Rig (Ящик)"
+   "fr": "BMS - Universal Assembly Rig (Caisse)"
   },
   "Balfour Falconer 250-мм": {
-   "en": "Balfour Falconer 250mm",
-   "fr": "Balfour Falconer 250mm",
-   "ru": "Balfour Falconer 250-мм"
+   "en": "Balfour Falconer 250mm"
   },
   "Balfour Falconer 250-мм (Ящик)": {
    "en": "Balfour Falconer 250mm (Crate)",
-   "fr": "Balfour Falconer 250mm (Caisse)",
-   "ru": "Balfour Falconer 250-мм (Ящик)"
+   "fr": "Balfour Falconer 250mm (Caisse)"
   },
   "Balfour Rampart 68-мм": {
    "en": "Balfour Rampart 68mm",
-   "fr": "Balfour Rampart 68 mm",
-   "ru": "Balfour Rampart 68-мм"
+   "fr": "Balfour Rampart 68 mm"
   },
   "Balfour Stockade 75-мм": {
    "en": "Balfour Stockade 75mm",
-   "fr": "Balfour Stockade 75 mm",
-   "ru": "Balfour Stockade 75-мм"
+   "fr": "Balfour Stockade 75 mm"
   },
   "Balfour Wolfhound 40мм": {
    "en": "Balfour Wolfhound 40mm",
-   "fr": "Balfour Wolfhound 40 mm",
-   "ru": "Balfour Wolfhound 40мм"
+   "fr": "Balfour Wolfhound 40 mm"
   },
   "Balfour Wolfhound 40мм (Ящик)": {
    "en": "Balfour Wolfhound 40mm (Crate)",
-   "fr": "Balfour Wolfhound 40 mm (Caisse)",
-   "ru": "Balfour Wolfhound 40мм (Ящик)"
+   "fr": "Balfour Wolfhound 40 mm (Caisse)"
   },
   "Bellweather by VAC": {
-   "en": "Bellweather by VAC",
-   "fr": "Bellweather by VAC",
-   "ru": "Bellweather by VAC"
+   "en": "Bellweather by VAC"
   },
   "Bellweather by VAC (Ящик)": {
    "en": "Bellweather by VAC (Crate)",
-   "fr": "Bellweather by VAC (Caisse)",
-   "ru": "Bellweather by VAC (Ящик)"
+   "fr": "Bellweather by VAC (Caisse)"
   },
   "Blakerow 871 (Ящик)": {
    "en": "Blakerow 871 (Crate)",
-   "fr": "Blakerow 871 (Caisse)",
-   "ru": "Blakerow 871 (Ящик)"
+   "fr": "Blakerow 871 (Caisse)"
   },
   "Bonesaw MK.3 (Ящик)": {
    "en": "Bonesaw MK.3 (Crate)",
-   "fr": "Bonesaw MK.3 (Caisse)",
-   "ru": "Bonesaw MK.3 (Ящик)"
+   "fr": "Bonesaw MK.3 (Caisse)"
   },
   "Booker Greyhound Model 910 (Ящик)": {
    "en": "Booker Greyhound Model 910 (Crate)",
-   "fr": "Booker Greyhound Model 910 (Caisse)",
-   "ru": "Booker Greyhound Model 910 (Ящик)"
+   "fr": "Booker Greyhound Model 910 (Caisse)"
   },
   "Buckhorn CCQ-18 (Ящик)": {
    "en": "Buckhorn CCQ-18 (Crate)",
-   "fr": "Buckhorn CCQ-18 (Caisse)",
-   "ru": "Buckhorn CCQ-18 (Ящик)"
+   "fr": "Buckhorn CCQ-18 (Caisse)"
   },
   "Cascadier 873 (Ящик)": {
    "en": "Cascadier 873 (Crate)",
-   "fr": "Cascadier 873 (Caisse)",
-   "ru": "Cascadier 873 (Ящик)"
+   "fr": "Cascadier 873 (Caisse)"
   },
   "Clancy Cinder M3 (Ящик)": {
    "en": "Clancy Cinder M3 (Crate)",
-   "fr": "Clancy Cinder M3 (Caisse)",
-   "ru": "Clancy Cinder M3 (Ящик)"
+   "fr": "Clancy Cinder M3 (Caisse)"
   },
   "Clancy-Raca M4 (Ящик)": {
    "en": "Clancy-Raca M4 (Crate)",
-   "fr": "Clancy-Raca M4 (Caisse)",
-   "ru": "Clancy-Raca M4 (Ящик)"
+   "fr": "Clancy-Raca M4 (Caisse)"
   },
   "Cloudrunner’s Vesture": {
-   "en": "Cloudrunner’s Vesture",
-   "fr": "Cloudrunner’s Vesture",
-   "ru": "Cloudrunner’s Vesture"
+   "en": "Cloudrunner’s Vesture"
   },
   "Cloudrunner’s Vesture (Ящик)": {
    "en": "Cloudrunner’s Vesture (Crate)",
-   "fr": "Cloudrunner’s Vesture (Caisse)",
-   "ru": "Cloudrunner’s Vesture (Ящик)"
+   "fr": "Cloudrunner’s Vesture (Caisse)"
   },
   "Cnute Cliffwrest": {
-   "en": "Cnute Cliffwrest",
-   "fr": "Cnute Cliffwrest",
-   "ru": "Cnute Cliffwrest"
+   "en": "Cnute Cliffwrest"
   },
   "Collins орудие 68-мм": {
    "en": "Collins Cannon 68mm",
-   "fr": "Canon Collins de 68 mm",
-   "ru": "Collins орудие 68-мм"
+   "fr": "Canon Collins de 68 mm"
   },
   "Collins орудие 68-мм (Ящик)": {
    "en": "Collins Cannon 68mm (Crate)",
-   "fr": "Canon Collins de 68 mm (Caisse)",
-   "ru": "Collins орудие 68-мм (Ящик)"
+   "fr": "Canon Collins de 68 mm (Caisse)"
   },
   "Cometa T2-9 (Ящик)": {
    "en": "Cometa T2-9 (Crate)",
-   "fr": "Cometa T2-9 (Caisse)",
-   "ru": "Cometa T2-9 (Ящик)"
+   "fr": "Cometa T2-9 (Caisse)"
   },
   "Crow’s Foot Mine (Ящик)": {
    "en": "Crow’s Foot Mine (Crate)",
-   "fr": "Crow’s Foot Mine (Caisse)",
-   "ru": "Crow’s Foot Mine (Ящик)"
+   "fr": "Crow’s Foot Mine (Caisse)"
   },
   "Cutler Foebreaker (Ящик)": {
    "en": "Cutler Foebreaker (Crate)",
-   "fr": "Cutler Foebreaker (Caisse)",
-   "ru": "Cutler Foebreaker (Ящик)"
+   "fr": "Cutler Foebreaker (Caisse)"
   },
   "Cutler Launcher 4 (Ящик)": {
    "en": "Cutler Launcher 4 (Crate)",
-   "fr": "Cutler Launcher 4 (Caisse)",
-   "ru": "Cutler Launcher 4 (Ящик)"
+   "fr": "Cutler Launcher 4 (Caisse)"
   },
   "Damaged Warden Aircraft Engine (Large)": {
    "en": "Damaged Warden Aircraft Engine (Large)",
-   "fr": "Moteur d'Avion Warden Endommagé (Grand)",
-   "ru": "Damaged Warden Aircraft Engine (Large)"
+   "fr": "Moteur d'Avion Warden Endommagé (Grand)"
   },
   "Damaged Warden Aircraft Engine (Large) (Ящик)": {
    "en": "Damaged Warden Aircraft Engine (Large) (Crate)",
-   "fr": "Moteur d'Avion Warden Endommagé (Grand) (Caisse)",
-   "ru": "Damaged Warden Aircraft Engine (Large) (Ящик)"
+   "fr": "Moteur d'Avion Warden Endommagé (Grand) (Caisse)"
   },
   "Damaged Warden Aircraft Mechanical Parts (Large)": {
    "en": "Damaged Warden Aircraft Mechanical Parts (Large)",
-   "fr": "Pièces Mécaniques d'Avion Warden Endommagées (Grand)",
-   "ru": "Damaged Warden Aircraft Mechanical Parts (Large)"
+   "fr": "Pièces Mécaniques d'Avion Warden Endommagées (Grand)"
   },
   "Damaged Warden Aircraft Mechanical Parts (Large) (Ящик)": {
    "en": "Damaged Warden Aircraft Mechanical Parts (Large) (Crate)",
-   "fr": "Pièces Mécaniques d'Avion Warden Endommagées (Grand) (Caisse)",
-   "ru": "Damaged Warden Aircraft Mechanical Parts (Large) (Ящик)"
+   "fr": "Pièces Mécaniques d'Avion Warden Endommagées (Grand) (Caisse)"
   },
   "Das Krokodil by VAC": {
    "en": "Das Krokodil by VAC",
-   "fr": "Das Krokodil par VAC",
-   "ru": "Das Krokodil by VAC"
+   "fr": "Das Krokodil par VAC"
   },
   "Das Krokodil by VAC (Ящик)": {
    "en": "Das Krokodil by VAC (Crate)",
-   "fr": "Das Krokodil par VAC (Caisse)",
-   "ru": "Das Krokodil by VAC (Ящик)"
+   "fr": "Das Krokodil par VAC (Caisse)"
   },
   "Devitt Ironhide Mk. IV": {
-   "en": "Devitt Ironhide Mk. IV",
-   "fr": "Devitt Ironhide Mk. IV",
-   "ru": "Devitt Ironhide Mk. IV"
+   "en": "Devitt Ironhide Mk. IV"
   },
   "Devitt Mk. III": {
-   "en": "Devitt Mk. III",
-   "fr": "Devitt Mk. III",
-   "ru": "Devitt Mk. III"
+   "en": "Devitt Mk. III"
   },
   "Devitt Mk. III (Ящик)": {
    "en": "Devitt Mk. III (Crate)",
-   "fr": "Devitt Mk. III (Caisse)",
-   "ru": "Devitt Mk. III (Ящик)"
+   "fr": "Devitt Mk. III (Caisse)"
   },
   "Devitt-Caine Mk. IV MMR": {
-   "en": "Devitt-Caine Mk. IV MMR",
-   "fr": "Devitt-Caine Mk. IV MMR",
-   "ru": "Devitt-Caine Mk. IV MMR"
+   "en": "Devitt-Caine Mk. IV MMR"
   },
   "Drummond 100a": {
-   "en": "Drummond 100a",
-   "fr": "Drummond 100a",
-   "ru": "Drummond 100a"
+   "en": "Drummond 100a"
   },
   "Drummond 100a (Ящик)": {
    "en": "Drummond 100a (Crate)",
-   "fr": "Drummond 100a (Caisse)",
-   "ru": "Drummond 100a (Ящик)"
+   "fr": "Drummond 100a (Caisse)"
   },
   "Drummond Loscann 55c": {
-   "en": "Drummond Loscann 55c",
-   "fr": "Drummond Loscann 55c",
-   "ru": "Drummond Loscann 55c"
+   "en": "Drummond Loscann 55c"
   },
   "Drummond Spitfire 100d": {
-   "en": "Drummond Spitfire 100d",
-   "fr": "Drummond Spitfire 100d",
-   "ru": "Drummond Spitfire 100d"
+   "en": "Drummond Spitfire 100d"
   },
   "Duncan’s Coin 14.5mm": {
-   "en": "Duncan’s Coin 14.5mm",
-   "fr": "Duncan’s Coin 14.5mm",
-   "ru": "Duncan’s Coin 14.5mm"
+   "en": "Duncan’s Coin 14.5mm"
   },
   "Dunne Caravaner 2f": {
-   "en": "Dunne Caravaner 2f",
-   "fr": "Dunne Caravaner 2f",
-   "ru": "Dunne Caravaner 2f"
+   "en": "Dunne Caravaner 2f"
   },
   "Dunne Caravaner 2f (Ящик)": {
    "en": "Dunne Caravaner 2f (Crate)",
-   "fr": "Dunne Caravaner 2f (Caisse)",
-   "ru": "Dunne Caravaner 2f (Ящик)"
+   "fr": "Dunne Caravaner 2f (Caisse)"
   },
   "Dunne Dousing Engine 3r": {
-   "en": "Dunne Dousing Engine 3r",
-   "fr": "Dunne Dousing Engine 3r",
-   "ru": "Dunne Dousing Engine 3r"
+   "en": "Dunne Dousing Engine 3r"
   },
   "Dunne Fuelrunner 2d": {
-   "en": "Dunne Fuelrunner 2d",
-   "fr": "Dunne Fuelrunner 2d",
-   "ru": "Dunne Fuelrunner 2d"
+   "en": "Dunne Fuelrunner 2d"
   },
   "Dunne Fuelrunner 2d (Ящик)": {
    "en": "Dunne Fuelrunner 2d (Crate)",
-   "fr": "Dunne Fuelrunner 2d (Caisse)",
-   "ru": "Dunne Fuelrunner 2d (Ящик)"
+   "fr": "Dunne Fuelrunner 2d (Caisse)"
   },
   "Dunne Landrunner 12c": {
-   "en": "Dunne Landrunner 12c",
-   "fr": "Dunne Landrunner 12c",
-   "ru": "Dunne Landrunner 12c"
+   "en": "Dunne Landrunner 12c"
   },
   "Dunne Leatherback 2a": {
-   "en": "Dunne Leatherback 2a",
-   "fr": "Dunne Leatherback 2a",
-   "ru": "Dunne Leatherback 2a"
+   "en": "Dunne Leatherback 2a"
   },
   "Dunne Responder 3e": {
-   "en": "Dunne Responder 3e",
-   "fr": "Dunne Responder 3e",
-   "ru": "Dunne Responder 3e"
+   "en": "Dunne Responder 3e"
   },
   "Dunne Responder 3e (Ящик)": {
    "en": "Dunne Responder 3e (Crate)",
-   "fr": "Dunne Responder 3e (Caisse)",
-   "ru": "Dunne Responder 3e (Ящик)"
+   "fr": "Dunne Responder 3e (Caisse)"
   },
   "Dunne Transport": {
-   "en": "Dunne Transport",
-   "fr": "Dunne Transport",
-   "ru": "Dunne Transport"
+   "en": "Dunne Transport"
   },
   "Dunne Transport (Ящик)": {
    "en": "Dunne Transport (Crate)",
-   "fr": "Dunne Transport (Caisse)",
-   "ru": "Dunne Transport (Ящик)"
+   "fr": "Dunne Transport (Caisse)"
   },
   "E680-S Rudder Lock (Ящик)": {
    "en": "E680-S Rudder Lock (Crate)",
-   "fr": "E680-S Rudder Lock (Caisse)",
-   "ru": "E680-S Rudder Lock (Ящик)"
+   "fr": "E680-S Rudder Lock (Caisse)"
   },
   "E681-B Hullbreaker Mine (Ящик)": {
    "en": "E681-B Hullbreaker Mine (Crate)",
-   "fr": "E681-B Hullbreaker Mine (Caisse)",
-   "ru": "E681-B Hullbreaker Mine (Ящик)"
+   "fr": "E681-B Hullbreaker Mine (Caisse)"
   },
   "Falias Raiding Club (Ящик)": {
    "en": "Falias Raiding Club (Crate)",
-   "fr": "Falias Raiding Club (Caisse)",
-   "ru": "Falias Raiding Club (Ящик)"
+   "fr": "Falias Raiding Club (Caisse)"
   },
   "Flight Mask (Ящик)": {
    "en": "Flight Mask (Crate)",
-   "fr": "Flight Mask (Caisse)",
-   "ru": "Flight Mask (Ящик)"
+   "fr": "Flight Mask (Caisse)"
   },
   "Gallagher Brigand Mk. I": {
-   "en": "Gallagher Brigand Mk. I",
-   "fr": "Gallagher Brigand Mk. I",
-   "ru": "Gallagher Brigand Mk. I"
+   "en": "Gallagher Brigand Mk. I"
   },
   "Gallagher Brigand Mk. I (Ящик)": {
    "en": "Gallagher Brigand Mk. I (Crate)",
-   "fr": "Gallagher Brigand Mk. I (Caisse)",
-   "ru": "Gallagher Brigand Mk. I (Ящик)"
+   "fr": "Gallagher Brigand Mk. I (Caisse)"
   },
   "Gallagher Highwayman Mk. III": {
-   "en": "Gallagher Highwayman Mk. III",
-   "fr": "Gallagher Highwayman Mk. III",
-   "ru": "Gallagher Highwayman Mk. III"
+   "en": "Gallagher Highwayman Mk. III"
   },
   "Gallagher Outlaw Mk. II": {
-   "en": "Gallagher Outlaw Mk. II",
-   "fr": "Gallagher Outlaw Mk. II",
-   "ru": "Gallagher Outlaw Mk. II"
+   "en": "Gallagher Outlaw Mk. II"
   },
   "Gallagher Thornfall Mk. VI": {
-   "en": "Gallagher Thornfall Mk. VI",
-   "fr": "Gallagher Thornfall Mk. VI",
-   "ru": "Gallagher Thornfall Mk. VI"
+   "en": "Gallagher Thornfall Mk. VI"
   },
   "Gentleman’s Peacoat (Ящик)": {
    "en": "Gentleman’s Peacoat (Crate)",
-   "fr": "Gentleman’s Peacoat (Caisse)",
-   "ru": "Gentleman’s Peacoat (Ящик)"
+   "fr": "Gentleman’s Peacoat (Caisse)"
   },
   "Huber Exalt 150mm": {
-   "en": "Huber Exalt 150mm",
-   "fr": "Huber Exalt 150mm",
-   "ru": "Huber Exalt 150mm"
+   "en": "Huber Exalt 150mm"
   },
   "Huber Exalt 150mm (Ящик)": {
    "en": "Huber Exalt 150mm (Crate)",
-   "fr": "Huber Exalt 150mm (Caisse)",
-   "ru": "Huber Exalt 150mm (Ящик)"
+   "fr": "Huber Exalt 150mm (Caisse)"
   },
   "Huber Lariat 120мм": {
    "en": "Huber Lariat 120mm",
-   "fr": "Huber Lariat 120 mm",
-   "ru": "Huber Lariat 120мм"
+   "fr": "Huber Lariat 120 mm"
   },
   "Huber Lariat 120мм (Ящик)": {
    "en": "Huber Lariat 120mm (Crate)",
-   "fr": "Huber Lariat 120 mm (Caisse)",
-   "ru": "Huber Lariat 120мм (Ящик)"
+   "fr": "Huber Lariat 120 mm (Caisse)"
   },
   "Huber Starbreaker 94.5мм": {
    "en": "Huber Starbreaker 94.5mm",
-   "fr": "Huber Starbreaker 94 5 mm",
-   "ru": "Huber Starbreaker 94.5мм"
+   "fr": "Huber Starbreaker 94 5 mm"
   },
   "King Gallant Mk. II": {
-   "en": "King Gallant Mk. II",
-   "fr": "King Gallant Mk. II",
-   "ru": "King Gallant Mk. II"
+   "en": "King Gallant Mk. II"
   },
   "King Jester Mk. I-1": {
-   "en": "King Jester Mk. I-1",
-   "fr": "King Jester Mk. I-1",
-   "ru": "King Jester Mk. I-1"
+   "en": "King Jester Mk. I-1"
   },
   "King Spire Mk. I": {
-   "en": "King Spire Mk. I",
-   "fr": "King Spire Mk. I",
-   "ru": "King Spire Mk. I"
+   "en": "King Spire Mk. I"
   },
   "King Spire Mk. I (Ящик)": {
    "en": "King Spire Mk. I (Crate)",
-   "fr": "King Spire Mk. I (Caisse)",
-   "ru": "King Spire Mk. I (Ящик)"
+   "fr": "King Spire Mk. I (Caisse)"
   },
   "Kivela Power Wheel 80-1": {
-   "en": "Kivela Power Wheel 80-1",
-   "fr": "Kivela Power Wheel 80-1",
-   "ru": "Kivela Power Wheel 80-1"
+   "en": "Kivela Power Wheel 80-1"
   },
   "Kivela Power Wheel 80-1 (Ящик)": {
    "en": "Kivela Power Wheel 80-1 (Crate)",
-   "fr": "Kivela Power Wheel 80-1 (Caisse)",
-   "ru": "Kivela Power Wheel 80-1 (Ящик)"
+   "fr": "Kivela Power Wheel 80-1 (Caisse)"
   },
   "Leary AA-70 Bolas": {
-   "en": "Leary AA-70 Bolas",
-   "fr": "Leary AA-70 Bolas",
-   "ru": "Leary AA-70 Bolas"
+   "en": "Leary AA-70 Bolas"
   },
   "Leary AA-70 Bolas (Ящик)": {
    "en": "Leary AA-70 Bolas (Crate)",
-   "fr": "Leary AA-70 Bolas (Caisse)",
-   "ru": "Leary AA-70 Bolas (Ящик)"
+   "fr": "Leary AA-70 Bolas (Caisse)"
   },
   "Leary Shellbore 68-мм": {
    "en": "Leary Shellbore 68mm",
-   "fr": "Leary Shellbore 68 mm",
-   "ru": "Leary Shellbore 68-мм"
+   "fr": "Leary Shellbore 68 mm"
   },
   "Leary Shellbore 68-мм (Ящик)": {
    "en": "Leary Shellbore 68mm (Crate)",
-   "fr": "Leary Shellbore 68 mm (Caisse)",
-   "ru": "Leary Shellbore 68-мм (Ящик)"
+   "fr": "Leary Shellbore 68 mm (Caisse)"
   },
   "Leary Snare Trap 20": {
-   "en": "Leary Snare Trap 20",
-   "fr": "Leary Snare Trap 20",
-   "ru": "Leary Snare Trap 20"
+   "en": "Leary Snare Trap 20"
   },
   "Leary Snare Trap 20 (Ящик)": {
    "en": "Leary Snare Trap 20 (Crate)",
-   "fr": "Leary Snare Trap 20 (Caisse)",
-   "ru": "Leary Snare Trap 20 (Ящик)"
+   "fr": "Leary Snare Trap 20 (Caisse)"
   },
   "Luminary Mk. II Harbinger": {
-   "en": "Luminary Mk. II Harbinger",
-   "fr": "Luminary Mk. II Harbinger",
-   "ru": "Luminary Mk. II Harbinger"
+   "en": "Luminary Mk. II Harbinger"
   },
   "Luminary Mk. II Harbinger (Ящик)": {
    "en": "Luminary Mk. II Harbinger (Crate)",
-   "fr": "Luminary Mk. II Harbinger (Caisse)",
-   "ru": "Luminary Mk. II Harbinger (Ящик)"
+   "fr": "Luminary Mk. II Harbinger (Caisse)"
   },
   "Luminary Mk. IV Herald": {
-   "en": "Luminary Mk. IV Herald",
-   "fr": "Luminary Mk. IV Herald",
-   "ru": "Luminary Mk. IV Herald"
+   "en": "Luminary Mk. IV Herald"
   },
   "Luminary Mk. IV Herald (Ящик)": {
    "en": "Luminary Mk. IV Herald (Crate)",
-   "fr": "Luminary Mk. IV Herald (Caisse)",
-   "ru": "Luminary Mk. IV Herald (Ящик)"
+   "fr": "Luminary Mk. IV Herald (Caisse)"
   },
   "Luminary Mk. VI Emissary": {
-   "en": "Luminary Mk. VI Emissary",
-   "fr": "Luminary Mk. VI Emissary",
-   "ru": "Luminary Mk. VI Emissary"
+   "en": "Luminary Mk. VI Emissary"
   },
   "Luminary Mk. VI Emissary (Ящик)": {
    "en": "Luminary Mk. VI Emissary (Crate)",
-   "fr": "Luminary Mk. VI Emissary (Caisse)",
-   "ru": "Luminary Mk. VI Emissary (Ящик)"
+   "fr": "Luminary Mk. VI Emissary (Caisse)"
   },
   "M925 Austringer Man-O-War": {
-   "en": "M925 Austringer Man-O-War",
-   "fr": "M925 Austringer Man-O-War",
-   "ru": "M925 Austringer Man-O-War"
+   "en": "M925 Austringer Man-O-War"
   },
   "M925 Austringer Man-O-War (Ящик)": {
    "en": "M925 Austringer Man-O-War (Crate)",
-   "fr": "M925 Austringer Man-O-War (Caisse)",
-   "ru": "M925 Austringer Man-O-War (Ящик)"
+   "fr": "M925 Austringer Man-O-War (Caisse)"
   },
   "Malone MK.2 (Ящик)": {
    "en": "Malone MK.2 (Crate)",
-   "fr": "Malone MK.2 (Caisse)",
-   "ru": "Malone MK.2 (Ящик)"
+   "fr": "Malone MK.2 (Caisse)"
   },
   "Malone Ratcatcher MK.1 (Ящик)": {
    "en": "Malone Ratcatcher MK.1 (Crate)",
-   "fr": "Malone Ratcatcher MK.1 (Caisse)",
-   "ru": "Malone Ratcatcher MK.1 (Ящик)"
+   "fr": "Malone Ratcatcher MK.1 (Caisse)"
   },
   "Mammon 91-b (Ящик)": {
    "en": "Mammon 91-b (Crate)",
-   "fr": "Mammon 91-b (Caisse)",
-   "ru": "Mammon 91-b (Ящик)"
+   "fr": "Mammon 91-b (Caisse)"
   },
   "Mark II Raidbreaker (Ящик)": {
    "en": "Mark II Raidbreaker (Crate)",
-   "fr": "Mark II Raidbreaker (Caisse)",
-   "ru": "Mark II Raidbreaker (Ящик)"
+   "fr": "Mark II Raidbreaker (Caisse)"
   },
   "Model-7 “Evie” (Ящик)": {
    "en": "Model-7 “Evie” (Crate)",
-   "fr": "Model-7 “Evie” (Caisse)",
-   "ru": "Model-7 “Evie” (Ящик)"
+   "fr": "Model-7 “Evie” (Caisse)"
   },
   "Mulloy LPC": {
-   "en": "Mulloy LPC",
-   "fr": "Mulloy LPC",
-   "ru": "Mulloy LPC"
+   "en": "Mulloy LPC"
   },
   "Mulloy LPC (Ящик)": {
    "en": "Mulloy LPC (Crate)",
-   "fr": "Mulloy LPC (Caisse)",
-   "ru": "Mulloy LPC (Ящик)"
+   "fr": "Mulloy LPC (Caisse)"
   },
   "Naval Buoy (Ящик)": {
    "en": "Naval Buoy (Crate)",
-   "fr": "Naval Buoy (Caisse)",
-   "ru": "Naval Buoy (Ящик)"
+   "fr": "Naval Buoy (Caisse)"
   },
   "Niska Mk. II Blinder": {
-   "en": "Niska Mk. II Blinder",
-   "fr": "Niska Mk. II Blinder",
-   "ru": "Niska Mk. II Blinder"
+   "en": "Niska Mk. II Blinder"
   },
   "Niska Mk. III Scar Twin": {
-   "en": "Niska Mk. III Scar Twin",
-   "fr": "Niska Mk. III Scar Twin",
-   "ru": "Niska Mk. III Scar Twin"
+   "en": "Niska Mk. III Scar Twin"
   },
   "Niska-Rycker Mk. IX Skycaller": {
-   "en": "Niska-Rycker Mk. IX Skycaller",
-   "fr": "Niska-Rycker Mk. IX Skycaller",
-   "ru": "Niska-Rycker Mk. IX Skycaller"
+   "en": "Niska-Rycker Mk. IX Skycaller"
   },
   "No.2 Loughcaster (Ящик)": {
    "en": "No.2 Loughcaster (Crate)",
-   "fr": "No.2 Loughcaster (Caisse)",
-   "ru": "No.2 Loughcaster (Ящик)"
+   "fr": "No.2 Loughcaster (Caisse)"
   },
   "No.2B Hawthorne (Ящик)": {
    "en": "No.2B Hawthorne (Crate)",
-   "fr": "No.2B Hawthorne (Caisse)",
-   "ru": "No.2B Hawthorne (Ящик)"
+   "fr": "No.2B Hawthorne (Caisse)"
   },
   "No.4 The Pillory Scattergun (Ящик)": {
    "en": "No.4 The Pillory Scattergun (Crate)",
-   "fr": "No.4 The Pillory Scattergun (Caisse)",
-   "ru": "No.4 The Pillory Scattergun (Ящик)"
+   "fr": "No.4 The Pillory Scattergun (Caisse)"
   },
   "Noble Firebrand Mk. XVII": {
-   "en": "Noble Firebrand Mk. XVII",
-   "fr": "Noble Firebrand Mk. XVII",
-   "ru": "Noble Firebrand Mk. XVII"
+   "en": "Noble Firebrand Mk. XVII"
   },
   "Noble Widow MK. XIV": {
-   "en": "Noble Widow MK. XIV",
-   "fr": "Noble Widow MK. XIV",
-   "ru": "Noble Widow MK. XIV"
+   "en": "Noble Widow MK. XIV"
   },
   "Noble Widow MK. XIV (Ящик)": {
    "en": "Noble Widow MK. XIV (Crate)",
-   "fr": "Noble Widow MK. XIV (Caisse)",
-   "ru": "Noble Widow MK. XIV (Ящик)"
+   "fr": "Noble Widow MK. XIV (Caisse)"
   },
   "O’Brien V.101 Freeman": {
-   "en": "O’Brien V.101 Freeman",
-   "fr": "O’Brien V.101 Freeman",
-   "ru": "O’Brien V.101 Freeman"
+   "en": "O’Brien V.101 Freeman"
   },
   "O’Brien V.110": {
-   "en": "O’Brien V.110",
-   "fr": "O’Brien V.110",
-   "ru": "O’Brien V.110"
+   "en": "O’Brien V.110"
   },
   "O’Brien V.110 (Ящик)": {
    "en": "O’Brien V.110 (Crate)",
-   "fr": "O’Brien V.110 (Caisse)",
-   "ru": "O’Brien V.110 (Ящик)"
+   "fr": "O’Brien V.110 (Caisse)"
   },
   "O’Brien V.113 Gravekeeper": {
-   "en": "O’Brien V.113 Gravekeeper",
-   "fr": "O’Brien V.113 Gravekeeper",
-   "ru": "O’Brien V.113 Gravekeeper"
+   "en": "O’Brien V.113 Gravekeeper"
   },
   "O’Brien V.121 Highlander": {
-   "en": "O’Brien V.121 Highlander",
-   "fr": "O’Brien V.121 Highlander",
-   "ru": "O’Brien V.121 Highlander"
+   "en": "O’Brien V.121 Highlander"
   },
   "O’Brien V.121 Highlander (Ящик)": {
    "en": "O’Brien V.121 Highlander (Crate)",
-   "fr": "O’Brien V.121 Highlander (Caisse)",
-   "ru": "O’Brien V.121 Highlander (Ящик)"
+   "fr": "O’Brien V.121 Highlander (Caisse)"
   },
   "O’Brien V.130 Wild Jack": {
-   "en": "O’Brien V.130 Wild Jack",
-   "fr": "O’Brien V.130 Wild Jack",
-   "ru": "O’Brien V.130 Wild Jack"
+   "en": "O’Brien V.130 Wild Jack"
   },
   "O’Brien V.190 Knave": {
-   "en": "O’Brien V.190 Knave",
-   "fr": "O’Brien V.190 Knave",
-   "ru": "O’Brien V.190 Knave"
+   "en": "O’Brien V.190 Knave"
   },
   "O’Brien V.190 Knave (Ящик)": {
    "en": "O’Brien V.190 Knave (Crate)",
-   "fr": "O’Brien V.190 Knave (Caisse)",
-   "ru": "O’Brien V.190 Knave (Ящик)"
+   "fr": "O’Brien V.190 Knave (Caisse)"
   },
   "O’Brien v.200 Squire": {
-   "en": "O’Brien v.200 Squire",
-   "fr": "O’Brien v.200 Squire",
-   "ru": "O’Brien v.200 Squire"
+   "en": "O’Brien v.200 Squire"
   },
   "Rinnspeir Mk. I Zealot": {
-   "en": "Rinnspeir Mk. I Zealot",
-   "fr": "Rinnspeir Mk. I Zealot",
-   "ru": "Rinnspeir Mk. I Zealot"
+   "en": "Rinnspeir Mk. I Zealot"
   },
   "Rinnspeir Mk. I Zealot (Ящик)": {
    "en": "Rinnspeir Mk. I Zealot (Crate)",
-   "fr": "Rinnspeir Mk. I Zealot (Caisse)",
-   "ru": "Rinnspeir Mk. I Zealot (Ящик)"
+   "fr": "Rinnspeir Mk. I Zealot (Caisse)"
   },
   "Rinnspeir Ornitier-Class Gunship": {
-   "en": "Rinnspeir Ornitier-Class Gunship",
-   "fr": "Rinnspeir Ornitier-Class Gunship",
-   "ru": "Rinnspeir Ornitier-Class Gunship"
+   "en": "Rinnspeir Ornitier-Class Gunship"
   },
   "Rinnspeir Ornitier-Class Gunship (Ящик)": {
    "en": "Rinnspeir Ornitier-Class Gunship (Crate)",
-   "fr": "Rinnspeir Ornitier-Class Gunship (Caisse)",
-   "ru": "Rinnspeir Ornitier-Class Gunship (Ящик)"
+   "fr": "Rinnspeir Ornitier-Class Gunship (Caisse)"
   },
   "Rooster - Junkwagon": {
-   "en": "Rooster - Junkwagon",
-   "fr": "Rooster - Junkwagon",
-   "ru": "Rooster - Junkwagon"
+   "en": "Rooster - Junkwagon"
   },
   "Rooster - Junkwagon (Ящик)": {
    "en": "Rooster - Junkwagon (Crate)",
-   "fr": "Rooster - Junkwagon (Caisse)",
-   "ru": "Rooster - Junkwagon (Ящик)"
+   "fr": "Rooster - Junkwagon (Caisse)"
   },
   "Rooster - Lamploader": {
-   "en": "Rooster - Lamploader",
-   "fr": "Rooster - Lamploader",
-   "ru": "Rooster - Lamploader"
+   "en": "Rooster - Lamploader"
   },
   "Rooster - Lamploader (Ящик)": {
    "en": "Rooster - Lamploader (Crate)",
-   "fr": "Rooster - Lamploader (Caisse)",
-   "ru": "Rooster - Lamploader (Ящик)"
+   "fr": "Rooster - Lamploader (Caisse)"
   },
   "Rooster - Tumblebox": {
-   "en": "Rooster - Tumblebox",
-   "fr": "Rooster - Tumblebox",
-   "ru": "Rooster - Tumblebox"
+   "en": "Rooster - Tumblebox"
   },
   "Rooster - Tumblebox (Ящик)": {
    "en": "Rooster - Tumblebox (Crate)",
-   "fr": "Rooster - Tumblebox (Caisse)",
-   "ru": "Rooster - Tumblebox (Ящик)"
+   "fr": "Rooster - Tumblebox (Caisse)"
   },
   "Rycker 4/3-F Wasp Nest": {
-   "en": "Rycker 4/3-F Wasp Nest",
-   "fr": "Rycker 4/3-F Wasp Nest",
-   "ru": "Rycker 4/3-F Wasp Nest"
+   "en": "Rycker 4/3-F Wasp Nest"
   },
   "Sharkey-Devitt Birdeater Mk. I": {
-   "en": "Sharkey-Devitt Birdeater Mk. I",
-   "fr": "Sharkey-Devitt Birdeater Mk. I",
-   "ru": "Sharkey-Devitt Birdeater Mk. I"
+   "en": "Sharkey-Devitt Birdeater Mk. I"
   },
   "Sharkey-Devitt Birdeater Mk. I (Ящик)": {
    "en": "Sharkey-Devitt Birdeater Mk. I (Crate)",
-   "fr": "Sharkey-Devitt Birdeater Mk. I (Caisse)",
-   "ru": "Sharkey-Devitt Birdeater Mk. I (Ящик)"
+   "fr": "Sharkey-Devitt Birdeater Mk. I (Caisse)"
   },
   "Silverhand - Mk. IV": {
-   "en": "Silverhand - Mk. IV",
-   "fr": "Silverhand - Mk. IV",
-   "ru": "Silverhand - Mk. IV"
+   "en": "Silverhand - Mk. IV"
   },
   "Silverhand - Mk. IV (Ящик)": {
    "en": "Silverhand - Mk. IV (Crate)",
-   "fr": "Silverhand - Mk. IV (Caisse)",
-   "ru": "Silverhand - Mk. IV (Ящик)"
+   "fr": "Silverhand - Mk. IV (Caisse)"
   },
   "Silverhand Chieftain - Mk. VI": {
-   "en": "Silverhand Chieftain - Mk. VI",
-   "fr": "Silverhand Chieftain - Mk. VI",
-   "ru": "Silverhand Chieftain - Mk. VI"
+   "en": "Silverhand Chieftain - Mk. VI"
   },
   "Silverhand Lordscar - Mk. X": {
-   "en": "Silverhand Lordscar - Mk. X",
-   "fr": "Silverhand Lordscar - Mk. X",
-   "ru": "Silverhand Lordscar - Mk. X"
+   "en": "Silverhand Lordscar - Mk. X"
   },
   "Swallowtail 988/127-2": {
-   "en": "Swallowtail 988/127-2",
-   "fr": "Swallowtail 988/127-2",
-   "ru": "Swallowtail 988/127-2"
+   "en": "Swallowtail 988/127-2"
   },
   "Swallowtail 988/127-2 (Ящик)": {
    "en": "Swallowtail 988/127-2 (Crate)",
-   "fr": "Swallowtail 988/127-2 (Caisse)",
-   "ru": "Swallowtail 988/127-2 (Ящик)"
+   "fr": "Swallowtail 988/127-2 (Caisse)"
   },
   "Tulka I1.9 White Raven": {
-   "en": "Tulka I1.9 White Raven",
-   "fr": "Tulka I1.9 White Raven",
-   "ru": "Tulka I1.9 White Raven"
+   "en": "Tulka I1.9 White Raven"
   },
   "Tulka I1.9 White Raven (Ящик)": {
    "en": "Tulka I1.9 White Raven (Crate)",
-   "fr": "Tulka I1.9 White Raven (Caisse)",
-   "ru": "Tulka I1.9 White Raven (Ящик)"
+   "fr": "Tulka I1.9 White Raven (Caisse)"
   },
   "Tulka P4 Welkinrive": {
-   "en": "Tulka P4 Welkinrive",
-   "fr": "Tulka P4 Welkinrive",
-   "ru": "Tulka P4 Welkinrive"
+   "en": "Tulka P4 Welkinrive"
   },
   "Tulka P4 Welkinrive (Ящик)": {
    "en": "Tulka P4 Welkinrive (Crate)",
-   "fr": "Tulka P4 Welkinrive (Caisse)",
-   "ru": "Tulka P4 Welkinrive (Ящик)"
+   "fr": "Tulka P4 Welkinrive (Caisse)"
   },
   "Warden Aircraft Engine (Large)": {
    "en": "Warden Aircraft Engine (Large)",
-   "fr": "Moteur d'Avion Warden (Grand)",
-   "ru": "Warden Aircraft Engine (Large)"
+   "fr": "Moteur d'Avion Warden (Grand)"
   },
   "Warden Aircraft Engine (Large) (Ящик)": {
    "en": "Warden Aircraft Engine (Large) (Crate)",
-   "fr": "Moteur d'Avion Warden (Grand) (Caisse)",
-   "ru": "Warden Aircraft Engine (Large) (Ящик)"
+   "fr": "Moteur d'Avion Warden (Grand) (Caisse)"
   },
   "Warden Aircraft Mechanical Parts (Large)": {
    "en": "Warden Aircraft Mechanical Parts (Large)",
-   "fr": "Pièces Mécaniques d'Avion Warden (Grand)",
-   "ru": "Warden Aircraft Mechanical Parts (Large)"
+   "fr": "Pièces Mécaniques d'Avion Warden (Grand)"
   },
   "Warden Aircraft Mechanical Parts (Large) (Ящик)": {
    "en": "Warden Aircraft Mechanical Parts (Large) (Crate)",
-   "fr": "Pièces Mécaniques d'Avion Warden (Grand) (Caisse)",
-   "ru": "Warden Aircraft Mechanical Parts (Large) (Ящик)"
+   "fr": "Pièces Mécaniques d'Avion Warden (Grand) (Caisse)"
   },
   "Willow’s Bane Model 845 (Ящик)": {
    "en": "Willow’s Bane Model 845 (Crate)",
-   "fr": "Willow’s Bane Model 845 (Caisse)",
-   "ru": "Willow’s Bane Model 845 (Ящик)"
+   "fr": "Willow’s Bane Model 845 (Caisse)"
   },
   "Авиационные детали Варденов (Малые)": {
    "en": "Warden Aircraft Mechanical Parts (Small)",
-   "fr": "Pièces Mécaniques d'Avion Warden (Petit)",
-   "ru": "Авиационные детали Варденов (Малые)"
+   "fr": "Pièces Mécaniques d'Avion Warden (Petit)"
   },
   "Авиационные детали Варденов (Малые) (Ящик)": {
    "en": "Warden Aircraft Mechanical Parts (Small) (Crate)",
-   "fr": "Pièces Mécaniques d'Avion Warden (Petit) (Caisse)",
-   "ru": "Авиационные детали Варденов (Малые) (Ящик)"
+   "fr": "Pièces Mécaniques d'Avion Warden (Petit) (Caisse)"
   },
   "Автоматическая винтовка Sampo 77 (Ящик)": {
    "en": "Sampo Auto-Rifle 77 (Crate)",
-   "fr": "Fusil Auto Sampo 77 (Caisse)",
-   "ru": "Автоматическая винтовка Sampo 77 (Ящик)"
+   "fr": "Fusil Auto Sampo 77 (Caisse)"
   },
   "Алюминиевый сплав (Ящик)": {
    "en": "Aluminum Alloy (Crate)",
-   "fr": "Alliage d'Aluminium (Caisse)",
-   "ru": "Алюминиевый сплав (Ящик)"
+   "fr": "Alliage d'Aluminium (Caisse)"
   },
   "Базовые материалы (Ящик)": {
    "en": "Basic Materials (Crate)",
-   "fr": "Matériaux Basiques (Caisse)",
-   "ru": "Базовые материалы (Ящик)"
+   "fr": "Matériaux Basiques (Caisse)"
   },
   "Бензин (Ящик)": {
    "en": "Petrol (Crate)",
-   "fr": "Essence (Caisse)",
-   "ru": "Бензин (Ящик)"
+   "fr": "Essence (Caisse)"
   },
   "Бетономешалка": {
    "en": "Concrete Mixer",
-   "fr": "Bétonnière",
-   "ru": "Бетономешалка"
+   "fr": "Bétonnière"
   },
   "Бетономешалка (Ящик)": {
    "en": "Concrete Mixer (Crate)",
-   "fr": "Bétonnière (Caisse)",
-   "ru": "Бетономешалка (Ящик)"
+   "fr": "Bétonnière (Caisse)"
   },
   "Бинокль (Ящик)": {
    "en": "Binoculars (Crate)",
-   "fr": "Jumelles (Caisse)",
-   "ru": "Бинокль (Ящик)"
+   "fr": "Jumelles (Caisse)"
   },
   "Бинты (Ящик)": {
    "en": "Bandages (Crate)",
-   "fr": "Bandages (Caisse)",
-   "ru": "Бинты (Ящик)"
+   "fr": "Bandages (Caisse)"
   },
   "Бортовой грузовик BMS - Packmule": {
    "en": "BMS - Packmule Flatbed",
-   "fr": "Camion Plateau BMS - Packmule",
-   "ru": "Бортовой грузовик BMS - Packmule"
+   "fr": "Camion Plateau BMS - Packmule"
   },
   "Бортовой грузовик BMS - Packmule (Ящик)": {
    "en": "BMS - Packmule Flatbed (Crate)",
-   "fr": "Camion Plateau BMS - Packmule (Caisse)",
-   "ru": "Бортовой грузовик BMS - Packmule (Ящик)"
+   "fr": "Camion Plateau BMS - Packmule (Caisse)"
   },
   "Бронебойный навесной/РПГ (Ящик)": {
    "en": "ARC/RPG (Crate)",
-   "fr": "ARC/RPG (Caisse)",
-   "ru": "Бронебойный навесной/РПГ (Ящик)"
+   "fr": "ARC/RPG (Caisse)"
   },
   "Бронебойный/РПГ (Ящик)": {
    "en": "AP/RPG (Crate)",
-   "fr": "AP/RPG (Caisse)",
-   "ru": "Бронебойный/РПГ (Ящик)"
+   "fr": "AP/RPG (Caisse)"
   },
   "Варденский авиадвигатель (Малый)": {
    "en": "Warden Aircraft Engine (Small)",
-   "fr": "Moteur d'Avion Warden (Petit)",
-   "ru": "Варденский авиадвигатель (Малый)"
+   "fr": "Moteur d'Avion Warden (Petit)"
   },
   "Варденский авиадвигатель (Малый) (Ящик)": {
    "en": "Warden Aircraft Engine (Small) (Crate)",
-   "fr": "Moteur d'Avion Warden (Petit) (Caisse)",
-   "ru": "Варденский авиадвигатель (Малый) (Ящик)"
+   "fr": "Moteur d'Avion Warden (Petit) (Caisse)"
   },
   "Ведро для воды (Ящик)": {
    "en": "Water Bucket (Crate)",
-   "fr": "Seau d'eau (Caisse)",
-   "ru": "Ведро для воды (Ящик)"
+   "fr": "Seau d'eau (Caisse)"
   },
   "Ветроуказатель (Ящик)": {
    "en": "Wind Sock (Crate)",
-   "fr": "Manche à Air (Caisse)",
-   "ru": "Ветроуказатель (Ящик)"
+   "fr": "Manche à Air (Caisse)"
   },
   "Вода (Ящик)": {
    "en": "Water (Crate)",
-   "fr": "Eau (Caisse)",
-   "ru": "Вода (Ящик)"
+   "fr": "Eau (Caisse)"
   },
   "Гаечный ключ (Ящик)": {
    "en": "Wrench (Crate)",
-   "fr": "Clé à Molette (Caisse)",
-   "ru": "Гаечный ключ (Ящик)"
+   "fr": "Clé à Molette (Caisse)"
   },
   "Газовая граната (Ящик)": {
    "en": "Green Ash Grenade (Crate)",
-   "fr": "Grenade Green Ash (Caisse)",
-   "ru": "Газовая граната (Ящик)"
+   "fr": "Grenade Green Ash (Caisse)"
   },
   "Гравий (Ящик)": {
    "en": "Gravel (Crate)",
-   "fr": "Gravier (Caisse)",
-   "ru": "Гравий (Ящик)"
+   "fr": "Gravier (Caisse)"
   },
   "Граната BF5 White Ash Flask (Ящик)": {
    "en": "BF5 White Ash Flask Grenade (Crate)",
-   "fr": "Grenade Flacon BF5 White Ash (Caisse)",
-   "ru": "Граната BF5 White Ash Flask (Ящик)"
+   "fr": "Grenade Flacon BF5 White Ash (Caisse)"
   },
   "Граната Tremola Gpb-1 (Ящик)": {
    "en": "Tremola Grenade GPb-1 (Crate)",
-   "fr": "Grenade Tremola GPb-1 (Caisse)",
-   "ru": "Граната Tremola Gpb-1 (Ящик)"
+   "fr": "Grenade Tremola GPb-1 (Caisse)"
   },
   "Грузовой контейнер": {
    "en": "Shipping Container",
-   "fr": "Conteneur de transport",
-   "ru": "Грузовой контейнер"
+   "fr": "Conteneur de transport"
   },
   "Грузовой контейнер (Ящик)": {
    "en": "Shipping Container (Crate)",
-   "fr": "Conteneur de transport (Caisse)",
-   "ru": "Грузовой контейнер (Ящик)"
+   "fr": "Conteneur de transport (Caisse)"
   },
   "Детали Саддама": {
    "en": "Underground Fortress Parts",
-   "fr": "Pièces de Forteresse Souterraine",
-   "ru": "Детали Саддама"
+   "fr": "Pièces de Forteresse Souterraine"
   },
   "Детали авиационного радара": {
    "en": "Aircraft Radar Parts",
-   "fr": "Pièces de Radar d'Avion",
-   "ru": "Детали авиационного радара"
+   "fr": "Pièces de Radar d'Avion"
   },
   "Детали погодной станции": {
    "en": "Weather Station Parts",
-   "fr": "Pièces de Station Météo",
-   "ru": "Детали погодной станции"
+   "fr": "Pièces de Station Météo"
   },
   "Детали штормового орудия": {
    "en": "Storm Cannon Parts",
-   "fr": "Pièces de Canon Storm",
-   "ru": "Детали штормового орудия"
+   "fr": "Pièces de Canon Storm"
   },
   "Детонатор Хавок Заряда (Ящик)": {
    "en": "Havoc Charge Detonator (Crate)",
-   "fr": "Détonateur de Charge Havoc (Caisse)",
-   "ru": "Детонатор Хавок Заряда (Ящик)"
+   "fr": "Détonateur de Charge Havoc (Caisse)"
   },
   "Дизель (Ящик)": {
    "en": "Diesel (Crate)",
-   "fr": "Diesel (Caisse)",
-   "ru": "Дизель (Ящик)"
+   "fr": "Diesel (Caisse)"
   },
   "Дозорная мантия (Ящик)": {
    "en": "Outrider’s Mantle (Crate)",
-   "fr": "Manteau d'Éclaireur (Caisse)",
-   "ru": "Дозорная мантия (Ящик)"
+   "fr": "Manteau d'Éclaireur (Caisse)"
   },
   "Дробь (Ящик)": {
    "en": "Buckshot (Crate)",
-   "fr": "Chevrotines (Caisse)",
-   "ru": "Дробь (Ящик)"
+   "fr": "Chevrotines (Caisse)"
   },
   "Дымовая граната PT-815 (Ящик)": {
    "en": "PT-815 Smoke Grenade (Crate)",
-   "fr": "Grenade Fumigène PT-815 (Caisse)",
-   "ru": "Дымовая граната PT-815 (Ящик)"
+   "fr": "Grenade Fumigène PT-815 (Caisse)"
   },
   "Железный сплав (Ящик)": {
    "en": "Iron Alloy (Crate)",
-   "fr": "Alliage de Fer (Caisse)",
-   "ru": "Железный сплав (Ящик)"
+   "fr": "Alliage de Fer (Caisse)"
   },
   "Жидкостный контейнер": {
    "en": "Liquid Container",
-   "fr": "Conteneur de Liquide",
-   "ru": "Жидкостный контейнер"
+   "fr": "Conteneur de Liquide"
   },
   "Жидкостный контейнер (Ящик)": {
    "en": "Liquid Container (Crate)",
-   "fr": "Conteneur de Liquide (Caisse)",
-   "ru": "Жидкостный контейнер (Ящик)"
+   "fr": "Conteneur de Liquide (Caisse)"
   },
   "Зажигательный минометный снаряд (Ящик)": {
    "en": "Incendiary Mortar Shell (Crate)",
-   "fr": "Obus de Mortier Incendiaire (Caisse)",
-   "ru": "Зажигательный минометный снаряд (Ящик)"
+   "fr": "Obus de Mortier Incendiaire (Caisse)"
   },
   "Зенитный снаряд 950-70b (Ящик)": {
    "en": "950-70b Anti-Aircraft Shell (Crate)",
-   "fr": "Obus Antiaérien 950-70b (Caisse)",
-   "ru": "Зенитный снаряд 950-70b (Ящик)"
+   "fr": "Obus Antiaérien 950-70b (Caisse)"
   },
   "Зенитный снаряд “Absol” (Ящик)": {
    "en": "Absol Anti-Aircraft Rounds (Crate)",
-   "fr": "Munitions Antiaériennes Absol (Caisse)",
-   "ru": "Зенитный снаряд “Absol” (Ящик)"
+   "fr": "Munitions Antiaériennes Absol (Caisse)"
   },
   "Колючая проволока (Ящик)": {
    "en": "Barbed Wire (Crate)",
-   "fr": "Fil Barbelé (Caisse)",
-   "ru": "Колючая проволока (Ящик)"
+   "fr": "Fil Barbelé (Caisse)"
   },
   "Компоненты морских турбин": {
    "en": "Naval Turbine Components",
-   "fr": "Composants de Turbines Navales",
-   "ru": "Компоненты морских турбин"
+   "fr": "Composants de Turbines Navales"
   },
   "Контейнер для ресурсов": {
    "en": "Resource Container",
-   "fr": "Conteneur de ressources",
-   "ru": "Контейнер для ресурсов"
+   "fr": "Conteneur de ressources"
   },
   "Контейнер для ресурсов (Ящик)": {
    "en": "Resource Container (Crate)",
-   "fr": "Conteneur de ressources (Caisse)",
-   "ru": "Контейнер для ресурсов (Ящик)"
+   "fr": "Conteneur de ressources (Caisse)"
   },
   "Корабельная обшивка корпуса": {
    "en": "Naval Shell Plating",
-   "fr": "Placage de Coque Navale",
-   "ru": "Корабельная обшивка корпуса"
+   "fr": "Placage de Coque Navale"
   },
   "Корабельный сегмент корпуса": {
    "en": "Naval Hull Segments",
-   "fr": "Sections de Coque Navale",
-   "ru": "Корабельный сегмент корпуса"
+   "fr": "Sections de Coque Navale"
   },
   "Корпус ракеты A0E-9": {
    "en": "A0E-9 Rocket Body",
-   "fr": "Corps de Fusée A0E-9",
-   "ru": "Корпус ракеты A0E-9"
+   "fr": "Corps de Fusée A0E-9"
   },
   "Кувалда (Ящик)": {
    "en": "Sledge Hammer (Crate)",
-   "fr": "Masse (Caisse)",
-   "ru": "Кувалда (Ящик)"
+   "fr": "Masse (Caisse)"
   },
   "Куртка врача (Ящик)": {
    "en": "Physician’s Jacket (Crate)",
-   "fr": "Veste de Médecin (Caisse)",
-   "ru": "Куртка врача (Ящик)"
+   "fr": "Veste de Médecin (Caisse)"
   },
   "Лопата (Ящик)": {
    "en": "Shovel (Crate)",
-   "fr": "Pelle (Caisse)",
-   "ru": "Лопата (Ящик)"
+   "fr": "Pelle (Caisse)"
   },
   "Медный сплав (Ящик)": {
    "en": "Copper Alloy (Crate)",
-   "fr": "Alliage de Cuivre (Caisse)",
-   "ru": "Медный сплав (Ящик)"
+   "fr": "Alliage de Cuivre (Caisse)"
   },
   "Металлическая балка (Ящик)": {
    "en": "Metal Beam (Crate)",
-   "fr": "Poutrelle Métallique (Caisse)",
-   "ru": "Металлическая балка (Ящик)"
+   "fr": "Poutrelle Métallique (Caisse)"
   },
   "Мешок с песком (Ящик)": {
    "en": "Sandbag (Crate)",
-   "fr": "Sac de sable (Caisse)",
-   "ru": "Мешок с песком (Ящик)"
+   "fr": "Sac de sable (Caisse)"
   },
   "Минометный Снаряд (Ящик)": {
    "en": "Mortar Shell (Crate)",
-   "fr": "Obus de Mortier (Caisse)",
-   "ru": "Минометный Снаряд (Ящик)"
+   "fr": "Obus de Mortier (Caisse)"
   },
   "Миномёт Cremari (Ящик)": {
    "en": "Cremari Mortar (Crate)",
-   "fr": "Mortier Cremari (Caisse)",
-   "ru": "Миномёт Cremari (Ящик)"
+   "fr": "Mortier Cremari (Caisse)"
   },
   "Мобильный автокран БМС 2 класса": {
    "en": "BMS - Class 2 Mobile Auto-Crane",
-   "fr": "Grue Mobile BMS de Classe 2",
-   "ru": "Мобильный автокран БМС 2 класса"
+   "fr": "Grue Mobile BMS de Classe 2"
   },
   "Мобильный автокран БМС 2 класса (Ящик)": {
    "en": "BMS - Class 2 Mobile Auto-Crane (Crate)",
-   "fr": "Grue Mobile BMS de Classe 2 (Caisse)",
-   "ru": "Мобильный автокран БМС 2 класса (Ящик)"
+   "fr": "Grue Mobile BMS de Classe 2 (Caisse)"
   },
   "Молоток (Ящик)": {
    "en": "Hammer (Crate)",
-   "fr": "Marteau (Caisse)",
-   "ru": "Молоток (Ящик)"
+   "fr": "Marteau (Caisse)"
   },
   "Набор Первой Помощи (Ящик)": {
    "en": "First Aid Kit (Crate)",
-   "fr": "Trousse de Premiers Soins (Caisse)",
-   "ru": "Набор Первой Помощи (Ящик)"
+   "fr": "Trousse de Premiers Soins (Caisse)"
   },
   "Набор для прослушивания (Ящик)": {
    "en": "Listening Kit (Crate)",
-   "fr": "Kit d'écoute (Caisse)",
-   "ru": "Набор для прослушивания (Ящик)"
+   "fr": "Kit d'écoute (Caisse)"
   },
   "Нестабильные материалы (Ящик)": {
    "en": "Unstable Substances (Crate)",
-   "fr": "Substances Instables (Caisse)",
-   "ru": "Нестабильные материалы (Ящик)"
+   "fr": "Substances Instables (Caisse)"
   },
   "Нефть (Ящик)": {
    "en": "Oil (Crate)",
-   "fr": "Pétrole (Caisse)",
-   "ru": "Нефть (Ящик)"
+   "fr": "Pétrole (Caisse)"
   },
   "Обогащенное топливо (Ящик)": {
    "en": "Enriched Oil (Crate)",
-   "fr": "Pétrole Enrichi (Caisse)",
-   "ru": "Обогащенное топливо (Ящик)"
+   "fr": "Pétrole Enrichi (Caisse)"
   },
   "Обработанные строительные материалы (Ящик)": {
    "en": "Processed Construction Materials (Crate)",
-   "fr": "Matériaux de Construction Traités (Caisse)",
-   "ru": "Обработанные строительные материалы (Ящик)"
+   "fr": "Matériaux de Construction Traités (Caisse)"
   },
   "Огнемётное топливо (Ящик)": {
    "en": "Flame Ammo (Crate)",
-   "fr": "Munitions Incendiaires (Caisse)",
-   "ru": "Огнемётное топливо (Ящик)"
+   "fr": "Munitions Incendiaires (Caisse)"
   },
   "Одеяние авиатора (Ящик)": {
    "en": "Aviator’s Raiment (Crate)",
-   "fr": "Vêtement d'Aviateur (Caisse)",
-   "ru": "Одеяние авиатора (Ящик)"
+   "fr": "Vêtement d'Aviateur (Caisse)"
   },
   "Осветительный Минометный Снаряд (Ящик)": {
    "en": "Flare Mortar Shell (Crate)",
-   "fr": "Obus de Mortier Éclairant (Caisse)",
-   "ru": "Осветительный Минометный Снаряд (Ящик)"
+   "fr": "Obus de Mortier Éclairant (Caisse)"
   },
   "Осколочная граната A3 Harpa (Ящик)": {
    "en": "A3 Harpa Fragmentation Grenade (Crate)",
-   "fr": "Grenade à Fragmentation A3 Harpa (Caisse)",
-   "ru": "Осколочная граната A3 Harpa (Ящик)"
+   "fr": "Grenade à Fragmentation A3 Harpa (Caisse)"
   },
   "Осколочный минометный снаряд (Ящик)": {
    "en": "Shrapnel Mortar Shell (Crate)",
-   "fr": "Obus de Mortier à Fragmentation (Caisse)",
-   "ru": "Осколочный минометный снаряд (Ящик)"
+   "fr": "Obus de Mortier à Fragmentation (Caisse)"
   },
   "Офицерская регалия (Ящик)": {
    "en": "Officer’s Regalia (Crate)",
-   "fr": "Parure d'Officier (Caisse)",
-   "ru": "Офицерская регалия (Ящик)"
+   "fr": "Parure d'Officier (Caisse)"
   },
   "Парка Caoivish (Ящик)": {
    "en": "Caoivish Parka (Crate)",
-   "fr": "Parka Caoivienne (Caisse)",
-   "ru": "Парка Caoivish (Ящик)"
+   "fr": "Parka Caoivienne (Caisse)"
   },
   "Пехотная униформа (Ящик)": {
    "en": "Infantry Battledress (Crate)",
-   "fr": "Tenue d'infanterie (Caisse)",
-   "ru": "Пехотная униформа (Ящик)"
+   "fr": "Tenue d'infanterie (Caisse)"
   },
   "Пистолет-пулемет Fiddler Model 868 (Ящик)": {
    "en": "Fiddler Submachine Gun Model 868 (Crate)",
-   "fr": "Pistolet-mitrailleur Fiddler Model 868 (Caisse)",
-   "ru": "Пистолет-пулемет Fiddler Model 868 (Ящик)"
+   "fr": "Pistolet-mitrailleur Fiddler Model 868 (Caisse)"
   },
   "Пистолет-пулемет No.1 “The Liar” (Ящик)": {
    "en": "No.1 “The Liar” Submachinegun (Crate)",
-   "fr": "Pistolet-mitrailleur No.1 \"The Liar\" (Caisse)",
-   "ru": "Пистолет-пулемет No.1 “The Liar” (Ящик)"
+   "fr": "Pistolet-mitrailleur No.1 \"The Liar\" (Caisse)"
   },
   "Плазма (Ящик)": {
    "en": "Blood Plasma (Crate)",
-   "fr": "Plasma Sanguin (Caisse)",
-   "ru": "Плазма (Ящик)"
+   "fr": "Plasma Sanguin (Caisse)"
   },
   "Повреждённые авиационные детали Варденов (Малые)": {
    "en": "Damaged Warden Aircraft Mechanical Parts (Small)",
-   "fr": "Pièces Mécaniques d'Avion Warden Endommagées (Petit)",
-   "ru": "Повреждённые авиационные детали Варденов (Малые)"
+   "fr": "Pièces Mécaniques d'Avion Warden Endommagées (Petit)"
   },
   "Повреждённые авиационные детали Варденов (Малые) (Ящик)": {
    "en": "Damaged Warden Aircraft Mechanical Parts (Small) (Crate)",
-   "fr": "Pièces Mécaniques d'Avion Warden Endommagées (Petit) (Caisse)",
-   "ru": "Повреждённые авиационные детали Варденов (Малые) (Ящик)"
+   "fr": "Pièces Mécaniques d'Avion Warden Endommagées (Petit) (Caisse)"
   },
   "Повреждённый авиационный двигатель Варденов (малый)": {
    "en": "Damaged Warden Aircraft Engine (Small)",
-   "fr": "Moteur d'Avion Warden Endommagé (Petit)",
-   "ru": "Повреждённый авиационный двигатель Варденов (малый)"
+   "fr": "Moteur d'Avion Warden Endommagé (Petit)"
   },
   "Повреждённый авиационный двигатель Варденов (малый) (Ящик)": {
    "en": "Damaged Warden Aircraft Engine (Small) (Crate)",
-   "fr": "Moteur d'Avion Warden Endommagé (Petit) (Caisse)",
-   "ru": "Повреждённый авиационный двигатель Варденов (малый) (Ящик)"
+   "fr": "Moteur d'Avion Warden Endommagé (Petit) (Caisse)"
   },
   "Поддон для материалов": {
    "en": "Material Pallet",
-   "fr": "Palette de matériaux",
-   "ru": "Поддон для материалов"
+   "fr": "Palette de matériaux"
   },
   "Поддон для материалов (Ящик)": {
    "en": "Material Pallet (Crate)",
-   "fr": "Palette de matériaux (Caisse)",
-   "ru": "Поддон для материалов (Ящик)"
+   "fr": "Palette de matériaux (Caisse)"
   },
   "Подствольный гранатомёт (Ящик)": {
    "en": "The Ospreay (Crate)",
-   "fr": "L'Ospreay (Caisse)",
-   "ru": "Подствольный гранатомёт (Ящик)"
+   "fr": "L'Ospreay (Caisse)"
   },
   "Полугусеничный Бронетранспортер Niska Mk. I": {
    "en": "Niska Mk. I Gun Motor Carriage",
-   "fr": "Semi-chenillé Niska Mk. I",
-   "ru": "Полугусеничный Бронетранспортер Niska Mk. I"
+   "fr": "Semi-chenillé Niska Mk. I"
   },
   "Полугусеничный Бронетранспортер Niska Mk. I (Ящик)": {
    "en": "Niska Mk. I Gun Motor Carriage (Crate)",
-   "fr": "Semi-chenillé Niska Mk. I (Caisse)",
-   "ru": "Полугусеничный Бронетранспортер Niska Mk. I (Ящик)"
+   "fr": "Semi-chenillé Niska Mk. I (Caisse)"
   },
   "Порох (Ящик)": {
    "en": "Explosive Powder (Crate)",
-   "fr": "Poudre Explosive (Caisse)",
-   "ru": "Порох (Ящик)"
+   "fr": "Poudre Explosive (Caisse)"
   },
   "Припасы Обслуживания (Ящик)": {
    "en": "Maintenance Supplies (Crate)",
-   "fr": "Fournitures de Maintenance (Caisse)",
-   "ru": "Припасы Обслуживания (Ящик)"
+   "fr": "Fournitures de Maintenance (Caisse)"
   },
   "Противогаз (Ящик)": {
    "en": "Gas Mask (Crate)",
-   "fr": "Masque à gaz (Caisse)",
-   "ru": "Противогаз (Ящик)"
+   "fr": "Masque à gaz (Caisse)"
   },
   "Противотанковая липкая бомба (Ящик)": {
    "en": "Anti-Tank Sticky Bomb (Crate)",
-   "fr": "Bombe Collante Antichar (Caisse)",
-   "ru": "Противотанковая липкая бомба (Ящик)"
+   "fr": "Bombe Collante Antichar (Caisse)"
   },
   "Противотанковое ружье Neville  (Ящик)": {
    "en": "Neville Anti-Tank Rifle (Crate)",
-   "fr": "Fusil Antichar Neville (Caisse)",
-   "ru": "Противотанковое ружье Neville  (Ящик)"
+   "fr": "Fusil Antichar Neville (Caisse)"
   },
   "РПГ \"Carnyx\" (Ящик)": {
    "en": "Carnyx Anti-Tank Rocket Launcher (Crate)",
-   "fr": "Lance-Roquette Antichar Carnyx (Caisse)",
-   "ru": "РПГ \"Carnyx\" (Ящик)"
+   "fr": "Lance-Roquette Antichar Carnyx (Caisse)"
   },
   "РПГ (Ящик)": {
    "en": "RPG (Crate)",
-   "fr": "Roquette (Caisse)",
-   "ru": "РПГ (Ящик)"
+   "fr": "Roquette (Caisse)"
   },
   "Радиорюкзак (Ящик)": {
    "en": "Radio Backpack (Crate)",
-   "fr": "Transmetteur Radio (Caisse)",
-   "ru": "Радиорюкзак (Ящик)"
+   "fr": "Transmetteur Radio (Caisse)"
   },
   "Разведывательный Центр": {
    "en": "Intelligence Center Parts",
-   "fr": "Pièces de Centre de renseignement",
-   "ru": "Разведывательный Центр"
+   "fr": "Pièces de Centre de renseignement"
   },
   "Разрушающая ракета (Ящик)": {
    "en": "Shatter Missile (Crate)",
-   "fr": "Missile Briseur (Caisse)",
-   "ru": "Разрушающая ракета (Ящик)"
+   "fr": "Missile Briseur (Caisse)"
   },
   "Рафинированные материалы (Ящик)": {
    "en": "Refined Materials (Crate)",
-   "fr": "Matériaux Raffinés (Caisse)",
-   "ru": "Рафинированные материалы (Ящик)"
+   "fr": "Matériaux Raffinés (Caisse)"
   },
   "Рация (Ящик)": {
    "en": "Radio (Crate)",
-   "fr": "Radio (Caisse)",
-   "ru": "Рация (Ящик)"
+   "fr": "Radio (Caisse)"
   },
   "Реанимационный набор (Ящик)": {
    "en": "Trauma Kit (Crate)",
-   "fr": "Kit de Réanimation (Caisse)",
-   "ru": "Реанимационный набор (Ящик)"
+   "fr": "Kit de Réanimation (Caisse)"
   },
   "Редкие материалы (Ящик)": {
    "en": "Rare Materials (Crate)",
-   "fr": "Matériaux Rares (Caisse)",
-   "ru": "Редкие материалы (Ящик)"
+   "fr": "Matériaux Rares (Caisse)"
   },
   "Редкие сплавы (Ящик)": {
    "en": "Rare Alloys (Crate)",
-   "fr": "Alliages Rares (Caisse)",
-   "ru": "Редкие сплавы (Ящик)"
+   "fr": "Alliages Rares (Caisse)"
   },
   "Редкий металл (Ящик)": {
    "en": "Rare Metal (Crate)",
-   "fr": "Métal Rare (Caisse)",
-   "ru": "Редкий металл (Ящик)"
+   "fr": "Métal Rare (Caisse)"
   },
   "Реликтовые материалы (Ящик)": {
    "en": "Relic Materials (Crate)",
-   "fr": "Anciens Matériaux (Caisse)",
-   "ru": "Реликтовые материалы (Ящик)"
+   "fr": "Anciens Matériaux (Caisse)"
   },
   "Рюкзак парашютиста (Ящик)": {
    "en": "Paratrooper’s Ruck (Crate)",
-   "fr": "Sac de Parachutiste (Caisse)",
-   "ru": "Рюкзак парашютиста (Ящик)"
+   "fr": "Sac de Parachutiste (Caisse)"
   },
   "Самосвал Dunne Loadlugger 3c": {
-   "en": "Dunne Loadlugger 3c",
-   "fr": "Dunne Loadlugger 3c",
-   "ru": "Самосвал Dunne Loadlugger 3c"
+   "en": "Dunne Loadlugger 3c"
   },
   "Самосвал Dunne Loadlugger 3c (Ящик)": {
    "en": "Dunne Loadlugger 3c (Crate)",
-   "fr": "Dunne Loadlugger 3c (Caisse)",
-   "ru": "Самосвал Dunne Loadlugger 3c (Ящик)"
+   "fr": "Dunne Loadlugger 3c (Caisse)"
   },
   "Сапёрное снаряжение (Ящик)": {
    "en": "Sapper Gear (Crate)",
-   "fr": "Tenue de Sapeur (Caisse)",
-   "ru": "Сапёрное снаряжение (Ящик)"
+   "fr": "Tenue de Sapeur (Caisse)"
   },
   "Сборочные материалы I (Ящик)": {
    "en": "Assembly Materials I (Crate)",
-   "fr": "Matériaux d'Assemblage I (Caisse)",
-   "ru": "Сборочные материалы I (Ящик)"
+   "fr": "Matériaux d'Assemblage I (Caisse)"
   },
   "Сборочные материалы II (Ящик)": {
    "en": "Assembly Materials II (Crate)",
-   "fr": "Matériaux d'Assemblage II (Caisse)",
-   "ru": "Сборочные материалы II (Ящик)"
+   "fr": "Matériaux d'Assemblage II (Caisse)"
   },
   "Сборочные материалы III (Ящик)": {
    "en": "Assembly Materials III (Crate)",
-   "fr": "Matériaux d'Assemblage III (Caisse)",
-   "ru": "Сборочные материалы III (Ящик)"
+   "fr": "Matériaux d'Assemblage III (Caisse)"
   },
   "Сборочные материалы IV (Ящик)": {
    "en": "Assembly Materials IV (Crate)",
-   "fr": "Matériaux d'Assemblage IV (Caisse)",
-   "ru": "Сборочные материалы IV (Ящик)"
+   "fr": "Matériaux d'Assemblage IV (Caisse)"
   },
   "Сборочные материалы V (Ящик)": {
    "en": "Assembly Materials V (Crate)",
-   "fr": "Matériaux d'Assemblage V (Caisse)",
-   "ru": "Сборочные материалы V (Ящик)"
+   "fr": "Matériaux d'Assemblage V (Caisse)"
   },
   "Солдатское снаряжение (Ящик)": {
    "en": "Soldier Supplies (Crate)",
-   "fr": "Fournitures de Soldat (Caisse)",
-   "ru": "Солдатское снаряжение (Ящик)"
+   "fr": "Fournitures de Soldat (Caisse)"
   },
   "Сталь (Ящик)": {
    "en": "Steel Construction Materials (Crate)",
-   "fr": "Matériaux de Construction en Acier (Caisse)",
-   "ru": "Сталь (Ящик)"
+   "fr": "Matériaux de Construction en Acier (Caisse)"
   },
   "Стальная кираса (Ящик)": {
    "en": "Gunner’s Breastplate (Crate)",
-   "fr": "Cuirasse (Caisse)",
-   "ru": "Стальная кираса (Ящик)"
+   "fr": "Cuirasse (Caisse)"
   },
   "Станковый Bonesaw MK.3 (Ящик)": {
    "en": "Mounted Bonesaw MK.3 (Crate)",
-   "fr": "Bonesaw MK.3 Monté (Caisse)",
-   "ru": "Станковый Bonesaw MK.3 (Ящик)"
+   "fr": "Bonesaw MK.3 Monté (Caisse)"
   },
   "Стеганный Комбинезон (Ящик)": {
    "en": "Padded Boiler Suit (Crate)",
-   "fr": "Combinaison Rembourrée (Caisse)",
-   "ru": "Стеганный Комбинезон (Ящик)"
+   "fr": "Combinaison Rembourrée (Caisse)"
   },
   "Строительное оборудование": {
    "en": "Construction Equipment",
-   "fr": "Équipement de Construction",
-   "ru": "Строительное оборудование"
+   "fr": "Équipement de Construction"
   },
   "Строительное оборудование (Ящик)": {
    "en": "Construction Equipment (Crate)",
-   "fr": "Équipement de Construction (Caisse)",
-   "ru": "Строительное оборудование (Ящик)"
+   "fr": "Équipement de Construction (Caisse)"
   },
   "Строительные детали": {
    "en": "Construction Parts",
-   "fr": "Pièces de Construction",
-   "ru": "Строительные детали"
+   "fr": "Pièces de Construction"
   },
   "Строительные материалы (Ящик)": {
    "en": "Construction Materials (Crate)",
-   "fr": "Matériaux de Construction (Caisse)",
-   "ru": "Строительные материалы (Ящик)"
+   "fr": "Matériaux de Construction (Caisse)"
   },
   "Теплозащитные экраны (Ящик)": {
    "en": "Thermal Shielding (Crate)",
-   "fr": "Blindage Thermique (Caisse)",
-   "ru": "Теплозащитные экраны (Ящик)"
+   "fr": "Blindage Thermique (Caisse)"
   },
   "Топливо для Willow’s Bane (Ящик)": {
    "en": "Willow's Bane Ammo (Crate)",
-   "fr": "Munition pour Willow's Bane (Caisse)",
-   "ru": "Топливо для Willow’s Bane (Ящик)"
+   "fr": "Munition pour Willow's Bane (Caisse)"
   },
   "Торпеда \"Квилбек\" (Ящик)": {
    "en": "Quillback Torpedo (Crate)",
-   "fr": "Torpille Quillback (Caisse)",
-   "ru": "Торпеда \"Квилбек\" (Ящик)"
+   "fr": "Torpille Quillback (Caisse)"
   },
   "Тренога (Ящик)": {
    "en": "Tripod (Crate)",
-   "fr": "Trépied (Caisse)",
-   "ru": "Тренога (Ящик)"
+   "fr": "Trépied (Caisse)"
   },
   "Труба (Ящик)": {
    "en": "Pipe (Crate)",
-   "fr": "Tuyau (Caisse)",
-   "ru": "Труба (Ящик)"
+   "fr": "Tuyau (Caisse)"
   },
   "Тяжелое топливо (Ящик)": {
    "en": "Heavy Oil (Crate)",
-   "fr": "Pétrole Lourd (Caisse)",
-   "ru": "Тяжелое топливо (Ящик)"
+   "fr": "Pétrole Lourd (Caisse)"
   },
   "Тяжёлый порох (Ящик)": {
    "en": "Heavy Explosive Powder (Crate)",
-   "fr": "Poudre Explosive Lourde (Caisse)",
-   "ru": "Тяжёлый порох (Ящик)"
+   "fr": "Poudre Explosive Lourde (Caisse)"
   },
   "Фильтр для противогаза (Ящик)": {
    "en": "Gas Mask Filter (Crate)",
-   "fr": "Filtre de Masque à Gaz (Caisse)",
-   "ru": "Фильтр для противогаза (Ящик)"
+   "fr": "Filtre de Masque à Gaz (Caisse)"
   },
   "Флаг Варденов (Ящик)": {
    "en": "War Ensign (Crate)",
-   "fr": "Étendard de Guerre (Caisse)",
-   "ru": "Флаг Варденов (Ящик)"
+   "fr": "Étendard de Guerre (Caisse)"
   },
   "Хавок Заряд (Ящик)": {
    "en": "Havoc Charge (Crate)",
-   "fr": "Charge Havoc (Caisse)",
-   "ru": "Хавок Заряд (Ящик)"
+   "fr": "Charge Havoc (Caisse)"
   },
   "Хангман 757 (Ящик)": {
    "en": "The Hangman 757 (Crate)",
-   "fr": "Le Hangman 757 (Caisse)",
-   "ru": "Хангман 757 (Ящик)"
+   "fr": "Le Hangman 757 (Caisse)"
   },
   "Шинель специалиста (Ящик)": {
    "en": "Specialist’s Overcoat (Crate)",
-   "fr": "Manteau de Spécialiste (Caisse)",
-   "ru": "Шинель специалиста (Ящик)"
+   "fr": "Manteau de Spécialiste (Caisse)"
   },
   "Штурмовая винтовка Aalto 24 (Ящик)": {
    "en": "Aalto Storm Rifle 24 (Crate)",
-   "fr": "Fusil d'Assaut Aalto 24 (Caisse)",
-   "ru": "Штурмовая винтовка Aalto 24 (Ящик)"
+   "fr": "Fusil d'Assaut Aalto 24 (Caisse)"
   },
   "Штурмовая винтовка Booker Model 838 (Ящик)": {
    "en": "Booker Storm Rifle Model 838 (Crate)",
-   "fr": "Fusil d'Assaut Booker Model 838 (Caisse)",
-   "ru": "Штурмовая винтовка Booker Model 838 (Ящик)"
+   "fr": "Fusil d'Assaut Booker Model 838 (Caisse)"
   },
   "Ящик с сооружениями": {
    "en": "Structure Parts",
-   "fr": "Pièces de Structure",
-   "ru": "Ящик с сооружениями"
+   "fr": "Pièces de Structure"
   },
   "“Lionclaw” mc.VIII (Ящик)": {
    "en": "“Lionclaw” mc.VIII (Crate)",
-   "fr": "“Lionclaw” mc.VIII (Caisse)",
-   "ru": "“Lionclaw” mc.VIII (Ящик)"
+   "fr": "“Lionclaw” mc.VIII (Caisse)"
   }
  },
  "ui": {
@@ -1628,16 +1242,6 @@
    "en": "Close",
    "fr": "Fermer"
   },
-  "tray_open": {
-   "ru": "Открыть",
-   "en": "Open",
-   "fr": "Ouvrir"
-  },
-  "tray_quit": {
-   "ru": "Выход",
-   "en": "Quit",
-   "fr": "Quitter"
-  },
   "lang_ru_tooltip": {
    "ru": "Русский",
    "en": "Russian",
@@ -1652,26 +1256,6 @@
    "ru": "Французский",
    "en": "French",
    "fr": "Français"
-  },
-  "err_quota_writer_missing": {
-   "ru": "quota_writer.py не найден или импорт не удался",
-   "en": "quota_writer.py not found or failed to import",
-   "fr": "quota_writer.py introuvable ou échec de l'import"
-  },
-  "err_quota_writer_create": {
-   "ru": "Ошибка при создании QuotaWriter:\n{e}",
-   "en": "Error creating QuotaWriter:\n{e}",
-   "fr": "Erreur lors de la création de QuotaWriter :\n{e}"
-  },
-  "err_timer_missing": {
-   "ru": "warehouse_timer.py не найден",
-   "en": "warehouse_timer.py not found",
-   "fr": "warehouse_timer.py introuvable"
-  },
-  "err_timer_create": {
-   "ru": "Ошибка при создании таймеров:\n{e}",
-   "en": "Error creating timers:\n{e}",
-   "fr": "Erreur lors de la création des minuteries :\n{e}"
   },
   "calc_quota_group": {
    "ru": "Расчёт квоты",
@@ -1728,11 +1312,6 @@
    "en": "⏰ 50h",
    "fr": "⏰ 50h"
   },
-  "wt_refresh_tooltip": {
-   "ru": "Установить таймер на 50 часов от текущего момента",
-   "en": "Set the timer to 50 hours from now",
-   "fr": "Régler la minuterie sur 50 heures à partir de maintenant"
-  },
   "wt_delete_tooltip": {
    "ru": "Удалить склад",
    "en": "Delete warehouse",
@@ -1752,11 +1331,6 @@
    "ru": "⚠️ ИСТЁК",
    "en": "⚠️ EXPIRED",
    "fr": "⚠️ EXPIRÉ"
-  },
-  "wt_window_title": {
-   "ru": "Таймеры складов - Foxhole",
-   "en": "Warehouse Timers - Foxhole",
-   "fr": "Minuteries d'entrepôt - Foxhole"
   },
   "av_dialog_title": {
    "ru": "Настройка стоимости самолётов и деталей",
@@ -1833,11 +1407,6 @@
    "en": "Via scrap:",
    "fr": "Via ferraille :"
   },
-  "main_window_title": {
-   "ru": "Распределение ресурсов по отделениями",
-   "en": "Resource Distribution by Division",
-   "fr": "Répartition des ressources par subdivision"
-  },
   "storage_label": {
    "ru": "Содержимое склада:",
    "en": "Warehouse contents:",
@@ -1862,11 +1431,6 @@
    "ru": "Рассчитать квоту",
    "en": "Calculate Quota",
    "fr": "Calculer le quota"
-  },
-  "calc_quota_tooltip": {
-   "ru": "Вычитает содержимое склада из необходимого снаряжения и раскладывает результат по полям квоты",
-   "en": "Subtracts warehouse contents from required equipment and spreads the result across the quota fields",
-   "fr": "Soustrait le contenu de l'entrepôt de l'équipement requis et répartit le résultat dans les champs du quota"
   },
   "unit_name_label": {
    "ru": "Название структурного подразделения:",
@@ -1932,16 +1496,6 @@
    "ru": "Лётное:",
    "en": "Air Wing:",
    "fr": "Escadrille :"
-  },
-  "aviation_recipe_btn": {
-   "ru": "⚙ Настроить цены самолётов",
-   "en": "⚙ Configure Aircraft Prices",
-   "fr": "⚙ Configurer le prix des avions"
-  },
-  "aviation_recipe_tooltip": {
-   "ru": "Настройка стоимости конкретных самолётов и деталей",
-   "en": "Configure the cost of specific aircraft and parts",
-   "fr": "Configurer le coût d'avions et de pièces spécifiques"
   },
   "omto_editor_group": {
    "ru": "Предметы МТО (заводская квота)",
@@ -2047,11 +1601,6 @@
    "ru": "Неизвестные позиции:",
    "en": "Unknown items:",
    "fr": "Articles inconnus :"
-  },
-  "db_load_error": {
-   "ru": "Ошибка загрузки базы: {e}",
-   "en": "Database load error: {e}",
-   "fr": "Erreur de chargement de la base : {e}"
   },
   "person_name_placeholder": {
    "ru": "Имя человека #{i}",

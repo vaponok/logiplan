@@ -7,7 +7,6 @@ export const EXTRA_UI_STRINGS: Record<string, Tr> = {
   btn_yes: { ru: "Да", en: "Yes", fr: "Oui" },
   btn_no: { ru: "Нет", en: "No", fr: "Non" },
   btn_ok: { ru: "ОК", en: "OK", fr: "OK" },
-  btn_restore: { ru: "Восстановить", en: "Restore", fr: "Restaurer" },
   // в старой версии с «⚙ » в начале
   aviation_recipe_btn: {
     ru: "Настроить цены самолётов",

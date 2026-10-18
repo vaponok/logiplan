@@ -2,49 +2,71 @@
 """
 Разовый (повторяемый) экспорт данных из Python-версии в JSON для веб-версии.
 
-Источник — legacy/*.py (как есть, без правок). Результат:
-  src/data/resources.json   — копия legacy/resources.json
+Источник — legacy/*.py (как есть, без правок) плюс изменения игры из
+tools/data_updates.py. Результат:
+  src/data/resources.json   — legacy/resources.json с изменениями игры
   src/data/i18n.json        — ITEM_I18N, UI_STRINGS, RESOURCE_LABELS, ...
-  src/data/items.json       — ITEM_NAMES, SPECIAL_OMTO, MTO_MODIFICATIONS, ...
-  src/data/quotaPages.json  — страницы «Написания квоты»: кнопки, картинки, подписи
-  public/images/*.webp      — только картинки, на которые реально ссылается UI
+  src/data/items.json       — MTO_MODIFICATIONS, списки завода и Лётки по умолчанию
+  src/data/quotaPages.json  — страницы «Написания квоты»: кнопки и подписи
   src-tauri/icons/icon.png  — иконка приложения 256x256 (из legacy/icon.ico)
 
+В JSON попадает только то, что читает программа: лишнее раздувало бы exe.
+Картинки кнопок и вкладок (поля image / navIcon) ставит tools/quota_icons.py —
+его нужно запустить после этого скрипта.
+
 Запуск (нужны PyQt5 и Pillow):
-  QT_QPA_PLATFORM=offscreen python tools/export_data.py --images /путь/к/source/images
+  QT_QPA_PLATFORM=offscreen python tools/export_data.py
+  python tools/quota_icons.py
 """
-import argparse
 import json
 import os
-import re
 import shutil
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LEGACY = os.path.join(ROOT, "legacy")
 sys.path.insert(0, LEGACY)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
+import data_updates  # noqa: E402
 import i18n  # noqa: E402
 import items  # noqa: E402
 import quota_writer  # noqa: E402  (импорт тянет PyQt5, но окна не создаёт)
 
 DATA = os.path.join(ROOT, "src", "data")
-IMAGES_OUT = os.path.join(ROOT, "public", "images")
+
+# Строки старой версии, которых в новой нет: трей, отдельные окна, ошибки
+# загрузки файлов, всплывающие подсказки кнопок.
+UNUSED_UI = {
+    "tray_open", "tray_quit", "main_window_title", "wt_window_title",
+    "err_quota_writer_missing", "err_quota_writer_create",
+    "err_timer_missing", "err_timer_create", "db_load_error",
+    "wt_refresh_tooltip", "calc_quota_tooltip", "aviation_recipe_tooltip",
+    "aviation_recipe_btn",  # переопределена в src/core/i18nExtra.ts
+}
 
 
-def dump(name, obj):
+def dump(name, obj, indent=1):
     path = os.path.join(DATA, name)
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(obj, f, ensure_ascii=False, indent=1)
+        json.dump(obj, f, ensure_ascii=False, indent=indent)
         f.write("\n")
     print(f"  {name}: {os.path.getsize(path) // 1024} КБ")
 
 
-def slug(filename):
-    base = os.path.splitext(os.path.basename(filename))[0].lower()
-    s = re.sub(r"[^a-z0-9]+", "-", base).strip("-")
-    return s or "img"
+def item_translations():
+    """ITEM_I18N без повторов: ru совпадает с ключом, fr часто совпадает с en —
+    такие значения программа берёт сама (src/core/i18n.ts)."""
+    out = {}
+    for key, tr in i18n.ITEM_I18N.items():
+        t = dict(tr)
+        if t.get("ru") == key:
+            del t["ru"]
+        if "fr" in t and t["fr"] == t.get("en"):
+            del t["fr"]
+        out[key] = t
+    return out
 
 
 def defaults_from_quota_writer(page):
@@ -70,110 +92,65 @@ def defaults_from_quota_writer(page):
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--images", required=True, help="папка images из старого архива")
-    ap.add_argument("--quality", type=int, default=90)
-    args = ap.parse_args()
-
     from PIL import Image
 
     os.makedirs(DATA, exist_ok=True)
-    os.makedirs(IMAGES_OUT, exist_ok=True)
+    data_updates.update_items(items)
+    removed_buttons = data_updates.update_quota_writer(quota_writer)
+
     print("JSON:")
-    shutil.copyfile(os.path.join(LEGACY, "resources.json"), os.path.join(DATA, "resources.json"))
-    print("  resources.json: скопирован")
+    with open(os.path.join(LEGACY, "resources.json"), encoding="utf-8") as f:
+        resources = data_updates.update_resources(json.load(f))
+    dump("resources.json", resources, indent=2)
 
     dump("i18n.json", {
         "langs": list(i18n.LANGS),
         "defaultLang": i18n.DEFAULT_LANG,
-        "items": i18n.ITEM_I18N,
-        "ui": i18n.UI_STRINGS,
+        "items": item_translations(),
+        "ui": {k: v for k, v in i18n.UI_STRINGS.items() if k not in UNUSED_UI},
         "resources": i18n.RESOURCE_LABELS,
         "aviationResources": i18n.AVIATION_RESOURCE_LABELS,
         "weekdays": i18n.WEEKDAYS,
     })
 
-    omto_default = defaults_from_quota_writer(11) or [n for n in items.SPECIAL_OMTO if n]
+    omto_default = defaults_from_quota_writer(11) or sorted(n for n in items.SPECIAL_OMTO if n)
     aviation_default = defaults_from_quota_writer(12) or [n for n in items.SPECIAL_AVIATION if n]
     dump("items.json", {
-        "itemNames": items.ITEM_NAMES,
-        "specialOmto": list(items.SPECIAL_OMTO),
         "mtoModifications": list(items.MTO_MODIFICATIONS),
-        "specialAviation": list(items.SPECIAL_AVIATION),
         "omtoDefault": omto_default,
         "aviationDefault": aviation_default,
+        # убрать из сохранённых списков завода пользователя (src/lib/state.svelte.ts)
+        "notFactory": list(data_updates.NOT_FACTORY),
     })
 
-    # --- картинки: только те, на которые ссылается «Написание квоты» ---
-    converted = {}  # исходный относительный путь -> имя webp (или None, если файла нет)
-    total_in = total_out = 0
-
-    def convert(rel_path, size=None):
-        nonlocal total_in, total_out
-        if rel_path in converted:
-            return converted[rel_path]
-        src = os.path.join(args.images, os.path.basename(rel_path))
-        if not os.path.exists(src):
-            converted[rel_path] = None
-            return None
-        name = slug(rel_path) + ".webp"
-        taken = set(v for v in converted.values() if v)
-        n = 2
-        while name in taken:
-            name = f"{slug(rel_path)}-{n}.webp"
-            n += 1
-        img = Image.open(src).convert("RGBA")
-        if size and (img.width > size or img.height > size):
-            img.thumbnail((size, size), Image.LANCZOS)
-        out = os.path.join(IMAGES_OUT, name)
-        img.save(out, "WEBP", quality=args.quality, method=6)
-        total_in += os.path.getsize(src)
-        total_out += os.path.getsize(out)
-        converted[rel_path] = name
-        return name
-
+    # Страницы «Написания квоты»; картинки ставит tools/quota_icons.py
+    old_pages = {}
+    pages_path = os.path.join(DATA, "quotaPages.json")
+    if os.path.exists(pages_path):
+        for p in json.load(open(pages_path, encoding="utf-8"))["pages"]:
+            old_pages[p["page"]] = p
     pages = []
-    missing = []
     for p, count in enumerate(quota_writer.PAGE_BUTTON_COUNTS, start=1):
+        old_images = {b["key"]: b.get("image") for b in old_pages.get(p, {}).get("buttons", [])}
         buttons = []
         for idx in range(1, count + 1):
             key = f"p{p}_b{idx}"
-            path = quota_writer.IMAGE_MAPPING.get(key, f"images/p{p}_b{idx}.png")
-            img = convert(path, size=300)
-            if img is None:
-                missing.append(path)
+            if key in removed_buttons:
+                continue
             buttons.append({
                 "key": key,
                 "index": idx,
                 "item": quota_writer.ITEM_TEXT.get(key) or None,
-                "image": img,
-                "imageBasename": os.path.basename(path),
+                "image": old_images.get(key),
             })
-        pages.append({"page": p, "scroll": p in (8, 11), "white": p == 11, "buttons": buttons})
-
-    # Иконки навигации — как PAGE_ICON_MAPPING в quota_writer.MainWindow
-    nav_icons = {
-        0: "images/1.png", 1: "images/2.png", 2: "images/3.png", 3: "images/4.png",
-        4: "images/5.png", 5: "images/6.png", 6: "images/7.png", 7: "images/8.png",
-        8: "images/9.png", 9: "images/10.png",
-        10: "images/ScoutVehicleOffensiveW.png",
-        11: "images/Luminary Mk. II Harbinger.png",
-    }
-    for i, page in enumerate(pages):
-        page["navIcon"] = convert(nav_icons.get(i, f"images/page{i + 1}.png"), size=128)
-
+        pages.append({"page": p, "white": p == 11, "buttons": buttons,
+                      "navIcon": old_pages.get(p, {}).get("navIcon")})
     dump("quotaPages.json", {"pages": pages})
-
-    print(f"Картинки: {len([v for v in converted.values() if v])} шт., "
-          f"{total_in // 1024} КБ PNG -> {total_out // 1024} КБ WebP")
-    if missing:
-        print(f"  нет файла для {len(missing)} кнопок (будет заглушка B<n>): {missing[:5]}…")
 
     # --- иконка приложения для Tauri ---
     icons = os.path.join(ROOT, "src-tauri", "icons")
     os.makedirs(icons, exist_ok=True)
-    ico = Image.open(os.path.join(LEGACY, "icon.ico"))
-    ico = ico.convert("RGBA")
+    ico = Image.open(os.path.join(LEGACY, "icon.ico")).convert("RGBA")
     ico.save(os.path.join(icons, "icon.png"))
     shutil.copyfile(os.path.join(LEGACY, "icon.ico"), os.path.join(icons, "icon.ico"))
     ico.resize((64, 64), Image.LANCZOS).save(os.path.join(ROOT, "public", "icon.png"))

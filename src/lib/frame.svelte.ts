@@ -45,7 +45,7 @@ export async function computeFrame(): Promise<Frame | null> {
   if (await w.isMinimized()) return null;
   const maximized = await w.isMaximized();
   if (maximized) return { maximized, top: 0, right: 0, bottom: 0, left: 0 };
-  const { currentMonitor } = await import("@tauri-apps/api/window");
+  const { currentMonitor } = await import("./win");
   const [pos, size, mon] = await Promise.all([w.outerPosition(), w.outerSize(), currentMonitor()]);
   if (!mon) return { maximized, ...GUTTER };
   const wa = mon.workArea;

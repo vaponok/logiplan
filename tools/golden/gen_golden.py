@@ -29,6 +29,10 @@ tests/golden/*.json. TypeScript-тесты (tests/golden.test.ts) сверяют
     попадают в «Неизвестные позиции».
 Вся остальная логика исполняется как есть.
 
+Изменения игры (tools/data_updates.py — те же, что попадают в src/data при
+экспорте) применяются к данным legacy-версии на время прогона: цены в
+resources.json, список завода и модификаций МТО.
+
 Запуск:
   QT_QPA_PLATFORM=offscreen python tools/golden/gen_golden.py [--splitter 150]
 """
@@ -45,6 +49,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 LEGACY = os.path.join(ROOT, "legacy")
 OUT = os.path.join(ROOT, "tests", "golden")
 sys.path.insert(0, LEGACY)
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # tools/
 os.chdir(LEGACY)  # resource_splitter открывает resources.json относительно cwd
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 # QSettings пишет в ~/.config — уводим во временную папку
@@ -170,6 +175,9 @@ def load_patched_resource_splitter():
          "                annotated_undefined.append(av_name)\n"
          "        self.undefined_area.setPlainText(\"\\n\".join(annotated_undefined))"),
     ]
+    # изменения игры: resources.json — через tools/data_updates.py
+    patches.append(("                self.resource_db = json.load(f)",
+                    "                self.resource_db = __import__('data_updates').update_resources(json.load(f))"))
     for old, new in patches:
         assert src.count(old) == 1, f"патч не применился: {old}"
         src = src.replace(old, new)
@@ -188,6 +196,11 @@ import i18n  # noqa: E402
 import items  # noqa: E402
 import calculator  # noqa: E402
 import resource_splitter as rs  # noqa: E402
+import quota_writer  # noqa: E402
+import data_updates  # noqa: E402
+
+data_updates.update_items(items)  # модификации МТО, особые позиции завода
+data_updates.update_quota_writer(quota_writer)  # список завода по умолчанию
 
 FIXED_TODAY = None
 
@@ -200,7 +213,7 @@ class FixedDatetime(rs.datetime):
 
 rs.datetime = FixedDatetime
 
-DB = json.load(open(os.path.join(LEGACY, "resources.json"), encoding="utf-8"))
+DB = data_updates.update_resources(json.load(open(os.path.join(LEGACY, "resources.json"), encoding="utf-8")))
 ALL_ITEMS = list(DB)
 AVIATION_ITEMS = [k for k, v in DB.items() if v.get("is_aviation")]
 REGULAR_ITEMS = [k for k, v in DB.items() if not v.get("is_aviation")]

@@ -12,11 +12,9 @@
     index: number;
     item: string | null;
     image: string | null;
-    imageBasename: string;
   }
   interface Page {
     page: number;
-    scroll: boolean;
     white: boolean;
     navIcon: string | null;
     buttons: Btn[];
@@ -29,8 +27,8 @@
 
   function press(b: Btn) {
     const n = q.qty;
-    // без подписи — имя файла картинки, как button_clicked() в quota_writer.py
-    const line = b.item ? `${trItem(b.item, app.lang)},${n}` : `${b.imageBasename},${n}`;
+    // у всех кнопок есть подпись (tools/export_data.py)
+    const line = `${trItem(b.item ?? "", app.lang)},${n}`;
     q.notes = q.notes ? `${q.notes}\n${line}` : line;
     // прокрутить поле к новой строке, как QTextEdit.append
     queueMicrotask(() => notesEl && (notesEl.scrollTop = notesEl.scrollHeight));

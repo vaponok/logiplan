@@ -41,7 +41,8 @@ npm run tauri build  # сборка exe (на Windows)
 
 ```
 legacy/                исходники Python-версии без изменений — эталон поведения
-tools/export_data.py   i18n.py / items.py / quota_writer.py -> src/data/*.json, картинки -> WebP
+tools/export_data.py   i18n.py / items.py / quota_writer.py -> src/data/*.json (только то, что читает программа)
+tools/data_updates.py  изменения игры поверх данных старой версии (цены, список завода)
 tools/quota_icons.py   картинки кнопок и вкладок квоты: иконки игры с вики -> WebP (Real-ESRGAN)
 tools/golden/          прогон Python-версии на случайных квотах -> tests/golden/*.json
 src/core/              логика без интерфейса (перенос из Python)
@@ -50,7 +51,7 @@ src/core/              логика без интерфейса (перенос 
   calculator.ts          авиа-калькулятор базовых ресурсов
   quotaParse.ts          разбор строк квоты (CSV, «27 ящ. - …», три языка)
   i18n.ts, py.ts         переводы; совместимость с Python (round, repr(float), strip…)
-src/workers/           расчёт в фоновом потоке
+  calcHost.ts            расчёт в фоновом потоке: тот же чанк с логикой запускается как Worker
 src/lib/               состояние, сохранение настроек, импорт из старой версии
 src/ui/                вкладки, заголовок окна, диалоги
 src-tauri/             Rust: окно, хранилище, чтение реестра старой версии
@@ -75,7 +76,7 @@ src-tauri/             Rust: окно, хранилище, чтение реес
 
 ```bash
 QT_QPA_PLATFORM=offscreen python tools/golden/gen_golden.py --splitter 250
-QT_QPA_PLATFORM=offscreen python tools/export_data.py --images <папка images из старого архива>
+QT_QPA_PLATFORM=offscreen python tools/export_data.py
 ```
 
 ### Картинки «Написания квоты»
@@ -95,8 +96,19 @@ python tools/quota_icons.py --resolve   # дописать новые кнопк
 python tools/quota_icons.py             # скачать, увеличить, записать public/images/items и nav
 ```
 
-`export_data.py` ставит кнопкам старые картинки из архива — после него нужно
-снова запустить `quota_icons.py`.
+`export_data.py` картинки не трогает (переносит те, что уже стоят); новые
+кнопки получат картинки после `quota_icons.py --resolve` и `quota_icons.py`.
+
+## Изменения игры
+
+Правки поверх данных старой версии — в `tools/data_updates.py`; их применяют
+и экспорт данных, и генератор эталонов, так что тесты сверяют TS-версию с
+Python-версией на одних данных.
+
+- Rooster - Lamploader и Rooster - Tumblebox больше не заводские: ящики
+  массовой фабрики, 300 бмат за ящик, по 5 в очереди. Убраны из списка
+  завода (и из сохранённых списков пользователя) и со страницы завода
+  в «Написании квоты».
 
 ## Исправленные ошибки старой версии
 

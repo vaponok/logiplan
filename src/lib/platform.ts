@@ -1,13 +1,16 @@
 // Обёртки над окном Tauri; в браузере (npm run dev) — безопасные заглушки.
 import { isTauri } from "@tauri-apps/api/core";
+import type { ResizeDirection } from "./win";
 
-type Win = import("@tauri-apps/api/window").Window;
+export type { ResizeDirection };
+
+type Win = import("./win").AppWindow;
 let winPromise: Promise<Win | null> | null = null;
 
 export function appWindow(): Promise<Win | null> {
   if (!winPromise) {
     winPromise = isTauri()
-      ? import("@tauri-apps/api/window").then((m) => m.getCurrentWindow())
+      ? import("./win").then((m) => m.getCurrentWindow())
       : Promise.resolve(null);
   }
   return winPromise;
@@ -29,7 +32,6 @@ export async function closeWindow() {
   else window.close();
 }
 
-export type ResizeDirection = "East" | "North" | "NorthEast" | "NorthWest" | "South" | "SouthEast" | "SouthWest" | "West";
 
 /** Растягивание окна за прозрачную полосу вокруг него (см. ResizeFrame.svelte). */
 export async function startResize(dir: ResizeDirection) {
