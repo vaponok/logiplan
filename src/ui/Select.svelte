@@ -172,7 +172,9 @@
     overflow-y: auto;
     background: #fff;
     border: var(--border);
-    border-radius: 10px;
+    /* 12px: внутри рамки 9px — как у ползунка, в крайнем положении он
+       ложится в угол без зазора */
+    border-radius: 12px;
     padding: 4px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
   }

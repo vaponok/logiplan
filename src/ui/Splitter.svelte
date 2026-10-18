@@ -148,8 +148,13 @@
     </button>
     {#if s.factoryOpen}
 
-    <section class="group">
-      <div class="group-title">{tr("omto_subgroup", L)}</div>
+    <section class="group" class:folded={!s.omtoOpen}>
+      <button type="button" class="group-title fold" aria-expanded={s.omtoOpen} onclick={() => (s.omtoOpen = !s.omtoOpen)}>
+        <svg class="chev" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"
+          ><path d="M1 3l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" /></svg
+        >{tr("omto_subgroup", L)}
+      </button>
+      {#if s.omtoOpen}
       <div class="row">
         <span>{tr("omto_name_label", L)}</span>
         <input class="field grow" bind:value={s.omtoName} />
@@ -189,6 +194,7 @@
           resetText: tr("reset_omto_dialog_text", L),
         }}
       />
+      {/if}
     </section>
 
     <section class="group" class:folded={!s.aviationOpen}>

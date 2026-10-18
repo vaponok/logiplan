@@ -30,8 +30,9 @@ export interface SplitterState {
   aviationList: string[];
   omtoEditorOpen: boolean;
   aviationEditorOpen: boolean;
-  /** Разделы «Завод» и «Лётное отделение» развёрнуты. */
+  /** Разделы «Завод», «МТО» и «Лётное отделение» развёрнуты. */
   factoryOpen: boolean;
+  omtoOpen: boolean;
   aviationOpen: boolean;
   avDefaults: AvSettings;
 }
@@ -78,6 +79,7 @@ export const defaultSplitter = (): SplitterState => ({
   omtoEditorOpen: false,
   aviationEditorOpen: false,
   factoryOpen: true,
+  omtoOpen: true,
   aviationOpen: true,
   avDefaults: { ...AV_FACTORY_DEFAULTS },
 });
@@ -145,6 +147,7 @@ export function sanitizeSplitter(v: unknown): SplitterState {
     omtoEditorOpen: bool(o.omtoEditorOpen, false),
     aviationEditorOpen: bool(o.aviationEditorOpen, false),
     factoryOpen: bool(o.factoryOpen, true),
+    omtoOpen: bool(o.omtoOpen, true),
     aviationOpen: bool(o.aviationOpen, true),
     avDefaults: sanitizeAv(o.avDefaults),
   };
