@@ -1,6 +1,7 @@
 <script lang="ts">
   // Вкладка «Таймеры складов»: склад живёт 50 часов от последнего обновления.
   import { tr } from "../core/i18n";
+  import { regions } from "../data/depots.json";
   import { alertDialog, confirmDialog } from "../lib/dialogs.svelte";
   import { app, newId, timers, type Warehouse } from "../lib/state.svelte";
 
@@ -8,7 +9,8 @@
   const L = $derived(app.lang);
   let name = $state("");
   let hex = $state("");
-  let depot = $state("");
+  let depot = $state(""); // индекс в depots региона
+  const depots = $derived(regions.find((r) => r.region === hex)?.depots ?? []);
   let password = $state("");
   let now = $state(Date.now());
 
@@ -27,11 +29,13 @@
       await alertDialog(tr("wt_error_title", app.lang), tr("wt_password_error", app.lang));
       return;
     }
+    const d = depot ? (depots[Number(depot)] as [string, string]) : undefined;
     timers.warehouses.push({
       id: newId(),
       name: n,
-      hex: hex.trim(),
-      depot: depot.trim(),
+      hex,
+      depotType: d?.[0] ?? "",
+      depot: d?.[1] ?? "",
       password,
       expire: Date.now() + HOURS_50,
     });
@@ -49,9 +53,14 @@
     }
   }
 
+  /** «Морской порт — Saltbrook Channel» */
+  function depotLabel(type: string, town: string) {
+    return type ? `${tr(`wt_depot_${type}`, L)} — ${town}` : town;
+  }
+
   /** Гекс · склад · пароль под названием. */
   function meta(w: Warehouse) {
-    const parts = [w.hex, w.depot].filter(Boolean);
+    const parts = [w.hex, depotLabel(w.depotType, w.depot)].filter(Boolean);
     if (w.password) parts.push(`${tr("wt_password_placeholder", L)}: ${w.password}`);
     return parts.join(" · ");
   }
@@ -78,8 +87,18 @@
     }}
   >
     <input class="field name-input" placeholder={tr("wt_name_placeholder", L)} bind:value={name} />
-    <input class="field" placeholder={tr("wt_hex_placeholder", L)} bind:value={hex} />
-    <input class="field" placeholder={tr("wt_depot_placeholder", L)} bind:value={depot} />
+    <select class="field" class:empty={!hex} bind:value={hex} onchange={() => (depot = "")}>
+      <option value="">{tr("wt_hex_placeholder", L)}</option>
+      {#each regions as r (r.region)}
+        <option value={r.region}>{r.region}</option>
+      {/each}
+    </select>
+    <select class="field depot-select" class:empty={!depot} bind:value={depot} disabled={!hex}>
+      <option value="">{tr("wt_depot_placeholder", L)}</option>
+      {#each depots as [type, town], i (i)}
+        <option value={String(i)}>{depotLabel(type, town)}</option>
+      {/each}
+    </select>
     <input
       class="field password-input"
       placeholder={tr("wt_password_placeholder", L)}
@@ -152,6 +171,25 @@
   }
   .password-input {
     flex: 0 1 110px;
+  }
+  select.field {
+    padding-right: 30px;
+    background: #fff
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E")
+      no-repeat right 12px center;
+  }
+  select.field:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  .depot-select {
+    flex: 2 1 200px;
+  }
+  .empty {
+    color: #757575;
+  }
+  .empty option {
+    color: #000;
   }
   .add {
     padding: 10px 20px;

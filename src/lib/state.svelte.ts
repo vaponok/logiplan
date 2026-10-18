@@ -36,7 +36,11 @@ export interface SplitterState {
 export interface Warehouse {
   id: string;
   name: string;
+  /** Регион (src/data/depots.json) или пусто. */
   hex: string;
+  /** Тип склада: storage, seaport, aircraft или пусто. */
+  depotType: string;
+  /** Город, по которому назван склад. */
   depot: string;
   /** 6 цифр или пусто. */
   password: string;
@@ -139,6 +143,8 @@ export function sanitizeSplitter(v: unknown): SplitterState {
   };
 }
 
+export const DEPOT_TYPES = ["storage", "seaport", "aircraft"];
+
 export function sanitizeWarehouses(v: unknown): Warehouse[] {
   if (!Array.isArray(v)) return [];
   return v
@@ -148,6 +154,7 @@ export function sanitizeWarehouses(v: unknown): Warehouse[] {
       id: str(x.id) || newId(),
       name: x.name as string,
       hex: str(x.hex),
+      depotType: DEPOT_TYPES.includes(str(x.depotType)) ? str(x.depotType) : "",
       depot: str(x.depot),
       password: str(x.password).replace(/\D/g, "").slice(0, 6),
       expire: x.expire as number,

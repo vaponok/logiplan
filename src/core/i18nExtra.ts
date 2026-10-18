@@ -13,6 +13,10 @@ export const EXTRA_UI_STRINGS: Record<string, Tr> = {
   calc_error: { ru: "Ошибка расчёта: {e}", en: "Calculation error: {e}", fr: "Erreur de calcul : {e}" },
   wt_hex_placeholder: { ru: "Гекс склада", en: "Hex", fr: "Hexagone" },
   wt_depot_placeholder: { ru: "Склад", en: "Depot", fr: "Dépôt" },
+  // типы складов (tools/depots.py); ru — как на русской вики игры
+  wt_depot_storage: { ru: "Складское помещение", en: "Storage Depot", fr: "Dépôt" },
+  wt_depot_seaport: { ru: "Морской порт", en: "Seaport", fr: "Port" },
+  wt_depot_aircraft: { ru: "Авиадепо", en: "Aircraft Depot", fr: "Dépôt d'aéronefs" },
   wt_password_placeholder: { ru: "Пароль", en: "Password", fr: "Mot de passe" },
   wt_password_error: {
     ru: "Пароль — 6 цифр",
