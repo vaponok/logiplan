@@ -1,6 +1,6 @@
 <script lang="ts">
   // Вкладка «Распределитель» — UI ResourceSplitter.
-  import { tr, WEEKDAYS } from "../core/i18n";
+  import { tr, trResource, WEEKDAYS } from "../core/i18n";
   import type { AvSettings } from "../core/quotaParse";
   import {
     applyAviationSettings,
@@ -11,6 +11,7 @@
     todayLocal,
     type AviationOrder,
     type SplitterInput,
+    UNIT_RESOURCES,
   } from "../core/splitter";
   import { calculateInBackground } from "../lib/calcClient";
   import { app, ensureLengths, results, splitter as s } from "../lib/state.svelte";
@@ -62,6 +63,7 @@
       omtoList: snap.omtoList,
       aviationList: snap.aviationList,
       avDefaults: snap.avDefaults,
+      unitWeights: snap.balanceMode === "units" ? snap.unitWeights : null,
     };
   }
 
@@ -247,6 +249,30 @@
     <span class="check"><input type="checkbox" bind:checked={s.freeRmats} aria-label={tr("free_rmats_checkbox", L)} /><span>{tr("free_rmats_checkbox", L)}</span></span>
   </div>
 
+  <!-- ===== Режим распределения ===== -->
+  <div class="row mode">
+    <span>{tr("balance_mode_label", L)}</span>
+    <Select
+      class="mode-select"
+      bind:value={s.balanceMode}
+      options={[
+        { value: "resources", label: tr("balance_mode_resources", L) },
+        { value: "units", label: tr("balance_mode_units", L) },
+      ]}
+    />
+  </div>
+  {#if s.balanceMode === "units"}
+    <span class="lbl">{tr("unit_weights_label", L)}</span>
+    <div class="weights">
+      {#each UNIT_RESOURCES as r (r)}
+        <span class="weight">
+          <span>{trResource(r, L)}</span>
+          <NumberField value={s.unitWeights[r]} min={0} max={100000} decimals={2} step={0.5} width="80px" onchange={(v) => (s.unitWeights[r] = v)} />
+        </span>
+      {/each}
+    </div>
+  {/if}
+
   <button class="btn wide" disabled={results.busy} onclick={onCalculate}>
     {results.busy ? tr("calculating", L) : tr("calculate_btn", L)}
   </button>
@@ -325,6 +351,23 @@
   .division .name {
     min-width: 250px;
     flex: 1;
+  }
+  .mode {
+    margin-bottom: 4px;
+  }
+  .row :global(.mode-select) {
+    width: 260px;
+  }
+  .weights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-bottom: 4px;
+  }
+  .weight {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
   .checks {
     display: flex;
