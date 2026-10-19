@@ -23,19 +23,6 @@ export const EXTRA_UI_STRINGS: Record<string, Tr> = {
     en: "The password must be 6 digits",
     fr: "Le mot de passe doit comporter 6 chiffres",
   },
-  balance_mode_label: { ru: "Распределять поровну:", en: "Balance evenly:", fr: "Équilibrer :" },
-  balance_mode_resources: { ru: "каждый ресурс", en: "each resource", fr: "chaque ressource" },
-  balance_mode_units: { ru: "условные единицы", en: "weighted units", fr: "unités pondérées" },
-  unit_weights_label: {
-    ru: "Сколько условных единиц весит 1 ресурс:",
-    en: "Units per 1 of each resource:",
-    fr: "Unités pour 1 de chaque ressource :",
-  },
-  units_line: {
-    ru: "Условные единицы: {v} (на человека: {pp})",
-    en: "Units: {v} (per person: {pp})",
-    fr: "Unités : {v} (par personne : {pp})",
-  },
   migrated_toast: {
     ru: "Настройки перенесены из старой версии программы",
     en: "Settings imported from the old version",

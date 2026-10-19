@@ -1,14 +1,7 @@
 // Состояние приложения (Svelte 5 runes) + приведение загруженных данных.
 import { isLang, type Lang } from "../core/i18n";
 import { AV_FACTORY_DEFAULTS, type AvSettings } from "../core/quotaParse";
-import {
-  AVIATION_DEFAULT,
-  OMTO_DEFAULT,
-  UNIT_RESOURCES,
-  withoutNotFactory,
-  type Division,
-  type UndefinedLine,
-} from "../core/splitter";
+import { AVIATION_DEFAULT, OMTO_DEFAULT, withoutNotFactory, type Division, type UndefinedLine } from "../core/splitter";
 
 export interface SplitterState {
   storageInput: string;
@@ -33,10 +26,6 @@ export interface SplitterState {
   freeEmats: boolean;
   freeHemats: boolean;
   freeRmats: boolean;
-  /** Поровну каждый ресурс (как в старой версии) или условные единицы. */
-  balanceMode: "resources" | "units";
-  /** Вес единицы ресурса в условных единицах (режим units). */
-  unitWeights: Record<string, number>;
   omtoList: string[];
   aviationList: string[];
   omtoEditorOpen: boolean;
@@ -85,8 +74,6 @@ export const defaultSplitter = (): SplitterState => ({
   freeEmats: false,
   freeHemats: false,
   freeRmats: false,
-  balanceMode: "resources",
-  unitWeights: Object.fromEntries(UNIT_RESOURCES.map((r) => [r, 1])),
   omtoList: [...OMTO_DEFAULT],
   aviationList: [...AVIATION_DEFAULT],
   omtoEditorOpen: false,
@@ -155,13 +142,6 @@ export function sanitizeSplitter(v: unknown): SplitterState {
     freeEmats: bool(o.freeEmats, false),
     freeHemats: bool(o.freeHemats, false),
     freeRmats: bool(o.freeRmats, false),
-    balanceMode: o.balanceMode === "units" ? "units" : "resources",
-    unitWeights: Object.fromEntries(
-      UNIT_RESOURCES.map((r) => {
-        const v = (o.unitWeights as Record<string, unknown> | undefined)?.[r];
-        return [r, typeof v === "number" && Number.isFinite(v) && v >= 0 ? v : 1];
-      }),
-    ),
     omtoList: withoutNotFactory(strList(o.omtoList)?.filter(Boolean) ?? d.omtoList),
     aviationList: strList(o.aviationList)?.filter(Boolean) ?? d.aviationList,
     omtoEditorOpen: bool(o.omtoEditorOpen, false),

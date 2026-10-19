@@ -84,36 +84,6 @@ export interface SplitterInput extends SplitterFlags {
   avDefaults: AvSettings;
   /** Бюджет локального поиска распределителя, мс. */
   timeBudgetMs?: number;
-  /**
-   * Режим «поровну условные единицы»: вес единицы каждого ресурса (Бмат,
-   * Емат, …). Подразделения выравниваются по сумме ресурсов с этими весами
-   * на человека, а не по каждому ресурсу отдельно. null / не задано —
-   * старый режим (поровну каждый ресурс).
-   */
-  unitWeights?: Record<string, number> | null;
-}
-
-/** Все ресурсы, у которых может быть вес в режиме условных единиц. */
-export const UNIT_RESOURCES = ["Бмат", "Емат", "Хемат", "Рмат", "Редкий металл"] as const;
-const UNITS_KEY = "\u0000units";
-
-/** Веса режима условных единиц; null — режим выключен. Все нули -> все 1. */
-function unitWeightMap(w: Record<string, number> | null | undefined): Map<string, number> | null {
-  if (!w) return null;
-  const m = new Map<string, number>();
-  for (const r of UNIT_RESOURCES) {
-    const v = w[r];
-    m.set(r, Number.isFinite(v) && v > 0 ? v : 0);
-  }
-  if (![...m.values()].some((v) => v > 0)) for (const r of UNIT_RESOURCES) m.set(r, 1);
-  return m;
-}
-
-/** Сумма ресурсов в условных единицах (ресурс без веса в списке — вес 1). */
-function toUnits(vec: Iterable<[string, number]>, weights: Map<string, number>): number {
-  let s = 0;
-  for (const [r, v] of vec) s += (weights.get(r) ?? 1) * v;
-  return s;
 }
 
 export type UndefinedKind = "aviation" | "factory" | "unknown";
@@ -179,8 +149,6 @@ class Distributor {
     readonly shouldCount: (name: string, r: string) => boolean,
     readonly enforceMul4: boolean,
     readonly timeBudgetMs: number,
-    /** Режим условных единиц: веса ресурсов; null — поровну каждый ресурс. */
-    readonly weights: Map<string, number> | null = null,
   ) {
     this.n = divisions.length;
     this.distribution = Array.from({ length: this.n }, () => new Map());
@@ -206,7 +174,7 @@ class Distributor {
 
   combinedLoadTotal(i: number): number {
     let s = 0;
-    for (const r of this.resourceKeys(i)) s += (this.weights?.get(r) ?? 1) * this.combinedLoadForResource(i, r);
+    for (const r of this.resourceKeys(i)) s += this.combinedLoadForResource(i, r);
     return s;
   }
 
@@ -253,22 +221,15 @@ class Distributor {
 
     this.distributeDelayed(delayed);
 
-    let chunks = makeChunks(regular, RESOURCE_DB, this.shouldCount, this.enforceMul4);
+    const chunks = makeChunks(regular, RESOURCE_DB, this.shouldCount, this.enforceMul4);
     if (chunks.length) {
       // В Python порядок ключей preload брался из set() и менялся от запуска
       // к запуску; здесь он фиксирован (по имени ресурса).
-      let preload = Array.from({ length: this.n }, (_, i) => {
+      const preload = Array.from({ length: this.n }, (_, i) => {
         const d = new Map<string, number>();
         for (const r of this.resourceKeys(i)) d.set(r, this.combinedLoadForResource(i, r));
         return d;
       });
-      // Условные единицы: у чанков и уже выданного один «ресурс» — сумма с
-      // весами; тот же поиск выравнивает её на человека.
-      const w = this.weights;
-      if (w) {
-        chunks = chunks.map((ch) => ({ ...ch, vec: new Map([[UNITS_KEY, toUnits(ch.vec, w)]]) }));
-        preload = preload.map((d) => new Map([[UNITS_KEY, toUnits(d, w)]]));
-      }
       const res = allocate(chunks, this.divisions, preload, this.timeBudgetMs);
       this.iterations = res.iterations;
       this.converged = res.converged;
@@ -394,21 +355,15 @@ class Distributor {
       const entry = entryOrEmpty(name);
       if (entry.distribution !== "balance_fill") continue;
       const pairs = resourcePairs(entry);
-      const w = this.weights;
-      const avgUnits = w ? toUnits(avgPerPerson, w) : 0;
       for (let k = 0; k < cnt; k++) {
         let bestI: number | null = null;
         let bestScore: number[] | null = null;
         for (let i = 0; i < this.n; i++) {
           let deficit = 0;
-          if (w) {
-            deficit = Math.max(0, avgUnits * this.divisions[i] - this.combinedLoadTotal(i));
-          } else {
-            for (const [r] of pairs) {
-              const ideal = (avgPerPerson.get(r) ?? 0) * this.divisions[i];
-              const actualLoad = this.combinedLoadForResource(i, r);
-              deficit += Math.max(0, ideal - actualLoad);
-            }
+          for (const [r] of pairs) {
+            const ideal = (avgPerPerson.get(r) ?? 0) * this.divisions[i];
+            const actualLoad = this.combinedLoadForResource(i, r);
+            deficit += Math.max(0, ideal - actualLoad);
           }
           const score = [deficit, -this.boxCount(i)];
           if (!bestScore || cmpTuple(score, bestScore) > 0) {
@@ -561,7 +516,7 @@ export function calculateDistribution(inp: SplitterInput): SplitterResult {
   const avgPerPerson = new Map<string, number>();
   if (totalPeople) for (const [r, t] of totalResources) avgPerPerson.set(r, t / totalPeople);
 
-  const dist = new Distributor(divisions, shouldCount, inp.enforceMul4, inp.timeBudgetMs ?? 500, unitWeightMap(inp.unitWeights));
+  const dist = new Distributor(divisions, shouldCount, inp.enforceMul4, inp.timeBudgetMs ?? 500);
   dist.perform(itemEntries, avgPerPerson);
 
   const totalsFromUsed = new Map<string, number>();
@@ -664,12 +619,6 @@ function formatDistributionOutput(inp: SplitterInput, dist: Distributor, perDivB
     const nm = inp.divisions[i].name;
     lines.push(`${strip(nm) ? nm : tr("division_label", lang, { i: i + 1 })}:`);
     for (const [r, v] of dist.usedActual[i]) lines.push(`  ${trResource(r, lang)}: ${floatRepr(v)}`);
-    if (dist.weights) {
-      // то, что выравнивалось: ресурсы с весами (бесплатные — по номиналу)
-      const units = dist.combinedLoadTotal(i);
-      const fmt = (x: number) => String(Math.round(x * 10) / 10);
-      lines.push(`  ${tr("units_line", lang, { v: fmt(units), pp: fmt(units / (dist.divisions[i] || 1)) })}`);
-    }
   }
   return lines;
 }
